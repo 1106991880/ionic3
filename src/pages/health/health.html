@@ -1,0 +1,78 @@
+<!--
+  Generated template for the HealthPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>我的健康</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding id="isEvaluation" style="background-color: #FFFFFF;">
+  <div class="topInfo">
+    <div #EchartsContent class="EchartsDiv"></div>
+    <!--ionic官方时间选择控件-->
+    <ion-datetime class="datetimeStyle" max="2020-10-31" displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
+  </div>
+  <ion-item>
+    <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">评估动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></b>
+  </ion-item>
+    <!--echarts图-->
+  <div class="dynamicCurve">
+    <div #EchartsContentDynamicCurve class="EchartsDivDynamic"></div>
+  </div>
+  <ion-item>
+    <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">感染风险影响因素&nbsp;&nbsp;&nbsp;<ion-icon name="logo-twitch"></ion-icon></b>
+  </ion-item>
+  <ion-grid >
+    <ion-row>
+    <ion-col col-4 text-center style="background: #a6d191;border: 1px solid #FFFFFF" >
+      <p>移动百分位</p>
+      <p>0.05%</p>
+    </ion-col>
+    <ion-col col-4 text-center style="background: #ea7d3c;border: 1px solid #FFFFFF">
+      <p>传染源</p>
+      <p>0.1%</p>
+    </ion-col>
+    <ion-col col-4 text-center style="background: #a6d191;border: 1px solid #FFFFFF">
+      <p>传播途径</p>
+      <p>0.05%</p>
+    </ion-col>
+  </ion-row >
+    <ion-row>
+      <ion-col col-4 text-center style="background: #ea7d3c;border: 1px solid #FFFFFF">
+        <p>易感性</p>
+        <p>0.2%</p>
+      </ion-col>
+      <ion-col col-4 text-center style="background: #f2b187;border: 1px solid #FFFFFF">
+        <p>疫苗保护</p>
+        <p>0.1%</p>
+      </ion-col>
+      <ion-col col-4 text-center style="background: #f2b187;border: 1px solid #FFFFFF">
+        <p>基础疾病</p>
+        <p>0.1%</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 text-center style="background: #ea7d3c;border: 1px solid #FFFFFF">
+        <p>年龄因素</p>
+        <p>0.2%</p>
+      </ion-col>
+      <ion-col col-4 text-center style="background: #f2b187;border: 1px solid #FFFFFF">
+        <p>气象因素</p>
+        <p>0.1%</p>
+      </ion-col>
+      <ion-col col-4 text-center style="background:#a6d191;border: 1px solid #FFFFFF">
+        <p>PM2.5</p>
+        <p>0.05%</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content id="isEvaluation1" padding>
+  <span >您还未进行健康信息评估...</span>
+</ion-content>

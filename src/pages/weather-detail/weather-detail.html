@@ -1,0 +1,78 @@
+  <!--
+  Generated template for the WeatherDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>天气详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+  <ion-card no-padding>
+    <img src="../../assets/imgs/card-sf.png"/>
+    <div class="cityName" style="text-align: center">{{cityName}}</div>
+    <div class="temperature" style="text-align: center">{{temperature}}°</div>
+    <div class="temperatureDetail" style="text-align: center">
+      <!--{{situation}} | 空气:{{quality}} | PM2.5:{{pm25}}-->
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear color="light">
+            <ion-icon name="cloudy"></ion-icon>
+            <div style="color: white">天气:{{situation}}</div>
+          </button>
+        </ion-col>
+<!--        <ion-col>
+          <button ion-button icon-start clear color="light">
+            &lt;!&ndash;<ion-icon name="cloudy"></ion-icon>&ndash;&gt;
+            <div style="color: white">空气:{{quality}}</div>
+          </button>
+        </ion-col>-->
+        <ion-col>
+        <button ion-button icon-start clear color="light">
+          <ion-icon name="navigate"></ion-icon>
+          <div style="color: white">PM2.5:{{pm25}}</div>
+        </button>
+      </ion-col>
+
+      </ion-row>
+
+    </div>
+    <ion-card-content>
+      <ion-card-title style="color: #3385fF">
+      空气状况:{{suggestionAirBrf}}
+      </ion-card-title>
+      建议:{{suggestionAirTxt}}
+      <ion-card-title style="color: #3385fF">
+      舒适度:{{suggestionDrsgBrf}}
+      </ion-card-title>
+      建议:{{suggestionDrsgTxt}}
+      <ion-card-title style="color: #3385fF">
+      感冒:{{suggestionFluBrf}}
+      </ion-card-title>
+      建议:{{suggestionFluTxt}}
+      <ion-card-title style="color: #3385fF">
+      紫外线强度:{{suggestionUvBrf}}
+      </ion-card-title>
+      建议:{{suggestionUvTxt}}
+    </ion-card-content>
+  </ion-card>
+
+ <!-- <ion-grid style="color: #FFFFFF;font-weight: bold">
+    <ion-row style="background: #a6d191;border: 1px solid #FFFFFF">
+      <ion-col col-12>
+        紫外线强度：{{suggestionUvBrf}}
+        <br>
+        建议：{{suggestionUvTxt}}</ion-col>
+    </ion-row>
+  </ion-grid>-->
+
+
+</ion-content>

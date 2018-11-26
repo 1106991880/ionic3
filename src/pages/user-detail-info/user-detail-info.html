@@ -1,0 +1,74 @@
+<!--
+  Generated template for the UserDetailInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>个人信息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="border-bottom">
+    <ion-row>
+      <ion-col col-4 text-center tappable>
+        <img class="avtor" *ngIf="userInfo?.avatar" src="../../assets/imgs/usercenter/avater.png">
+        <img class="avtor" *ngIf="!userInfo?.avatar" src="../../assets/imgs/usercenter/avater.png">
+      </ion-col>
+      <ion-col>
+        <h2>{{userInfo?.account}}</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item tappable (click)="sexActionSheet()">
+    <h2>性别
+      <span style="margin-left: 116px">{{params.sex}}</span>
+    </h2>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>年龄</ion-label>
+    <ion-input float-right type="text" [(ngModel)]="params.age"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>手机号</ion-label>
+    <ion-input float-right type="text" [(ngModel)]="params.phoneNumber"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>基础疾病</ion-label>
+    <!--multiple="true"多选-->
+    <ion-select [(ngModel)]="params.basicIllness" okText="确定" cancelText="取消" multiple="true">
+      <ion-option value="1">高血压</ion-option>
+      <ion-option value="2">冠心病</ion-option>
+      <ion-option value="3">脑卒中</ion-option>
+      <ion-option value="4">糖尿病</ion-option>
+      <ion-option value="5">肿瘤</ion-option>
+      <ion-option value="0">无</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>接种疫苗</ion-label>
+    <ion-select [(ngModel)]="params.vaccination" okText="确定" cancelText="取消" multiple="true">
+    <!--multiple="true"-->
+      <ion-option value="1">卡介苗</ion-option>
+      <ion-option value="2">百白破</ion-option>
+      <ion-option value="3">乙肝</ion-option>
+      <ion-option value="4">流脑</ion-option>
+      <ion-option value="5">流感</ion-option>
+      <ion-option value="0">无</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <button class="mybutton" ion-button block tappable (click)="save()">保 存</button>
+
+</ion-content>

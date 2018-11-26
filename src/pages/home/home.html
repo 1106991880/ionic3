@@ -1,0 +1,71 @@
+<meta http-equiv="Access-Control-Allow-Origin" content="*" xmlns="http://www.w3.org/1999/html"/>
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="cityChoose()" style="color:#FFFFFF;">
+        <ion-icon name="pin"></ion-icon >{{localCityNameSub}}
+      </button>
+    </ion-buttons>
+   <ion-title>防疫站</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="weatherDetail(weatherObject)" style="color:#FFFFFF;">
+        {{cityWeather}}<ion-icon name={{weatherIcon}}></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding style="background-color: #fff;">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <my-refresher-content></my-refresher-content>
+  </ion-refresher>
+
+  <div class="topInfo">
+    <div #EchartsContent class="EchartsDiv"></div>
+    <!--ionic官方时间选择控件-->
+    <ion-datetime style=" position: relative" class="datetimeStyle" max="2020-10-31" displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
+
+  </div>
+
+  <!--<button ion-button block color="danger" (click)="getDate()">
+    日期
+  </button>-->
+
+  <!--新的echarts图-->
+  <!--<span class="block_one"><span style="display: inline-block;width:10px;height:10px;background-color:#05FA1D"></span><span>低</span></span>
+  <span class="block_two"><span style="display: inline-block;width:10px;height:10px;background-color:#FBC402"></span><span>中</span></span>
+  <span class="block_three"><span style="display: inline-block;width:10px;height:10px;background-color:#FD5901"></span><span>高</span></span>
+  <span class="block_four"><span style="display: inline-block;width:10px;height:10px;background-color:#FD0000"></span><span>极高</span></span>-->
+
+  <div class="space"></div>
+    <ion-list>
+      <!--框架的城市选择器-->
+      <!--<ion-item>
+        <ion-label>选择城市</ion-label>
+        <ion-multi-picker id="cities" [separator]="'-'" cancelText="取消" doneText="确认" [(ngModel)]="eventcity.text" (ngModelChange)="changeCity($event)" item-content  [multiPickerColumns]="cityColumns"></ion-multi-picker>
+      </ion-item>-->
+
+      <ion-item *ngFor="let i of listData" (click)="getDetail(i)">
+        <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">{{i.name}}</b>
+        <div><div style="float: left;">{{i.one}}</div> <div style="float: right">{{i.two}}</div></div>
+      </ion-item>
+
+      <ion-item (click)="medicalSearch()">
+        <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">医疗机构查询&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="search"></ion-icon></b>
+      </ion-item>
+
+      <div class="bottomInfo">
+        <span class="bottomInfoOne" *ngIf="isEvaluation"><b>我的传染风险指数</b></span><span class="riskIndex" *ngIf="isEvaluation">：{{index}}
+        <br />
+        <br /></span>
+
+        <span style="color:#000;" class="bottomInfoDynamicCurve" *ngIf="isEvaluation" (click)="dynamicCurve()"><button ion-button color="secondary" outline small>查看动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></button></span>
+        <span class="bottomInfoTwo" *ngIf="!isEvaluation" (click)="evaluation()"><button ion-button color="secondary" round>传染风险评估&nbsp;&nbsp;&nbsp;<ion-icon name="create"></ion-icon></button></span>
+        <span style="color:#000;" class="bottomInfoPreventivePrescription" *ngIf="isEvaluation" (click)="prescription()"><button ion-button color="secondary" outline small>查看防疫处方&nbsp;&nbsp;&nbsp;<ion-icon name="paper"></ion-icon></button></span>
+        <br>
+        <span class="bottomInfoTwo" *ngIf="isEvaluation" (click)="evaluation()"><button ion-button color="secondary" round small>重新评估&nbsp;&nbsp;&nbsp;<ion-icon name="create"></ion-icon></button></span>
+
+      </div>
+    </ion-list>
+
+</ion-content>

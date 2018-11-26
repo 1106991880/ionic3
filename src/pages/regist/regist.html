@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      注册
+    </ion-title>
+    <ion-buttons left>
+      <button style="color:#FFFFFF;" ion-button (click)="dismiss()">关闭</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="(confirm())">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>账号</ion-label>
+        <ion-input type="text" formControlName="account"></ion-input>
+      </ion-item>
+      <span padding-left *ngIf="!registerForm.controls.account.valid && registerForm.controls.account.touched" class="dangerinfo">
+        *请输入账号
+      </span>
+
+      <ion-item>
+        <ion-label fixed>密码</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <span padding-left *ngIf="!registerForm.controls.password.valid && registerForm.controls.password.touched" class="dangerinfo">*请输入密码</span>
+
+      <ion-item>
+        <ion-label fixed>确认密码</ion-label>
+        <ion-input type="password" formControlName="confirmpassword"></ion-input>
+      </ion-item>
+      <span padding-left *ngIf="!registerForm.controls.confirmpassword.valid && registerForm.controls.confirmpassword.touched" class="dangerinfo">*请确认密码</span>
+
+      <ion-item>
+        <ion-label fixed>年龄</ion-label>
+        <ion-input type="number" formControlName="age"></ion-input>
+      </ion-item>
+      <span padding-left *ngIf="!registerForm.controls.age.valid && registerForm.controls.age.touched" class="dangerinfo">*请输入年龄</span>
+      <!--<ion-item>
+                <ion-label>性别</ion-label>
+                <ion-select>
+                    <ion-option value="1">男</ion-option>
+                    <ion-option value="2">女</ion-option>
+                </ion-select>
+
+            </ion-item>-->
+      <ion-item tappable (click)="sexActionSheet()">
+        <h2>性别
+          <span style="margin-left: 20px">{{sex}}</span>
+        </h2>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>基础疾病</ion-label>
+        <ion-select  formControlName="duoxuan">
+          <ion-option value="1">高血压</ion-option>
+          <ion-option value="2">糖尿病</ion-option>
+          <ion-option value="3">冠心病</ion-option>
+          <ion-option value="4">中风</ion-option>
+          <ion-option value="5">肿瘤</ion-option>
+          <ion-option value="6">无</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>接种疫苗</ion-label>
+        <ion-select  multiple="true">
+          <ion-option value="1">卡介苗</ion-option>
+          <ion-option value="2">百白破</ion-option>
+          <ion-option value="3">乙肝</ion-option>
+          <ion-option value="4">流脑</ion-option>
+          <ion-option value="5">流感</ion-option>
+          <ion-option value="6">无</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding-horizontal>
+      <button ion-button block style="background-color: #008BE0;" type="submit" [disabled]="!registerForm.valid" (click)="register()">注　册</button>
+    </div>
+
+  </form>
+</ion-content>

@@ -1,0 +1,53 @@
+page-about {
+  //.toolbar-title-md {
+  //  text-align: center;
+  //}
+  .topInfo {
+    height: 5%;
+    text-align: center;
+    font-size: 20px;
+    color: #E6B531;
+  }
+  .middleInfo {
+    border: 1px solid white;
+    height: 80%;
+  }
+  .middleInfoDetail {
+    border: 1px solid white;
+    width: 50%;
+    height: 25%;
+    float: left;
+  }
+  .bottomInfo {
+    border: 1px solid white;
+    height: 10%;
+    text-align: center;
+    color: #E6B531;
+    font-size: 20px;
+  }
+
+  //动态曲线
+  .dynamicCurve {
+   // border: 1px solid black;
+    height: 25%;
+    //margin-top: 10%;
+    //padding-right: 10%;
+    //margin-left: 5%;
+  }
+  .EchartsDiv {
+    width: 100%;
+    height: 100%;
+    //margin-right: 15%;
+
+  }
+
+  .message {
+    width: 3px;
+    background: #1864df;
+    height: 16px;
+    margin-left: 0px;
+    border-radius: 5px;
+    display: -webkit-inline-box;
+  }
+
+}

@@ -1,0 +1,59 @@
+page-login {
+  .mybutton {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 60px;
+  }
+  .mybg {
+    background: url(../../assets/imgs/usercenter/backlogin.png) !important;
+  }
+  img {
+    width: 60%;
+    margin-top: 40px;
+  }
+  .myitem {
+    width: 90%;
+    background: #227CBA;
+    margin-left: 5%;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 14px;
+  }
+  .item-ios.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0px;
+  }
+  .item-input ion-label {
+    -webkit-box-flex: initial;
+    -webkit-flex: initial;
+    -ms-flex: initial;
+    flex: initial;
+    max-width: 200px;
+    pointer-events: none;
+    width: 60px;
+  }
+  .color-white {
+    color: white;
+  }
+  .color-reg {
+    color: #E4E09B;
+  }
+  .loginbutton {
+    background-color: white;
+    color: blue;
+  }
+  .myicon {
+    font-size: 24px;
+    margin-left: 16px;
+    margin-top: 16px;
+  }
+
+
+
+
+
+
+
+
+
+}

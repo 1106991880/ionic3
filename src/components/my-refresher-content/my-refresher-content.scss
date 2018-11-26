@@ -1,0 +1,7 @@
+my-refresher-content {
+  .refresher-pulling-text,
+  .refresher-refreshing-text {
+    color: map-get($colors, 'muted')
+  }
+
+}

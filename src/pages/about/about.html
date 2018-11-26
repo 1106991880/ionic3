@@ -1,0 +1,79 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			我的评估
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content *ngIf="isDisplay" no-padding style="background-color: #fff;">
+
+  <ion-item>
+    <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">防疫处方&nbsp;&nbsp;&nbsp;<ion-icon name="create"></ion-icon></b>
+  </ion-item>
+  <ion-grid >
+    <ion-row >
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">早发现</p>
+        <p>0.05%</p>
+      </ion-col>
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">早诊断</p>
+        <p>及时到医院就诊</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">早隔离</p>
+        <p>与家人分宿</p>
+      </ion-col>
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">早治疗</p>
+        <p>遵医嘱服药</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">控制传染源</p>
+        <p>轻症居家治疗</p>
+        <p>重症住院治疗</p>
+      </ion-col>
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">阻断传播途径</p>
+        <p>少去公共场所</p>
+        <p>出门带口罩</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">保护易感人群</p>
+        <p>接种流感疫苗</p>
+      </ion-col>
+      <ion-col text-center style="background: #EDEDED;border: 1px solid #FFFFFF">
+        <p style="color: #E6B531">适量运动</p>
+        <p>开展有氧运动</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content no-padding style="background-color: #fff;" *ngIf="!isDisplay">
+  <ion-item>
+    <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></b>
+  </ion-item>
+
+  <!--echarts图-->
+  <div class="dynamicCurve">
+    <div #EchartsContent class="EchartsDiv"></div>
+  </div>
+  <ion-item>
+    <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">权威解读分析&nbsp;&nbsp;&nbsp;<ion-icon name="book"></ion-icon></b>
+  </ion-item>
+  <p padding>这是传染风险的动态曲线，分析流行性感冒流行特征，为流感防制提供科学依据、方法。根据曲线分析，每次评估得到的感染风险值如图所示，被感染的风险在0.5上下波动。</p>
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,42 @@
+page-health {
+  .topInfo {
+    height: 35%;
+    background: rgba(15, 153, 255, 0.1);
+    text-align: center;
+  }
+  .EchartsDiv {
+    width: 100%;
+    height: 80%;
+    //maigin-left: 50%;
+  }
+  .datetimeStyle{
+    height: 20%;
+    text-align:center;
+    color: #4f4f4f;
+    font-size: 1.5em;
+  }
+  //动态曲线
+  .dynamicCurve {
+    height: 25%;
+  }
+  //动态曲线
+  .EchartsDivDynamic {
+    width: 100%;
+    height: 100%;
+    //margin-left: 5%;
+  }
+  //底部九宫格
+  .bottomInfo {
+    border: 1px solid red;
+    height: 30%;
+  }
+  .message {
+    width: 3px;
+    background: #1864df;
+    height: 16px;
+    margin-left: 0px;
+    border-radius: 5px;
+    display: -webkit-inline-box;
+  }
+
+}

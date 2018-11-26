@@ -1,0 +1,97 @@
+page-home {
+  .topInfo {
+    height: 35%;
+    background: rgba(15,153,255,0.1);
+    text-align: center;
+    position: relative;
+    //background: url("../../assets/imgs/timg2.jpeg");
+    //图片自动放缩
+    //background-size: cover;
+  }
+  .EchartsDiv {
+    width: 100%;
+    height: 80%;
+  }
+  .datetimeStyle{
+    height: 20%;
+    text-align:center;
+    color: #4f4f4f;
+    font-size: 1.5em;
+  }
+
+  .middleInfo {
+    border: 1px solid #fff;
+    height: 50%;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 20px 2px #aaa; //X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色
+  }
+  .middleInfoDetail {
+    border: 1px solid #fff;
+    width: 50%;
+    height: 50%;
+    float: left;
+  }
+  .bottomInfo {
+    height: 15%;
+    margin-top: 15px;
+    text-align: center;
+  }
+  .bottomInfoOne {
+    color: #E6B531;
+    font-size: 17px;
+  }
+  .bottomInfoTwo {
+    color: #D67739;
+    font-size: 20px;
+  }
+  .riskIndex{
+    color: #D67739;
+    font-size: 20px;
+  }
+
+  //中间部分布局样式
+  .message{
+    width: 3px;
+    background: #1864df;
+    height: 16px;
+    margin-left: 0px;
+    border-radius: 5px;
+    display: -webkit-inline-box;
+  }
+  .space{
+    height: 3%;
+  }
+
+
+  //色块
+  .block_one{
+     z-index: 999;
+     position: absolute;
+     left: 86%;
+     top: 5%;
+   }
+  .block_two{
+    z-index: 999;
+    position: absolute;
+    left: 86%;
+    top: 10%;
+  }
+  .block_three{
+    z-index: 999;
+    position: absolute;
+    left: 86%;
+    top: 15%;
+  }
+  .block_four{
+    z-index: 999;
+    position: absolute;
+    left: 86%;
+    top: 20%;
+  }
+
+
+
+
+
+}

@@ -1,0 +1,49 @@
+page-weather-detail {
+  ion-card {
+    position: relative;
+    //text-align: center;
+  }
+  .cityName {
+    font-size: 1.5em;
+    position: absolute;
+    top: 1%;
+    width: 100%;
+    color: #fff;
+  }
+
+  .temperature {
+    position: absolute;
+    top: 10%;
+    font-size: 5.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .temperatureDetail {
+    font-size: 1.5em;
+    position: absolute;
+    top: 26%;
+    width: 100%;
+    color: #fff;
+  }
+  /*.card-bottom{
+    font-size: 1.5em;
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    color: #fff;
+    border: 1px solid red;
+  }
+  .line{
+      width: 3px;
+      background: yellow;
+      height: 16px;
+      margin-left: 0px;
+      border-radius: 5px;
+      display: -webkit-inline-box;
+  }*/
+
+}
+
+

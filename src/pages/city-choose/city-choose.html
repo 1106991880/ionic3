@@ -1,0 +1,42 @@
+<!--
+  Generated template for the CityChoosePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      选择城市
+      </ion-title>
+    <ion-buttons left>
+      <button ion-button (click)="dismiss()" style="color:#FFFFFF">关闭</button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-searchbar placeholder="请输入城市拼音或汉字" (ionInput)="getItems($event)"></ion-searchbar>
+</ion-header>
+
+
+<ion-content>
+  <div id="indexs-bar" #IndexedMenu>
+    <div class="index-bar" *ngFor="let item of indexes;let i = index">{{item}}</div>
+  </div>
+  <ion-list>
+    <ion-item-sliding *ngFor="let c of filterCities">
+      <ion-item (click)="citySelect(c)">{{c.name}}</ion-item>
+    </ion-item-sliding>
+
+    <ion-item-group *ngFor="let item of cities" #cityGroup>
+      <ion-item-divider>
+        <ion-label>{{item.index}}</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let c of item.cities" (click)="citySelect(c)">{{c.name}}</ion-item>
+
+    </ion-item-group>
+  </ion-list>
+  <div id="indexs-title">
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <!--注释掉图片,布局有问题-->
+      <!--<img style=" width: 70px;position: relative;left: -8px;" src="../../assets/imgs/home/logo.png">-->
+    </ion-buttons>
+    <ion-title>我的</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid tappable (click)="toPageLogin()" style="background: url(../../assets/imgs/usercenter/userback.png)">
+    <!--<ion-row>-->
+    <!--<ion-col text-center>-->
+    <!--<img style=" width: 70px; position: fixed; left: -8px;top: 6px;" src="assets/img/home/logo.png">-->
+    <!--<ion-title>北京市境外安全服务平台</ion-title>-->
+    <!--</ion-col>-->
+    <!--</ion-row>-->
+    <ion-row>
+      <ion-col text-center>
+        <img class="avtor" *ngIf="user?.avatar&&isLogin" src="{{user?.avatar}}">
+        <img class="avtor" *ngIf="!user?.avatar||!isLogin" src="../../assets/imgs/usercenter/avater.png">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center style="color: white;padding-top: 0px">
+        <p style="margin-top: 0px;" *ngIf="isLogin" class="f16 fontweight">{{user.account}}</p>
+        <ion-label style="margin-top: 0px;" *ngIf="!isLogin">未登录，点击登录</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list inset>
+    <button ion-item (click)="toPageFeedBack()">
+      <img src="../../assets/imgs/usercenter/feed.png" class="menuimg">
+      <span margin-left>意见反馈</span>
+    </button>
+
+    <button ion-item (click)="toPageAppAbout()">
+      <img src="../../assets/imgs/usercenter/about.png" class="menuimg">
+      <span margin-left>关于</span>
+    </button>
+    <button ion-item  (click)="changePassword()" *ngIf="isLogin">
+      <img src="assets/imgs/usercenter/changep.png" class="menuimg">
+      <span margin-left>修改密码</span>
+    </button>
+    <button ion-item  (click)="detectVersion()">
+      <img src="../../assets/imgs/usercenter/checkversion.png" class="menuimg">
+      <span margin-left>版本检测</span>
+    </button>
+    <button ion-item detail-none (click)="logout()" *ngIf="isLogin">
+      <img src="assets/imgs/usercenter/logout.png" class="menuimg">
+      <span margin-left>退出登录</span>
+    </button>
+  </ion-list>
+
+
+</ion-content>

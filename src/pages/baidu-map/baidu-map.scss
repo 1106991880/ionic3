@@ -1,0 +1,38 @@
+page-baidu-map {
+  #allmap {
+    border: 1px solid #aaa;
+    height: 70%;
+    overflow: hidden;
+    margin: 0;
+    font-family: "微软雅黑";
+  }
+  //地图查看排序
+  #r-result{
+  }
+  //防止地图标点变形,因为ionic自己的属性max-width:100%
+  img {
+    max-width: none!important;
+  }
+  //搜索输入框样式,查询样式
+  #medicalSearch{
+    height: 30px;
+    line-height: 30px;
+    width: 70%;
+    border: 1px solid #b0b0b0;
+    border-right:0px ;
+    vertical-align:middle
+  }
+  #medicalSearch:focus{
+    border: 1px solid rgb(71,145,255);
+    border-right:0px ;
+  }
+  input[type="button"]{
+    height: 30px;
+    line-height: 30px;
+    width: 30%;
+    border: 0px;
+    background-color: #3385fF;
+    color: white;
+    vertical-align:middle
+  }
+}

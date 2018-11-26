@@ -1,0 +1,67 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.toolbar-background {
+  background: url(../assets/imgs/home/navpng.png) !important;
+  //background:#01657E  !important;
+}
+
+.toolbar-title-ios {
+  overflow: visible;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  pointer-events: auto;
+}
+
+//标题颜色
+.toolbar-title-md{
+  color: #FFFFFF;
+}
+
+.platform-android {
+  //  ion-header {
+  //    padding-top: $cordova-md-statusbar-padding;
+  //    background-color: color($colors, primary);
+  //  }
+  .ion-page {
+    ion-header {
+      padding-top: $cordova-md-statusbar-padding;
+      background-color: color($colors, primary);
+    }
+  }
+}
+//返回按钮颜色
+.backbutton {
+  color: #FFFFFF;
+}
+.back-button.show-back-button{
+  color: #FFFFFF;
+}
+.righticon{
+  color: #FFFFFF;
+}
+.fontweight{
+  font-weight:700;
+}
+
+
+
+
+
+
+
+
+

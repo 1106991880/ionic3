@@ -1,0 +1,36 @@
+<!-- 登录页面 -->
+<ion-content  style="background: url(../../assets/imgs/usercenter/backlogin.png)no-repeat top left scroll;background-size: 100% 100%;">
+  <ion-row><ion-icon name="arrow-back" class="color-white myicon" tappable  (click)="closeLogin()"></ion-icon></ion-row>
+  <ion-row>
+    <ion-col text-center>
+      <!--之前的logo图,重新ps一张-->
+      <!--<img src="../../assets/imgs/usercenter/logo.png">-->
+    </ion-col>
+  </ion-row>
+  <ion-item class="myitem" margin-top>
+    <ion-label>用户名</ion-label>
+    <ion-input tyle="tel" [(ngModel)]="params.account" clearInput=true></ion-input>
+  </ion-item>
+  <ion-item class="myitem" margin-top>
+    <ion-label>密    码</ion-label>
+    <ion-input type="password" [(ngModel)]="params.password" clearInput=true></ion-input>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col tappable text-left (click)="openModalFindPassword()" >
+        <button ion-button small clear  class="color-white">找回密码</button>
+      </ion-col>
+      <ion-col tappable text-right (click)="openModalRegister()">
+        <button ion-button small clear  class="color-reg">注　册</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div padding-horizontal>
+    <button ion-button round  block type="submit" class="loginbutton"  (click)="login()">登录</button>
+  </div>
+
+
+
+</ion-content>
