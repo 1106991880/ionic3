@@ -79,7 +79,7 @@ export class HomePage {
   }
   //地区
   cityColumns: any[];
-
+  //GitHub测试2018-11-26
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
