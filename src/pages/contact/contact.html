@@ -30,7 +30,7 @@
   </ion-grid>
 
   <ion-list inset>
-    <button ion-item (click)="toPageFeedBack()">
+    <button ion-item (click)="toPageFeedBack()" *ngIf="isLogin">
       <img src="../../assets/imgs/usercenter/feed.png" class="menuimg">
       <span margin-left>意见反馈</span>
     </button>

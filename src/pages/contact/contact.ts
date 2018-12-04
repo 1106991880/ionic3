@@ -54,7 +54,10 @@ export class ContactPage {
   }
   //意见反馈界面跳转
   toPageFeedBack(){
-    this.futureDevelop();
+    //功能还在开发中提示方法
+    //this.futureDevelop();
+    this.navCtrl.push("FeedBackPage");
+
   }
   //关于界面跳转
   toPageAppAbout(){

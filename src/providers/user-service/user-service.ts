@@ -86,6 +86,12 @@ export class UserServiceProvider {
     return this.httpMyNetService.commonInterfaceGet('/getHealthData');
   }
 
+  //意见反馈
+  public feedBack(params){
+    console.log("意见反馈参数"+JSON.stringify(params));
+    return this.httpMyNetService.commonInterfacePost('/feedBack',params);
+  }
+
 
   /**
    * 当前是否登录

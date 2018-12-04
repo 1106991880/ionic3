@@ -19,8 +19,9 @@
 
 
 <ion-content>
-  <div id="indexs-bar" #IndexedMenu>
-    <div class="index-bar" *ngFor="let item of indexes;let i = index">{{item}}</div>
+  <!--城市字母索引出问题，先去掉索引(显示为空白)，加style="opacity:0"-->
+  <div id="indexs-bar" style="opacity: 0;" #IndexedMenu>
+    <!--<div class="index-bar" *ngFor="let item of indexes;let i = index">{{item}}</div>-->
   </div>
   <ion-list>
     <ion-item-sliding *ngFor="let c of filterCities">
