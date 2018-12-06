@@ -92,6 +92,24 @@ export class UserServiceProvider {
     return this.httpMyNetService.commonInterfacePost('/feedBack',params);
   }
 
+  //关注城市
+  public cityFocus(params){
+    console.log("城市关注参数"+JSON.stringify(params));
+    return this.httpMyNetService.commonInterfacePost('/cityFocus',params);
+  }
+
+  //查询已关注的城市
+  public selectCityFocus(params){
+    console.log("查询已关注的城市参数："+JSON.stringify(params));
+    return this.httpMyNetService.commonInterfacePost('/selectCityFocus',params);
+  }
+
+  //取消关注
+  public cityFocusDelete(params){
+    console.log("取消关注参数："+JSON.stringify(params));
+    return this.httpMyNetService.commonInterfacePost('/cityFocusDelete',params);
+  }
+
 
   /**
    * 当前是否登录

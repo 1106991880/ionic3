@@ -1,0 +1,22 @@
+<!--
+  Generated template for the FeedBackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>意见反馈</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-textarea [(ngModel)]="feedbackMsg" margin-top margin-bottom rows="6" class="mytextrea" placeholder="请输入您的意见" maxlength="250">
+  </ion-textarea>
+
+  <button class="mybutton" ion-button block tappable (click)="submit()">提 交</button>
+
+</ion-content>
