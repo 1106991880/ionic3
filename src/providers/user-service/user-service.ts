@@ -110,6 +110,12 @@ export class UserServiceProvider {
     return this.httpMyNetService.commonInterfacePost('/cityFocusDelete',params);
   }
 
+  //健康页面的仪表盘数据
+  public getHealthPageRiskIndex(params){
+    console.log("获取健康页面的参数："+JSON.stringify(params));
+    return this.httpMyNetService.commonInterfacePost('/getHealthPageRiskIndex',params);
+  }
+
 
   /**
    * 当前是否登录

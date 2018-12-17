@@ -30,28 +30,30 @@
   </ion-grid>
 
   <ion-list inset>
+
     <button ion-item (click)="toPageFeedBack()" *ngIf="isLogin">
-      <img src="../../assets/imgs/usercenter/feed.png" class="menuimg">
-      <span margin-left>意见反馈</span>
+      <ion-icon style="color: #2186ff" name="cloud-outline" item-start></ion-icon>
+      意见反馈
     </button>
 
     <button ion-item (click)="toPageAppAbout()">
-      <img src="../../assets/imgs/usercenter/about.png" class="menuimg">
-      <span margin-left>关于</span>
+      <ion-icon style="color: #2186ff" name="help-circle-outline" item-start></ion-icon>
+      关于
     </button>
-    <button ion-item  (click)="changePassword()" *ngIf="isLogin">
-      <img src="assets/imgs/usercenter/changep.png" class="menuimg">
-      <span margin-left>修改密码</span>
+
+    <button ion-item (click)="changePassword()" *ngIf="isLogin">
+      <ion-icon style="color: #2186ff" name="checkmark-circle-outline" item-start></ion-icon>
+      修改密码
     </button>
-    <button ion-item  (click)="detectVersion()">
-      <img src="../../assets/imgs/usercenter/checkversion.png" class="menuimg">
-      <span margin-left>版本检测</span>
+
+    <button ion-item (click)="detectVersion()">
+      <ion-icon style="color: #2186ff" name="code-working" item-start></ion-icon>
+      版本检测
     </button>
-    <button ion-item detail-none (click)="logout()" *ngIf="isLogin">
-      <img src="assets/imgs/usercenter/logout.png" class="menuimg">
-      <span margin-left>退出登录</span>
+
+    <button ion-item (click)="logout()" *ngIf="isLogin">
+      <ion-icon style="color: #2186ff" name="log-out" item-start></ion-icon>退出登录
     </button>
+
   </ion-list>
-
-
 </ion-content>

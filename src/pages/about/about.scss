@@ -43,11 +43,16 @@ page-about {
 
   .message {
     width: 3px;
-    background: #1864df;
+    background: #2186ff;
     height: 16px;
     margin-left: 0px;
     border-radius: 5px;
     display: -webkit-inline-box;
+  }
+  .other{
+    font-size: 16px;
+    color: #2186ff;
+    margin-left:10px;
   }
 
 }

@@ -17,6 +17,12 @@ export class DiseaseDetailPage {
 
   //不能定义为item:any,必须定义为下面这种方式
   item: any = {};
+  //科普知识标题
+  title;
+  //来源:手动录入,关联百科
+  source;
+  //其他信息
+  detail
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -32,7 +38,11 @@ export class DiseaseDetailPage {
 
     this.item = this.navParams.data.item;
     //这种写法是去除掉字符串引号，让其转为html语言
-    document.getElementById("itemDetail").innerHTML=this.item.detail;
+    //document.getElementById("itemDetail").innerHTML=this.item.detail;
+    this.title = this.item.name;
+    this.source = this.item.source;
+    this.detail = this.item.detail;
+
 
   }
 

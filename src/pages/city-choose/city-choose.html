@@ -14,11 +14,12 @@
       <button ion-button (click)="dismiss()" style="color:#FFFFFF">关闭</button>
     </ion-buttons>
   </ion-navbar>
-  <ion-searchbar placeholder="请输入城市拼音或汉字" (ionInput)="getItems($event)"></ion-searchbar>
+
 </ion-header>
 
 
 <ion-content>
+  <ion-searchbar style="background: none;" placeholder="请输入城市拼音或汉字" [animated]="true" (ionInput)="getItems($event)"></ion-searchbar>
   <!--城市字母索引出问题，先去掉索引(显示为空白)，加style="opacity:0"-->
   <div id="indexs-bar" style="opacity: 0;" #IndexedMenu>
     <!--<div class="index-bar" *ngFor="let item of indexes;let i = index">{{item}}</div>-->

@@ -98,7 +98,8 @@ export class BaiduMapPage {
     //获取输入查询内容
     var condition = this.medical;
     if(condition == undefined || condition == "") {
-      alert("请输入查询条件");
+      //alert("请输入查询条件");
+      this.nativeService.showToast("请输入查询条件");
       this.ionViewDidLoad() ;
     } else {
 

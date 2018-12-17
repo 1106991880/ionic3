@@ -45,27 +45,60 @@
         <ion-multi-picker id="cities" [separator]="'-'" cancelText="取消" doneText="确认" [(ngModel)]="eventcity.text" (ngModelChange)="changeCity($event)" item-content  [multiPickerColumns]="cityColumns"></ion-multi-picker>
       </ion-item>-->
 
-      <ion-item *ngFor="let i of listData" (click)="getDetail(i)">
-        <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">{{i.name}}</b>
-        <div><div style="float: left;">{{i.one}}</div> <div style="float: right">{{i.two}}</div></div>
-      </ion-item>
+      <!--<ion-item *ngFor="let i of listData" (click)="getDetail(i)">-->
+        <!--<div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">{{i.name}}</b>-->
+        <!--<div><div style="float: left;">{{i.one}}</div> <div style="float: right">{{i.two}}</div></div>-->
+      <!--</ion-item>-->
 
-      <ion-item (click)="medicalSearch()">
-        <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">医疗机构查询&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="search"></ion-icon></b>
-      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 text-center tappable (click)="getDetail(listData,1)">
+            <img class="menuimg" src="assets/imgs/home/u22.png">
+            <p>传染源</p>
+          </ion-col>
+          <ion-col col-3 text-center tappable (click)="getDetail(listData,2)">
+            <img class="menuimg" src="assets/imgs/home/u34.png">
+            <p>传播途径</p>
+          </ion-col>
+          <ion-col col-3 text-center tappable (click)="getDetail(listData,3)">
+            <img class="menuimg" src="assets/imgs/home/u24.png">
+            <p>易感人群</p>
+          </ion-col>
+          <ion-col col-3 text-center tappable (click)="getDetail(listData,4)">
+            <img class="menuimg" src="assets/imgs/home/u40.png">
+            <p>预防措施</p>
+          </ion-col>
+        </ion-row>
 
+      </ion-grid>
+
+      <ion-item no-lines (click)="medicalSearch()" style="border-bottom: 0.55px solid #c8c7cc;">
+        <div class="message"></div><b style="font-size: 16px;color: #2186ff;margin-left:10px;">医疗机构查询&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="search"></ion-icon></b>
+      </ion-item>
+      <!--<button ion-item (click)="medicalSearch()" >-->
+        <!--<ion-icon style="color: #2186ff" name="search" item-start></ion-icon>-->
+        <!--医疗机构查询-->
+      <!--</button>-->
       <div class="bottomInfo">
-        <span class="bottomInfoOne" *ngIf="isEvaluation"><b>我的传染风险指数</b></span><span class="riskIndex" *ngIf="isEvaluation">：{{index}}
-        <br />
+        <span class="fxzs">
+        <span class="bottomInfoOne" *ngIf="isEvaluation"><b style="font-size: 16px;">我的传染风险指数</b></span><span class="riskIndex" *ngIf="isEvaluation">：{{index}}
         <br /></span>
-
-        <span style="color:#000;" class="bottomInfoDynamicCurve" *ngIf="isEvaluation" (click)="dynamicCurve()"><button ion-button color="secondary" outline small>查看动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></button></span>
-        <span class="bottomInfoTwo" *ngIf="!isEvaluation" (click)="evaluation()"><button ion-button color="secondary" round>传染风险评估&nbsp;&nbsp;&nbsp;<ion-icon name="create"></ion-icon></button></span>
-        <span style="color:#000;" class="bottomInfoPreventivePrescription" *ngIf="isEvaluation" (click)="prescription()"><button ion-button color="secondary" outline small>查看防疫处方&nbsp;&nbsp;&nbsp;<ion-icon name="paper"></ion-icon></button></span>
-        <br>
-        <span class="bottomInfoTwo" *ngIf="isEvaluation" (click)="evaluation()"><button ion-button color="secondary" round small>重新评估&nbsp;&nbsp;&nbsp;<ion-icon name="create"></ion-icon></button></span>
+        </span>
+        <span class="dtandcf">
+        <span style="color:#000;" *ngIf="isEvaluation" (click)="dynamicCurve()"><button ion-button outline small>查看动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></button></span>
+        <span style="color:#000;" *ngIf="isEvaluation" (click)="prescription()"><button ion-button color="#2186ff" outline small>查看防疫处方&nbsp;&nbsp;&nbsp;<ion-icon name="paper"></ion-icon></button></span>
+        </span>
+          <br>
+        <span class="bottomInfoTwo" *ngIf="!isEvaluation" (click)="evaluation()"><button ion-button round small>传染风险评估&nbsp;&nbsp;&nbsp;<ion-icon name="create"></ion-icon></button></span>
+        <span class="bottomInfoTwo" *ngIf="isEvaluation" (click)="evaluation()"><button ion-button round small>重新评估&nbsp;&nbsp;&nbsp;<ion-icon name="create"></ion-icon></button></span>
 
       </div>
+
+
+
+
     </ion-list>
+
+
 
 </ion-content>

@@ -4,8 +4,9 @@ import {UserServiceProvider} from "../../providers/user-service/user-service";
 import {Storage} from "@ionic/storage";
 
 import {GlobalDataProvider} from "../../providers/global-data/global-data";
-import {AboutPage} from "../about/about";
 import {MainServiceProvider} from "../../providers/main-service/main-service";
+import {NativeServiceProvider} from "../../providers/native-service/native-service";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 /**
  * Generated class for the HealthPage page.
@@ -39,17 +40,18 @@ export class HealthPage {
   //是否完成健康风险评估
   isEvaluation;
   //仪表盘数据
-  dashData:any = [{value: 20, name: ''}];
+  dashData: any = [{value: 20, name: ''}];
 
   //动态曲线数据
-  dynamicData : any;
+  dynamicData: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public userService: UserServiceProvider,
               public storage: Storage,
               public globalData: GlobalDataProvider,
-              public mainService:MainServiceProvider) {
+              public mainService: MainServiceProvider,
+              public nativeService: NativeServiceProvider) {
   }
 
   //执行一次
@@ -64,31 +66,43 @@ export class HealthPage {
     //不用全局变量,改为缓存
     this.storage.get("isEvaluation").then(value => {
       this.isEvaluation = value;
-      if(this.isEvaluation){
+      if (this.isEvaluation) {
         document.getElementById("isEvaluation").style.display = 'block';
         document.getElementById("isEvaluation1").style.display = 'none';
         //获取用户的评估结果
         this.storage.get("USER_INFO").then(value => {
           var userAccount = {
-            account: value.account
+            account: value.account,
+            time:this.event.time
           }
-          //查询出当天用户评估结果
+          //查询出当天用户评估结果,动态曲线的值
           this.mainService.getUserDynamicData(userAccount).then(value1 => {
             //返回的数据放入当前数组中
-            console.log("value1"+value1);
+            console.log("value1" + value1);
             this.dynamicData = value1;
-            this.loadEcharts();
+            //加载折线图
+            this.loadEchartsZx();
           })
+          //仪表盘值
+          value.chooseDate = this.event.time;
+          this.userService.getHealthPageRiskIndex(value).then(value1 => {
+            //无数据
+            this.dashData = [];
+            this.dashData.push(value1);
+            //加载折线图
+            this.loadEchartsYbp();
+          });
+
         })
+
         //如果评估过获取影响评估的因素
-        this.items = this.getHealthData();
+        //this.items = this.getHealthData();
       }
       else {
         document.getElementById("isEvaluation").style.display = 'none';
         document.getElementById("isEvaluation1").style.display = 'block';
       }
     })
-
 
 
   }
@@ -99,23 +113,36 @@ export class HealthPage {
       this.items = value.json();
     })
   }
+
   //修改时间
-  changeDate(a){
-    console.log("点击了确定按钮"+a);
-    console.log("点击了确定按钮"+this.event.time);
+  changeDate(a) {
+    console.log("点击了确定按钮" + a);
+    console.log("点击了确定按钮" + this.event.time);
     //改变仪表盘旋转
-    this.userService.getEchartsData().subscribe(value => {
-      console.log("仪表盘数据"+value.json());
-      this.dashData = [];
-      this.dashData.push(value.json());
-      this.loadEcharts();
+    // this.userService.getEchartsData().subscribe(value => {
+    //   console.log("仪表盘数据" + value.json());
+    //   this.dashData = [];
+    //   this.dashData.push(value.json());
+    //   this.loadEcharts();
+    // })
+
+    //查看当天评估的最新结果
+    this.storage.get("USER_INFO").then(value => {
+      value.chooseDate = this.event.time;
+      this.userService.getHealthPageRiskIndex(value).then(value1 => {
+        //无数据
+        this.dashData = [];
+        this.dashData.push(value1);
+        this.loadEchartsYbp();
+      });
+
     })
 
   }
 
 
-  //加载echarts图
-  loadEcharts(){
+  //加载echarts仪表盘
+  loadEchartsYbp() {
     if (this.EChart != null && this.EChart != "" && this.EChart != undefined) {
       this.EChart.dispose();
     }
@@ -123,7 +150,7 @@ export class HealthPage {
     this.EChart = echarts.init(ctelement);
     this.EChart.setOption({
       tooltip: {
-        formatter: "{a} <br/>{b} : {c}%" ,   //提示框样式
+        formatter: "{a} <br/>{b} : {c}%",   //提示框样式
       },
       series: [
         {
@@ -201,20 +228,24 @@ export class HealthPage {
             height: 40,
             offsetCenter: [0, -40],       // x, y，单位px
             //formatter: '{value}%',
-            formatter:'感染风险',
+            formatter: '感染风险',
             textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
               fontSize: 20,     //中间指针数值字体大小
             }
           },
-          animation:true,       //是否开启动画
+          animation: true,       //是否开启动画
           //animationThreshold:100,    //是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
-          animationDuration:3000,       //初始化动画的时常
-          animationDurationUpdate:3000,  //数据更新动画的时长
-          data:this.dashData
+          animationDuration: 3000,       //初始化动画的时常
+          animationDurationUpdate: 3000,  //数据更新动画的时长
+          data: this.dashData
         }
       ]
 
     });
+  }
+
+  //echarts折线图
+  loadEchartsZx(){
     //动态曲线
     if (this.EChartDynamicCurve != null && this.EChartDynamicCurve != "" && this.EChartDynamicCurve != undefined) {
       this.EChartDynamicCurve.dispose();
@@ -227,7 +258,7 @@ export class HealthPage {
         top: '25%',
         left: '12%',
         right: '12%',
-        bottom:'15%'
+        bottom: '15%'
       },
       //横坐标的值
       xAxis: {
@@ -239,10 +270,9 @@ export class HealthPage {
         name: '感染风险',
       },
       series: [{
-        data:this.dynamicData,
+        data: this.dynamicData,
         type: 'line'
       }]
     })
   }
-
 }

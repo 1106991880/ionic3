@@ -18,14 +18,14 @@
     <ion-datetime class="datetimeStyle" max="2020-10-31" displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
   </div>
   <ion-item>
-    <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">评估动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></b>
+    <div class="message"></div><b class="other">评估动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></b>
   </ion-item>
     <!--echarts图-->
   <div class="dynamicCurve">
     <div #EchartsContentDynamicCurve class="EchartsDivDynamic"></div>
   </div>
   <ion-item>
-    <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">感染风险影响因素&nbsp;&nbsp;&nbsp;<ion-icon name="logo-twitch"></ion-icon></b>
+    <div class="message"></div><b class="other">感染风险影响因素&nbsp;&nbsp;&nbsp;<ion-icon name="logo-twitch"></ion-icon></b>
   </ion-item>
   <ion-grid >
     <ion-row>
@@ -74,5 +74,5 @@
 </ion-content>
 
 <ion-content id="isEvaluation1" padding>
-  <span >您还未进行健康信息评估...</span>
+  <span >您还未进行健康信息评估,请到首页评估...</span>
 </ion-content>

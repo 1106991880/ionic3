@@ -1,7 +1,8 @@
 page-home {
   .topInfo {
     height: 35%;
-    background: rgba(15,153,255,0.1);
+    //background: rgba(15,153,255,0.1);
+    border-bottom: 0.55px solid #c8c7cc;//和下面的医疗机构查询样式保持一致
     text-align: center;
     position: relative;
     //background: url("../../assets/imgs/timg2.jpeg");
@@ -33,27 +34,51 @@ page-home {
     float: left;
   }
   .bottomInfo {
-    height: 15%;
-    margin-top: 15px;
+    height: 25%;
+    width: 100%;
     text-align: center;
+    position: absolute;
   }
   .bottomInfoOne {
-    color: #E6B531;
+    color: #2186ff;
     font-size: 17px;
   }
   .bottomInfoTwo {
     color: #D67739;
     font-size: 20px;
+    display:inline-block;
+    position: absolute;
+    bottom: 0%;
+    left: 0px;
+    right: 0px;
+    height: 30%;
+  }
+  //风险指数
+  .fxzs{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    height: 30%;
+    bottom: 60%;
+  }
+  //动态曲线和防疫处方
+  .dtandcf{
+    position: absolute;
+    bottom: 30%;
+    left: 0px;
+    right: 0px;
+    height: 30%;
   }
   .riskIndex{
-    color: #D67739;
+    color: #2186ff;
     font-size: 20px;
   }
 
   //中间部分布局样式
   .message{
     width: 3px;
-    background: #1864df;
+    background: #2186ff;
+    //background: blue;
     height: 16px;
     margin-left: 0px;
     border-radius: 5px;
@@ -89,7 +114,11 @@ page-home {
     left: 86%;
     top: 20%;
   }
-
+  //图片大小设置
+  .menuimg {
+    width: 46px;
+    height: 46px;
+  }
 
 
 

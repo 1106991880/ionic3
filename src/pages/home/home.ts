@@ -48,14 +48,14 @@ export class HomePage {
   };
   //城市三级联动
   public eventcity = {
-    text:'',
-    value:''
+    text: '',
+    value: ''
   }
 
   //城市
   localCityName: string;//用于查询天气
   //城市，用于在界面上显示，城市名过长的时候显示省略号
-  localCityNameSub : String;
+  localCityNameSub: String;
   //手动选择的城市
   chooseCity;
 
@@ -65,7 +65,7 @@ export class HomePage {
   //天气图标
   weatherIcon;
   //查询天气的所有结果
-  weatherObject:any;
+  weatherObject: any;
 
   //仪表盘数据格式
   dashData: any = [{value: 20, name: ''}];
@@ -79,6 +79,7 @@ export class HomePage {
   }
   //地区
   cityColumns: any[];
+
   //GitHub测试2018-11-26
 
   constructor(public navCtrl: NavController,
@@ -90,7 +91,7 @@ export class HomePage {
               public modalCtrl: ModalController,
               public loadingCtrl: LoadingController,
               public calendar: Calendar,
-              public mainService:MainServiceProvider) {
+              public mainService: MainServiceProvider) {
 
     this.chooseCity = navParams.data.name;
     this.cityColumns = citise;
@@ -101,23 +102,38 @@ export class HomePage {
     //选择的城市
     console.log("选择的城市:" + this.chooseCity);
 
-    //获取城市
-    var myCity = new BMap.LocalCity();
+    this.getCurrentCityName().then(value => {
+      // @ts-ignore
+      this.localCityName = value;
+      //地区长度过长使用省略号代替,将城市名作为其他参数的时候还是要使用localCityName,不使用localCityNameSub
+      let cityNameLength = this.localCityName.length;
+      console.log("cityNameLength" + cityNameLength);
+      if (cityNameLength > 5) {
+        let str = this.localCityName.substring(0, 5) + "...";
+        this.localCityNameSub = str;
+      }
+      else {
+        this.localCityNameSub = this.localCityName;
+      }
+      let cityWeatherParam = {
+        cityName: this.localCityName
+      }
+      this.getWeather(cityWeatherParam);
+    });
+
+    //获取城市,现修改为上面的方式,封装成promise
+    /*var myCity = new BMap.LocalCity();
     myCity.get(function (result) {
       var cityName = result.name;
       //使用localStoage存储cityName. 此处不可以使用this.localCityName = cityName; 因为这里的this 指向的是当前的类， 也就是 function(result)这个类
       localStorage.setItem('currentCity', cityName);
-      console.log("执行---1");
       return cityName;
-    });
-    console.log("执行---2");
+    });*/
 
-
-    localStorage.getItem('currentCity');
-
+    //localStorage.getItem('currentCity');
 
     //延迟毫秒取存储在localStorage中的 cityName,防止时间太短，未获取到最近的城市
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.localCityName = localStorage.getItem('currentCity');
       //地区长度过长使用省略号代替,将城市名作为其他参数的时候还是要使用localCityName,不使用localCityNameSub
       let cityNameLength = this.localCityName.length;
@@ -135,18 +151,17 @@ export class HomePage {
       }
       this.getWeather(cityWeatherParam);
 
-    }, 500);
+    }, 500);*/
 
     //获取当前时间,显示在界面上
     this.event.time = new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toISOString();
     // 请求获取首页的数据
     //查询当前地区高发病种,先设置为流行性感冒
     var diseaname = {
-      diseasename:'流行性感冒'
+      diseasename: '流行性感冒'
     }
 
     this.mainService.mainData(diseaname).then(value => {
-      console.log(JSON.stringify(value)+"+++++++++++++++++++++++");
       this.listData = value;
     })
 
@@ -154,12 +169,6 @@ export class HomePage {
 
   //每次进入都重新加载echarts图
   ionViewDidEnter() {
-
-    //添加延迟，防止获取城市为空
-    setTimeout(() => {
-      //计算疾病传染风险
-      this.getDiseaseIndex();
-    }, 500)
 
     //为了保证用户退出应用再次进入也能看到评估信息
     this.storage.get("isEvaluation").then(value => {
@@ -175,16 +184,38 @@ export class HomePage {
           //评估数据获取,获取用户评估的最新数据
 
           this.mainService.getRiskIndexNew(userAccount).then(value2 => {
-              let riskIndex = value2;
-              this.index = riskIndex;
+            let riskIndex = value2;
+            this.index = riskIndex;
 
           });
-
 
         })
 
       }
 
+    });
+
+    //添加延迟，防止获取城市为空
+    //setTimeout(() => {
+    //计算疾病传染风险
+    //this.getDiseaseIndex();
+    // }, 500)
+
+    //修改上面的延迟函数
+    this.getCurrentCityName().then(value => {
+      console.log("修改上面的延迟方式："+value);
+      this.getDiseaseIndex();
+    });
+
+  }
+
+  //获取当前城市名
+  getCurrentCityName = function () {
+    return new Promise(function (resolve, reject) {
+      let myCity = new BMap.LocalCity()
+      myCity.get(function (result) {
+        resolve(result.name)
+      })
     })
   }
 
@@ -245,7 +276,6 @@ export class HomePage {
 
   //点击防疫处方,跳转到防疫处方页面
   prescription() {
-    console.log("防疫处方");
     this.navCtrl.push(AboutPage, {isDisplay: true});
   }
 
@@ -261,9 +291,9 @@ export class HomePage {
       //查询出当天用户评估结果
       this.mainService.getUserDynamicData(userAccount).then(value1 => {
         //返回的数据放入当前数组中
-        console.log("value1"+value1);
+        console.log("value1" + value1);
         dynamicData = value1;
-        this.navCtrl.push(AboutPage, {isDisplay: false,dynamicData:dynamicData});
+        this.navCtrl.push(AboutPage, {isDisplay: false, dynamicData: dynamicData});
       })
     })
   }
@@ -278,13 +308,13 @@ export class HomePage {
   }
 
   //选择地区
-  changeCity(city){
-    console.log("选择的城市为:"+city);
+  changeCity(city) {
+    console.log("选择的城市为:" + city);
     console.log("触发选择事件------");
   }
 
   //查看天气详细信息
-  weatherDetail(weatherObject){
+  weatherDetail(weatherObject) {
     console.log("查看天气详细信息...");
     //let weatherDetailModal = this.modalCtrl.create(WeatherDetailPage);
     this.navCtrl.push("WeatherDetailPage", {weatherObject});
@@ -307,9 +337,9 @@ export class HomePage {
         this.localCityName = data.name;
         //如果地区过长,则显示部分,剩余部分用省略号代替
         let cityNameLength = data.name.length;
-        console.log("cityNameLength"+cityNameLength);
-        if(cityNameLength>5){
-          let str = data.name.substring(0,5)+"...";
+        console.log("cityNameLength" + cityNameLength);
+        if (cityNameLength > 5) {
+          let str = data.name.substring(0, 5) + "...";
           this.localCityNameSub = str;
         }
         else {
@@ -337,12 +367,12 @@ export class HomePage {
     this.ionViewDidLoad();
     this.ionViewDidEnter();
 
-    if(refresher){
+    if (refresher) {
       refresher.complete();
     }
-     //setTimeout(() => {
-      // console.log('加载完成后，关闭刷新');
-      // refresher.complete();
+    //setTimeout(() => {
+    // console.log('加载完成后，关闭刷新');
+    // refresher.complete();
     //   //toast提示，修改为网络请求时显示
     //   //this.nativeService.showToast("加载完成");
     // }, 1000);
@@ -354,12 +384,15 @@ export class HomePage {
   }
 
   //获取首页详细信息
-  getDetail(item) {
-    this.navCtrl.push("DiseaseDetailPage", {item});
+  getDetail(item, itemPage) {
+    console.log("item" + item);
+    this.navCtrl.push("MainDetailPage", {item, itemPage});
   }
 
   //获取天气信息
   getWeather(cityWeatherParam) {
+
+    console.log("城市天气参数" + JSON.stringify(cityWeatherParam));
     this.mainService.getWeather(cityWeatherParam).then(value => {
       //聚合天气
       //this.cityWeather = value.result.today.temperature+" "+value.result.today.weather;
@@ -368,8 +401,8 @@ export class HomePage {
       //天气 晴天
       //value.result.HeWeather5[0].daily_forecast[0].cond.txt_d
       console.log("返回查询成功的值：" + value.msg);
-      if (value.msg == "查询成功"&&value.result.HeWeather5[0].status!="unknown city") {
-        console.log("查询成功了！！！！！！！"+value);
+      if (value.msg == "查询成功" && value.result.HeWeather5[0].status != "unknown city") {
+        console.log("查询成功了！！！！！！！" + value);
         //将查询结果赋值给对象,用于查看天气详细信息
         this.weatherObject = value;
 
@@ -438,26 +471,26 @@ export class HomePage {
   }
 
   //选择时间
-  getDate(){
-    let options : DatePickerOptions ={
+  getDate() {
+    let options: DatePickerOptions = {
       date: new Date(),
       mode: 'datetime',
-      titleText:'请选择日期',
-      okText:'选择',
+      titleText: '请选择日期',
+      okText: '选择',
       cancelText: '取消',
-      todayText:'今天',
+      todayText: '今天',
       nowText: '现在',
-      is24Hour:true,
-      allowOldDates:true,
-      doneButtonLabel:'确定',
-      minuteInterval:10,
+      is24Hour: true,
+      allowOldDates: true,
+      doneButtonLabel: '确定',
+      minuteInterval: 10,
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
     }
     this.datePicker.show(options).then(
       date => {
         console.log('Got date: ', date);
         alert(date.getSeconds());
-        this.dateStr=date.getTime().toString();
+        this.dateStr = date.getTime().toString();
       },
       err => console.log('Error occurred while getting date: ', err)
     );
@@ -571,126 +604,124 @@ export class HomePage {
     //echarts图end
 
 
-   /* this.EChart.setOption({
+    /* this.EChart.setOption({
 
-      title: {
-        x: "center",
-        //left:'29%',
-        y:"50%",
-        bottom: 380,
-        text: '流感流行度',
-        textStyle: {
-          fontWeight: 'normal',
-          fontSize: 22,
-          color: "#999"
-        },
-      },
-      series: [
-        {
-          center: ['45%', '95%'],
-          type: 'gauge',
-          radius: '175%',
-          splitNumber: 1,
-          min: 0,
-          max: 0,
-          startAngle: 180,
-          endAngle: 0,
-          axisLine: {
-            show: false,
-            lineStyle: {
-              width: 2,
-              shadowBlur: 0,
-              color: [
-                [1, '#8f8f8f']
-              ]
-            }
-          },
-          axisTick: {
-            show: true,
-            lineStyle: {
-              color: '#8f8f8f',
-              width: 1
-            },
-            length: -8,
-            splitNumber: 50
-          },
-          splitLine: {
-            show: true,
-            length: 12,
-            lineStyle: {
-              color: '#8f8f8f',
-            }
-          },
-          axisLabel:{
-            show:false
-          },
-          detail:{
-            show:false
-          }
-        }
-        ,{
-          center: ['45%', '95%'],
-          type: 'gauge',
-          startAngle: 180,
-          radius: '165%',
-          splitNumber:12,
-          endAngle: 0,
-          min: 0,
-          max: 100,
-          axisLine: {
-            show: true,
-            lineStyle: {
-              width: 20,
-              shadowBlur: 0,
-              color: [
-                [1/4, '#05FA1D'],
-                [2/4, '#FBC402'],
-                [3/4, '#FA9900'],
-                [4/4,'#FD0000'],
-              ]
-            }
-          },
-          axisTick: {
-            show:false
-          },
-          axisLabel:{
-            show:false,
-            //fontSize:25,
-          },
-          //是否显示分割刻度线
-          splitLine: {
-            show: true,
-            length: 20,
-            lineStyle:{
-              color:'white',
-              width:2
-            }
-          },
-          pointer: {
-            show: true,
-            length:'80%',
-            width:5
-          },
-          itemStyle:{
-            normal:{
-              color:'#FFFFFF',
-              borderColor:'#92DAFF',
-              borderWidth:'2',
-            }
-          },
-          detail: {
-            //不显示详情
-            show:false
-          },
-          animation: true,       //是否开启动画
-          animationDuration: 3000,       //初始化动画的时常
-          animationDurationUpdate: 3000,  //数据更新动画的时长
-          data: this.dashData
-        }]
-    })
-*/
-
-
+       title: {
+         x: "center",
+         //left:'29%',
+         y:"50%",
+         bottom: 380,
+         text: '流感流行度',
+         textStyle: {
+           fontWeight: 'normal',
+           fontSize: 22,
+           color: "#999"
+         },
+       },
+       series: [
+         {
+           center: ['45%', '95%'],
+           type: 'gauge',
+           radius: '175%',
+           splitNumber: 1,
+           min: 0,
+           max: 0,
+           startAngle: 180,
+           endAngle: 0,
+           axisLine: {
+             show: false,
+             lineStyle: {
+               width: 2,
+               shadowBlur: 0,
+               color: [
+                 [1, '#8f8f8f']
+               ]
+             }
+           },
+           axisTick: {
+             show: true,
+             lineStyle: {
+               color: '#8f8f8f',
+               width: 1
+             },
+             length: -8,
+             splitNumber: 50
+           },
+           splitLine: {
+             show: true,
+             length: 12,
+             lineStyle: {
+               color: '#8f8f8f',
+             }
+           },
+           axisLabel:{
+             show:false
+           },
+           detail:{
+             show:false
+           }
+         }
+         ,{
+           center: ['45%', '95%'],
+           type: 'gauge',
+           startAngle: 180,
+           radius: '165%',
+           splitNumber:12,
+           endAngle: 0,
+           min: 0,
+           max: 100,
+           axisLine: {
+             show: true,
+             lineStyle: {
+               width: 20,
+               shadowBlur: 0,
+               color: [
+                 [1/4, '#05FA1D'],
+                 [2/4, '#FBC402'],
+                 [3/4, '#FA9900'],
+                 [4/4,'#FD0000'],
+               ]
+             }
+           },
+           axisTick: {
+             show:false
+           },
+           axisLabel:{
+             show:false,
+             //fontSize:25,
+           },
+           //是否显示分割刻度线
+           splitLine: {
+             show: true,
+             length: 20,
+             lineStyle:{
+               color:'white',
+               width:2
+             }
+           },
+           pointer: {
+             show: true,
+             length:'80%',
+             width:5
+           },
+           itemStyle:{
+             normal:{
+               color:'#FFFFFF',
+               borderColor:'#92DAFF',
+               borderWidth:'2',
+             }
+           },
+           detail: {
+             //不显示详情
+             show:false
+           },
+           animation: true,       //是否开启动画
+           animationDuration: 3000,       //初始化动画的时常
+           animationDurationUpdate: 3000,  //数据更新动画的时长
+           data: this.dashData
+         }]
+     })
+ */
 
 
   }

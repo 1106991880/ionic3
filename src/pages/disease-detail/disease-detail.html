@@ -13,9 +13,28 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-padding>
   <!--<h2>{{item.name}}</h2>-->
   <!--{{item.detail}}-->
-  <div id="itemDetail"></div>
+  <!--<div id="itemDetail"></div>-->
+
+  <ion-item text-wrap>
+    <div class="message"></div><b class="other">知识标题&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="contract"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{title}}</p>
+  </ion-item>
+  <ion-item>
+    <div class="message"></div><b class="other">来源&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="star-outline"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{source}}</p>
+  </ion-item>
+  <ion-item text-wrap>
+    <div class="message"></div><b class="other">知识详情&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="qr-scanner"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{detail}}</p>
+  </ion-item>
 
 </ion-content>
