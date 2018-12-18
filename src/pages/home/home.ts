@@ -237,7 +237,7 @@ export class HomePage {
   }
 
 
-  //判断用户信息填写是否完全
+  //判断用户信息填写是否完全,
   getUserOtherInfo() {
     this.storage.get("USER_INFO").then(value => {
       var userAccount = {
