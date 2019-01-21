@@ -5,6 +5,7 @@ import {NativeServiceProvider} from "../native-service/native-service";
 import {APP_SERVE_URL,REQUEST_TIMEOUT} from "../constants/constants";
 import { Utils } from "../Utils";
 import {GlobalDataProvider} from "../global-data/global-data";
+import {Options} from "@ionic/pro";
 
 /*
   Generated class for the HttpMyNetServiceProvider provider.
@@ -28,13 +29,15 @@ export class HttpMyNetServiceProvider {
     //加载中
     this.nativeService.showLoading();
 
+    console.log("请求的getURL---------"+urlGet);
+
     return Observable.create(observer => {
       this.http.get(urlGet).timeout(REQUEST_TIMEOUT)
         .subscribe((res: any) => {
         // 隐藏加载状态
         this.nativeService.hideLoading();
         //执行下一步
-          console.log("res"+res);
+          console.log("res-----"+res);
         observer.next(res);
       },err => {// 请求失败
           this.requestFailed(urlGet, {method: RequestMethod.Get}, err);//处理请求失败
@@ -42,8 +45,12 @@ export class HttpMyNetServiceProvider {
           observer.error(err);
         })
     });
-
   }
+  /*public commonInterfaceGet(urlGet){
+    urlGet = urlGet.startsWith('http') ? urlGet : APP_SERVE_URL + urlGet;
+    return this.http.get(urlGet).map(res=>res.json());
+  }*/
+
 
   //共有接口POST,如果接口需要带token则传入参数true
   public commonInterfacePost(url,params,tokenNeed:boolean=false){

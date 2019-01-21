@@ -45,28 +45,28 @@ export class MainDetailPage {
       case 1:
         this.title = "传染源";
         this.titleContent = this.item.infectsource;
-        this.dataTitle = "控制率";
+        //this.dataTitle = "控制率";
         this.data = this.item.controlrate;//控制率
         this.content = this.item.infectsourcedes;
         break;
       case 2:
         this.title = "传播途径";
         this.titleContent = this.item.spreadway;
-        this.dataTitle = "阻断率";
+        //this.dataTitle = "阻断率";
         this.data = this.item.killrate;//阻断率
         this.content = this.item.spreadwaydes;
         break;
       case 3:
         this.title = "易感人群";
         this.titleContent = this.item.infectpeople;
-        this.dataTitle = "保护率";
+        //this.dataTitle = "保护率";
         this.data = this.item.protectrate;//保护率
         this.content = this.item.infectpeopledes;
         break;
       case 4:
         this.title = "预防措施";
         this.titleContent = this.item.precaution;
-        this.dataTitle = "接种率";
+        //this.dataTitle = "接种率";
         this.data = this.item.precautionrate;//接种率
         this.content = this.item.precautiondes;
         break;

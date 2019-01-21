@@ -505,2089 +505,1442 @@ export class CityProvider {
     "fou": "\u7f36",
     "bia": "\u9adf"
   }
-
+//下面的的数组数据从后台getCityChoose()接口获得
   private cities: Array<any> = [{
     "name": "北京市",
-    "pinyin": "BEIJING",
-    "index": "B"
-  },
-    {
-      "name": "上海市",
-      "pinyin": "SHANGHAI",
-      "index": "S"
-    },
-    {
-      "name": "天津市",
-      "pinyin": "TIANJIN",
-      "index": "T"
-    },
-    {
-      "name": "重庆市",
-      "pinyin": "CHONGQING",
-      "index": "C"
-    },
-    {
-      "name": "阿克苏市",
-      "pinyin": "AKESU",
-      "index": "A"
-    },
-    {
-      "name": "安宁市",
-      "pinyin": "ANNING",
-      "index": "A"
-    },
-    {
-      "name": "安庆市",
-      "pinyin": "ANQING",
-      "index": "A"
-    },
-    {
-      "name": "鞍山市",
-      "pinyin": "ANSHAN",
-      "index": "A"
-    },
-    {
-      "name": "安顺市",
-      "pinyin": "ANSHUN",
-      "index": "A"
-    },
-    {
-      "name": "安阳市",
-      "pinyin": "ANYANG",
-      "index": "A"
-    },
-    {
-      "name": "白城市",
-      "pinyin": "BAICHENG",
-      "index": "B"
-    },
-    {
-      "name": "白山市",
-      "pinyin": "BAISHAN",
-      "index": "B"
-    },
-    {
-      "name": "白银市",
-      "pinyin": "BAIYIN",
-      "index": "B"
-    },
-    {
-      "name": "蚌埠市",
-      "pinyin": "BENGBU",
-      "index": "B"
-    },
-    {
-      "name": "保定市",
-      "pinyin": "BAODING",
-      "index": "B"
-    },
-    {
-      "name": "宝鸡市",
-      "pinyin": "BAOJI",
-      "index": "B"
-    },
-    {
-      "name": "保山市",
-      "pinyin": "BAOSHAN",
-      "index": "B"
-    },
-    {
-      "name": "巴中市",
-      "pinyin": "BAZHONG",
-      "index": "B"
-    },
-    {
-      "name": "北海市",
-      "pinyin": "BEIHAI",
-      "index": "B"
-    },
-    {
-      "name": "本溪市",
-      "pinyin": "BENXI",
-      "index": "B"
-    },
-    {
-      "name": "滨州市",
-      "pinyin": "BINZHOU",
-      "index": "B"
-    },
-    {
-      "name": "博乐市",
-      "pinyin": "BOLE",
-      "index": "B"
-    },
-    {
-      "name": "亳州市",
-      "pinyin": "BOZHOU",
-      "index": "B"
-    },
-    {
-      "name": "沧州市",
-      "pinyin": "CANGZHOU",
-      "index": "C"
-    },
-    {
-      "name": "常德市",
-      "pinyin": "CHANGDE",
-      "index": "C"
-    },
-    {
-      "name": "昌吉市",
-      "pinyin": "CHANGJI",
-      "index": "C"
-    },
-    {
-      "name": "常熟市",
-      "pinyin": "CHANGSHU",
-      "index": "C"
-    },
-    {
-      "name": "常州市",
-      "pinyin": "CHANGZHOU",
-      "index": "C"
-    },
-    {
-      "name": "巢湖市",
-      "pinyin": "CHAOHU",
-      "index": "C"
-    },
-    {
-      "name": "朝阳市",
-      "pinyin": "CHAOYANG",
-      "index": "C"
-    },
-    {
-      "name": "潮州市",
-      "pinyin": "CHAOZHOU",
-      "index": "C"
-    },
-    {
-      "name": "承德市",
-      "pinyin": "CHENGDE",
-      "index": "C"
-    },
-    {
-      "name": "成都市",
-      "pinyin": "CHENGDU",
-      "index": "C"
-    },
-    {
-      "name": "城固市",
-      "pinyin": "CHENGGU",
-      "index": "C"
-    },
-    {
-      "name": "郴州市",
-      "pinyin": "CHENZHOU",
-      "index": "C"
-    },
-    {
-      "name": "赤壁市",
-      "pinyin": "CHIBI",
-      "index": "C"
-    },
-    {
-      "name": "赤峰市",
-      "pinyin": "CHIFENG",
-      "index": "C"
-    },
-    {
-      "name": "赤水市",
-      "pinyin": "CHISHUI",
-      "index": "C"
-    },
-    {
-      "name": "池州市",
-      "pinyin": "CHIZHOU",
-      "index": "C"
-    },
-    {
-      "name": "崇左市",
-      "pinyin": "CHONGZUO",
-      "index": "C"
-    },
-    {
-      "name": "楚雄市",
-      "pinyin": "CHUXIONG",
-      "index": "C"
-    },
-    {
-      "name": "滁州市",
-      "pinyin": "CHUZHOU",
-      "index": "C"
-    },
-    {
-      "name": "慈溪市",
-      "pinyin": "CIXI",
-      "index": "C"
-    },
-    {
-      "name": "从化市",
-      "pinyin": "CONGHUA",
-      "index": "C"
-    },
-    {
-      "name": "大理市",
-      "pinyin": "DALI",
-      "index": "D"
-    },
-    {
-      "name": "大连市",
-      "pinyin": "DALIAN",
-      "index": "D"
-    },
-    {
-      "name": "丹东市",
-      "pinyin": "DANDONG",
-      "index": "D"
-    },
-    {
-      "name": "丹阳市",
-      "pinyin": "DANYANG",
-      "index": "D"
-    },
-    {
-      "name": "大庆市",
-      "pinyin": "DAQING",
-      "index": "D"
-    },
-    {
-      "name": "大同市",
-      "pinyin": "DATONG",
-      "index": "D"
-    },
-    {
-      "name": "达州市",
-      "pinyin": "DAZHOU",
-      "index": "D"
-    },
-    {
-      "name": "德阳市",
-      "pinyin": "DEYANG",
-      "index": "D"
-    },
-    {
-      "name": "德州市",
-      "pinyin": "DEZHOU",
-      "index": "D"
-    },
-    {
-      "name": "东莞市",
-      "pinyin": "DONGGUAN",
-      "index": "D"
-    },
-    {
-      "name": "东阳市",
-      "pinyin": "DONGYANG",
-      "index": "D"
-    },
-    {
-      "name": "东营市",
-      "pinyin": "DONGYING",
-      "index": "D"
-    },
-    {
-      "name": "都匀市",
-      "pinyin": "DOUYUN",
-      "index": "D"
-    },
-    {
-      "name": "敦化市",
-      "pinyin": "DUNHUA",
-      "index": "D"
-    },
-    {
-      "name": "鄂尔多斯市",
-      "pinyin": "EERDUOSI",
-      "index": "E"
-    },
-    {
-      "name": "恩施市",
-      "pinyin": "ENSHI",
-      "index": "E"
-    },
-    {
-      "name": "防城港市",
-      "pinyin": "FANGCHENGGANG",
-      "index": "F"
-    },
-    {
-      "name": "肥城市",
-      "pinyin": "FEICHENG",
-      "index": "F"
-    },
-    {
-      "name": "奉化市",
-      "pinyin": "FENGHUA",
-      "index": "F"
-    },
-    {
-      "name": "抚顺市",
-      "pinyin": "FUSHUN",
-      "index": "F"
-    },
-    {
-      "name": "阜新市",
-      "pinyin": "FUXIN",
-      "index": "F"
-    },
-    {
-      "name": "阜阳市",
-      "pinyin": "FUYANG",
-      "index": "F"
-    },
-    {
-      "name": "富阳市",
-      "pinyin": "FUYANG1",
-      "index": "F"
-    },
-    {
-      "name": "福州市",
-      "pinyin": "FUZHOU",
-      "index": "F"
-    },
-    {
-      "name": "抚州市",
-      "pinyin": "FUZHOU1",
-      "index": "F"
-    },
-    {
-      "name": "赣榆市",
-      "pinyin": "GANYU",
-      "index": "G"
-    },
-    {
-      "name": "赣州市",
-      "pinyin": "GANZHOU",
-      "index": "G"
-    },
-    {
-      "name": "高明市",
-      "pinyin": "GAOMING",
-      "index": "G"
-    },
-    {
-      "name": "高邮市",
-      "pinyin": "GAOYOU",
-      "index": "G"
-    },
-    {
-      "name": "格尔木市",
-      "pinyin": "GEERMU",
-      "index": "G"
-    },
-    {
-      "name": "个旧市",
-      "pinyin": "GEJIU",
-      "index": "G"
-    },
-    {
-      "name": "巩义市",
-      "pinyin": "GONGYI",
-      "index": "G"
-    },
-    {
-      "name": "广安市",
-      "pinyin": "GUANGAN",
-      "index": "G"
-    },
-    {
-      "name": "广元市",
-      "pinyin": "GUANGYUAN",
-      "index": "G"
-    },
-    {
-      "name": "广州市",
-      "pinyin": "GUANGZHOU",
-      "index": "G"
-    },
-    {
-      "name": "古包头市",
-      "pinyin": "GUBAOTOU",
-      "index": "G"
-    },
-    {
-      "name": "贵港市",
-      "pinyin": "GUIGANG",
-      "index": "G"
-    },
-    {
-      "name": "桂林市",
-      "pinyin": "GUILIN",
-      "index": "G"
-    },
-    {
-      "name": "贵阳市",
-      "pinyin": "GUIYANG",
-      "index": "G"
-    },
-    {
-      "name": "固原市",
-      "pinyin": "GUYUAN",
-      "index": "G"
-    },
-    {
-      "name": "哈尔滨市",
-      "pinyin": "HAERBIN",
-      "index": "H"
-    },
-    {
-      "name": "海城市",
-      "pinyin": "HAICHENG",
-      "index": "H"
-    },
-    {
-      "name": "海口市",
-      "pinyin": "HAIKOU",
-      "index": "H"
-    },
-    {
-      "name": "海门市",
-      "pinyin": "HAIMEN",
-      "index": "H"
-    },
-    {
-      "name": "海宁市",
-      "pinyin": "HAINING",
-      "index": "H"
-    },
-    {
-      "name": "哈密市",
-      "pinyin": "HAMI",
-      "index": "H"
-    },
-    {
-      "name": "邯郸市",
-      "pinyin": "HANDAN",
-      "index": "H"
-    },
-    {
-      "name": "杭州市",
-      "pinyin": "HANGZHOU",
-      "index": "H"
-    },
-    {
-      "name": "汉中市",
-      "pinyin": "HANZHONG",
-      "index": "H"
-    },
-    {
-      "name": "鹤壁市",
-      "pinyin": "HEBI",
-      "index": "H"
-    },
-    {
-      "name": "合肥市",
-      "pinyin": "HEFEI",
-      "index": "H"
-    },
-    {
-      "name": "衡水市",
-      "pinyin": "HENGSHUI",
-      "index": "H"
-    },
-    {
-      "name": "衡阳市",
-      "pinyin": "HENGYANG",
-      "index": "H"
-    },
-    {
-      "name": "和田市",
-      "pinyin": "HETIAN",
-      "index": "H"
-    },
-    {
-      "name": "河源市",
-      "pinyin": "HEYUAN",
-      "index": "H"
-    },
-    {
-      "name": "菏泽市",
-      "pinyin": "HEZE",
-      "index": "H"
-    },
-    {
-      "name": "花都市",
-      "pinyin": "HUADOU",
-      "index": "H"
-    },
-    {
-      "name": "淮安市",
-      "pinyin": "HUAIAN",
-      "index": "H"
-    },
-    {
-      "name": "淮北市",
-      "pinyin": "HUAIBEI",
-      "index": "H"
-    },
-    {
-      "name": "怀化市",
-      "pinyin": "HUAIHUA",
-      "index": "H"
-    },
-    {
-      "name": "淮南市",
-      "pinyin": "HUAINAN",
-      "index": "H"
-    },
-    {
-      "name": "黄冈市",
-      "pinyin": "HUANGGANG",
-      "index": "H"
-    },
-    {
-      "name": "黄山市",
-      "pinyin": "HUANGSHAN",
-      "index": "H"
-    },
-    {
-      "name": "黄石市",
-      "pinyin": "HUANGSHI",
-      "index": "H"
-    },
-    {
-      "name": "呼和浩特市",
-      "pinyin": "HUHEHAOTE",
-      "index": "H"
-    },
-    {
-      "name": "惠州市",
-      "pinyin": "HUIZHOU",
-      "index": "H"
-    },
-    {
-      "name": "葫芦岛市",
-      "pinyin": "HULUDAO",
-      "index": "H"
-    },
-    {
-      "name": "湖州市",
-      "pinyin": "HUZHOU",
-      "index": "H"
-    },
-    {
-      "name": "佳木斯市",
-      "pinyin": "JIAMUSI",
-      "index": "J"
-    },
-    {
-      "name": "吉安市",
-      "pinyin": "JIAN",
-      "index": "J"
-    },
-    {
-      "name": "江都市",
-      "pinyin": "JIANGDOU",
-      "index": "J"
-    },
-    {
-      "name": "江门市",
-      "pinyin": "JIANGMEN",
-      "index": "J"
-    },
-    {
-      "name": "江阴市",
-      "pinyin": "JIANGYIN",
-      "index": "J"
-    },
-    {
-      "name": "胶南市",
-      "pinyin": "JIAONAN",
-      "index": "J"
-    },
-    {
-      "name": "胶州市",
-      "pinyin": "JIAOZHOU",
-      "index": "J"
-    },
-    {
-      "name": "焦作市",
-      "pinyin": "JIAOZUO",
-      "index": "J"
-    },
-    {
-      "name": "嘉善市",
-      "pinyin": "JIASHAN",
-      "index": "J"
-    },
-    {
-      "name": "嘉兴市",
-      "pinyin": "JIAXING",
-      "index": "J"
-    },
-    {
-      "name": "介休市",
-      "pinyin": "JIEXIU",
-      "index": "J"
-    },
-    {
-      "name": "吉林市",
-      "pinyin": "JILIN",
-      "index": "J"
-    },
-    {
-      "name": "即墨市",
-      "pinyin": "JIMO",
-      "index": "J"
-    },
-    {
-      "name": "济南市",
-      "pinyin": "JINAN",
-      "index": "J"
-    },
-    {
-      "name": "晋城市",
-      "pinyin": "JINCHENG",
-      "index": "J"
-    },
-    {
-      "name": "景德镇市",
-      "pinyin": "JINGDEZHEN",
-      "index": "J"
-    },
-    {
-      "name": "景洪市",
-      "pinyin": "JINGHONG",
-      "index": "J"
-    },
-    {
-      "name": "靖江市",
-      "pinyin": "JINGJIANG",
-      "index": "J"
-    },
-    {
-      "name": "荆门市",
-      "pinyin": "JINGMEN",
-      "index": "J"
-    },
-    {
-      "name": "荆州市",
-      "pinyin": "JINGZHOU",
-      "index": "J"
-    },
-    {
-      "name": "金华市",
-      "pinyin": "JINHUA",
-      "index": "J"
-    },
-    {
-      "name": "集宁市",
-      "pinyin": "JINING1",
-      "index": "J"
-    },
-    {
-      "name": "济宁市",
-      "pinyin": "JINING",
-      "index": "J"
-    },
-    {
-      "name": "晋江市",
-      "pinyin": "JINJIANG",
-      "index": "J"
-    },
-    {
-      "name": "金坛市",
-      "pinyin": "JINTAN",
-      "index": "J"
-    },
-    {
-      "name": "晋中市",
-      "pinyin": "JINZHONG",
-      "index": "J"
-    },
-    {
-      "name": "锦州市",
-      "pinyin": "JINZHOU",
-      "index": "J"
-    },
-    {
-      "name": "吉首市",
-      "pinyin": "JISHOU",
-      "index": "J"
-    },
-    {
-      "name": "九江市",
-      "pinyin": "JIUJIANG",
-      "index": "J"
-    },
-    {
-      "name": "酒泉市",
-      "pinyin": "JIUQUAN",
-      "index": "J"
-    },
-    {
-      "name": "鸡西市",
-      "pinyin": "JIXI",
-      "index": "J"
-    },
-    {
-      "name": "济源市",
-      "pinyin": "JIYUAN",
-      "index": "J"
-    },
-    {
-      "name": "句容市",
-      "pinyin": "JURONG",
-      "index": "J"
-    },
-    {
-      "name": "开封市",
-      "pinyin": "KAIFENG",
-      "index": "K"
-    },
-    {
-      "name": "凯里市",
-      "pinyin": "KAILI",
-      "index": "K"
-    },
-    {
-      "name": "开平市",
-      "pinyin": "KAIPING",
-      "index": "K"
-    },
-    {
-      "name": "开远市",
-      "pinyin": "KAIYUAN",
-      "index": "K"
-    },
-    {
-      "name": "喀什市",
-      "pinyin": "KASHEN",
-      "index": "K"
-    },
-    {
-      "name": "克拉玛依市",
-      "pinyin": "KELAMAYI",
-      "index": "K"
-    },
-    {
-      "name": "库尔勒市",
-      "pinyin": "KUERLE",
-      "index": "K"
-    },
-    {
-      "name": "奎屯市",
-      "pinyin": "KUITUN",
-      "index": "K"
-    },
-    {
-      "name": "昆明市",
-      "pinyin": "KUNMING",
-      "index": "K"
-    },
-    {
-      "name": "昆山市",
-      "pinyin": "KUNSHAN",
-      "index": "K"
-    },
-    {
-      "name": "来宾市",
-      "pinyin": "LAIBIN",
-      "index": "L"
-    },
-    {
-      "name": "莱芜市",
-      "pinyin": "LAIWU",
-      "index": "L"
-    },
-    {
-      "name": "莱西市",
-      "pinyin": "LAIXI",
-      "index": "L"
-    },
-    {
-      "name": "莱州市",
-      "pinyin": "LAIZHOU",
-      "index": "L"
-    },
-    {
-      "name": "廊坊市",
-      "pinyin": "LANGFANG",
-      "index": "L"
-    },
-    {
-      "name": "兰州市",
-      "pinyin": "LANZHOU",
-      "index": "L"
-    },
-    {
-      "name": "拉萨市",
-      "pinyin": "LASA",
-      "index": "L"
-    },
-    {
-      "name": "乐山市",
-      "pinyin": "LESHAN",
-      "index": "L"
-    },
-    {
-      "name": "连云港市",
-      "pinyin": "LIANYUNGANG",
-      "index": "L"
-    },
-    {
-      "name": "聊城市",
-      "pinyin": "LIAOCHENG",
-      "index": "L"
-    },
-    {
-      "name": "辽阳市",
-      "pinyin": "LIAOYANG",
-      "index": "L"
-    },
-    {
-      "name": "辽源市",
-      "pinyin": "LIAOYUAN",
-      "index": "L"
-    },
-    {
-      "name": "丽江市",
-      "pinyin": "LIJIANG",
-      "index": "L"
-    },
-    {
-      "name": "临安市",
-      "pinyin": "LINAN",
-      "index": "L"
-    },
-    {
-      "name": "临沧市",
-      "pinyin": "LINCANG",
-      "index": "L"
-    },
-    {
-      "name": "临汾市",
-      "pinyin": "LINFEN",
-      "index": "L"
-    },
-    {
-      "name": "灵宝市",
-      "pinyin": "LINGBAO",
-      "index": "L"
-    },
-    {
-      "name": "临河市",
-      "pinyin": "LINHE",
-      "index": "L"
-    },
-    {
-      "name": "临夏市",
-      "pinyin": "LINXIA",
-      "index": "L"
-    },
-    {
-      "name": "临沂市",
-      "pinyin": "LINYI",
-      "index": "L"
-    },
-    {
-      "name": "丽水市",
-      "pinyin": "LISHUI",
-      "index": "L"
-    },
-    {
-      "name": "六安市",
-      "pinyin": "LIUAN",
-      "index": "L"
-    },
-    {
-      "name": "六盘水市",
-      "pinyin": "LIUPANSHUI",
-      "index": "L"
-    },
-    {
-      "name": "柳州市",
-      "pinyin": "LIUZHOU",
-      "index": "L"
-    },
-    {
-      "name": "溧阳市",
-      "pinyin": "LIYANG",
-      "index": "L"
-    },
-    {
-      "name": "龙海市",
-      "pinyin": "LONGHAI",
-      "index": "L"
-    },
-    {
-      "name": "龙岩市",
-      "pinyin": "LONGYAN",
-      "index": "L"
-    },
-    {
-      "name": "娄底市",
-      "pinyin": "LOUDI",
-      "index": "L"
-    },
-    {
-      "name": "漯河市",
-      "pinyin": "LUOHE",
-      "index": "L"
-    },
-    {
-      "name": "洛阳市",
-      "pinyin": "LUOYANG",
-      "index": "L"
-    },
-    {
-      "name": "潞西市",
-      "pinyin": "LUXI",
-      "index": "L"
-    },
-    {
-      "name": "泸州市",
-      "pinyin": "LUZHOU",
-      "index": "L"
-    },
-    {
-      "name": "吕梁市",
-      "pinyin": "LVLIANG",
-      "index": "L"
-    },
-    {
-      "name": "旅顺市",
-      "pinyin": "LVSHUN",
-      "index": "L"
-    },
-    {
-      "name": "马鞍山市",
-      "pinyin": "MAANSHAN",
-      "index": "M"
-    },
-    {
-      "name": "茂名市",
-      "pinyin": "MAOMING",
-      "index": "M"
-    },
-    {
-      "name": "梅河口市",
-      "pinyin": "MEIHEKOU",
-      "index": "M"
-    },
-    {
-      "name": "眉山市",
-      "pinyin": "MEISHAN",
-      "index": "M"
-    },
-    {
-      "name": "梅州市",
-      "pinyin": "MEIZHOU",
-      "index": "M"
-    },
-    {
-      "name": "勉县市",
-      "pinyin": "MIANXIAN",
-      "index": "M"
-    },
-    {
-      "name": "绵阳市",
-      "pinyin": "MIANYANG",
-      "index": "M"
-    },
-    {
-      "name": "牡丹江市",
-      "pinyin": "MUDANJIANG",
-      "index": "M"
-    },
-    {
-      "name": "南安市",
-      "pinyin": "NANAN",
-      "index": "N"
-    },
-    {
-      "name": "南昌市",
-      "pinyin": "NANCHANG",
-      "index": "N"
-    },
-    {
-      "name": "南充市",
-      "pinyin": "NANCHONG",
-      "index": "N"
-    },
-    {
-      "name": "南京市",
-      "pinyin": "NANJING",
-      "index": "N"
-    },
-    {
-      "name": "南宁市",
-      "pinyin": "NANNING",
-      "index": "N"
-    },
-    {
-      "name": "南平市",
-      "pinyin": "NANPING",
-      "index": "N"
-    },
-    {
-      "name": "南通市",
-      "pinyin": "NANTONG",
-      "index": "N"
-    },
-    {
-      "name": "南阳市",
-      "pinyin": "NANYANG",
-      "index": "N"
-    },
-    {
-      "name": "内江市",
-      "pinyin": "NEIJIANG",
-      "index": "N"
-    },
-    {
-      "name": "宁波市",
-      "pinyin": "NINGBO",
-      "index": "N"
-    },
-    {
-      "name": "宁德市",
-      "pinyin": "NINGDE",
-      "index": "N"
-    },
-    {
-      "name": "盘锦市",
-      "pinyin": "PANJIN",
-      "index": "P"
-    },
-    {
-      "name": "攀枝花市",
-      "pinyin": "PANZHIHUA",
-      "index": "P"
-    },
-    {
-      "name": "蓬莱市",
-      "pinyin": "PENGLAI",
-      "index": "P"
-    },
-    {
-      "name": "平顶山市",
-      "pinyin": "PINGDINGSHAN",
-      "index": "P"
-    },
-    {
-      "name": "平度市",
-      "pinyin": "PINGDU",
-      "index": "P"
-    },
-    {
-      "name": "平湖市",
-      "pinyin": "PINGHU",
-      "index": "P"
-    },
-    {
-      "name": "平凉市",
-      "pinyin": "PINGLIANG",
-      "index": "P"
-    },
-    {
-      "name": "萍乡市",
-      "pinyin": "PINGXIANG",
-      "index": "P"
-    },
-    {
-      "name": "普兰店市",
-      "pinyin": "PULANDIAN",
-      "index": "P"
-    },
-    {
-      "name": "普宁市",
-      "pinyin": "PUNING",
-      "index": "P"
-    },
-    {
-      "name": "莆田市",
-      "pinyin": "PUTIAN",
-      "index": "P"
-    },
-    {
-      "name": "濮阳市",
-      "pinyin": "PUYANG",
-      "index": "P"
-    },
-    {
-      "name": "黔南市",
-      "pinyin": "QIANNAN",
-      "index": "Q"
-    },
-    {
-      "name": "启东市",
-      "pinyin": "QIDONG",
-      "index": "Q"
-    },
-    {
-      "name": "青岛市",
-      "pinyin": "QINGDAO",
-      "index": "Q"
-    },
-    {
-      "name": "庆阳市",
-      "pinyin": "QINGYANG",
-      "index": "Q"
-    },
-    {
-      "name": "清远市",
-      "pinyin": "QINGYUAN",
-      "index": "Q"
-    },
-    {
-      "name": "青州市",
-      "pinyin": "QINGZHOU",
-      "index": "Q"
-    },
-    {
-      "name": "秦皇岛市",
-      "pinyin": "QINHUANGDAO",
-      "index": "Q"
-    },
-    {
-      "name": "钦州市",
-      "pinyin": "QINZHOU",
-      "index": "Q"
-    },
-    {
-      "name": "琼海市",
-      "pinyin": "QIONGHAI",
-      "index": "Q"
-    },
-    {
-      "name": "齐齐哈尔市",
-      "pinyin": "QIQIHAER",
-      "index": "Q"
-    },
-    {
-      "name": "泉州市",
-      "pinyin": "QUANZHOU",
-      "index": "Q"
-    },
-    {
-      "name": "曲靖市",
-      "pinyin": "QUJING",
-      "index": "Q"
-    },
-    {
-      "name": "衢州市",
-      "pinyin": "QUZHOU",
-      "index": "Q"
-    },
-    {
-      "name": "日喀则市",
-      "pinyin": "RIKAZE",
-      "index": "R"
-    },
-    {
-      "name": "日照市",
-      "pinyin": "RIZHAO",
-      "index": "R"
-    },
-    {
-      "name": "荣成市",
-      "pinyin": "RONGCHENG",
-      "index": "R"
-    },
-    {
-      "name": "如皋市",
-      "pinyin": "RUGAO",
-      "index": "R"
-    },
-    {
-      "name": "瑞安市",
-      "pinyin": "RUIAN",
-      "index": "R"
-    },
-    {
-      "name": "乳山市",
-      "pinyin": "RUSHAN",
-      "index": "R"
-    },
-    {
-      "name": "三门峡市",
-      "pinyin": "SANMENXIA",
-      "index": "S"
-    },
-    {
-      "name": "三明市",
-      "pinyin": "SANMING",
-      "index": "S"
-    },
-    {
-      "name": "三亚市",
-      "pinyin": "SANYA",
-      "index": "S"
-    },
-    {
-      "name": "厦门市",
-      "pinyin": "XIAMEN",
-      "index": "X"
-    },
-    {
-      "name": "佛山市",
-      "pinyin": "SHAN",
-      "index": "S"
-    },
-    {
-      "name": "商洛市",
-      "pinyin": "SHANGLUO",
-      "index": "S"
-    },
-    {
-      "name": "商丘市",
-      "pinyin": "SHANGQIU",
-      "index": "S"
-    },
-    {
-      "name": "上饶市",
-      "pinyin": "SHANGRAO",
-      "index": "S"
-    },
-    {
-      "name": "上虞市",
-      "pinyin": "SHANGYU",
-      "index": "S"
-    },
-    {
-      "name": "汕头市",
-      "pinyin": "SHANTOU",
-      "index": "S"
-    },
-    {
-      "name": "安康市",
-      "pinyin": "ANKANG",
-      "index": "A"
-    },
-    {
-      "name": "韶关市",
-      "pinyin": "SHAOGUAN",
-      "index": "S"
-    },
-    {
-      "name": "绍兴市",
-      "pinyin": "SHAOXING",
-      "index": "S"
-    },
-    {
-      "name": "邵阳市",
-      "pinyin": "SHAOYANG",
-      "index": "S"
-    },
-    {
-      "name": "沈阳市",
-      "pinyin": "SHENYANG",
-      "index": "S"
-    },
-    {
-      "name": "深圳市",
-      "pinyin": "SHENZHEN",
-      "index": "S"
-    },
-    {
-      "name": "石河子市",
-      "pinyin": "SHIHEZI",
-      "index": "S"
-    },
-    {
-      "name": "石家庄市",
-      "pinyin": "SHIJIAZHUANG",
-      "index": "S"
-    },
-    {
-      "name": "石林市",
-      "pinyin": "SHILIN",
-      "index": "S"
-    },
-    {
-      "name": "石狮市",
-      "pinyin": "SHISHI",
-      "index": "S"
-    },
-    {
-      "name": "十堰市",
-      "pinyin": "SHIYAN",
-      "index": "S"
-    },
-    {
-      "name": "寿光市",
-      "pinyin": "SHOUGUANG",
-      "index": "S"
-    },
-    {
-      "name": "双鸭山市",
-      "pinyin": "SHUANGYASHAN",
-      "index": "S"
-    },
-    {
-      "name": "朔州市",
-      "pinyin": "SHUOZHOU",
-      "index": "S"
-    },
-    {
-      "name": "沭阳市",
-      "pinyin": "SHUYANG",
-      "index": "S"
-    },
-    {
-      "name": "思茅市",
-      "pinyin": "SIMAO",
-      "index": "S"
-    },
-    {
-      "name": "四平市",
-      "pinyin": "SIPING",
-      "index": "S"
-    },
-    {
-      "name": "松原市",
-      "pinyin": "SONGYUAN",
-      "index": "S"
-    },
-    {
-      "name": "遂宁市",
-      "pinyin": "SUINING",
-      "index": "S"
-    },
-    {
-      "name": "随州市",
-      "pinyin": "SUIZHOU",
-      "index": "S"
-    },
-    {
-      "name": "苏州市",
-      "pinyin": "SUZHOU",
-      "index": "S"
-    },
-    {
-      "name": "塔城市",
-      "pinyin": "TACHENG",
-      "index": "T"
-    },
-    {
-      "name": "泰安市",
-      "pinyin": "TAIAN",
-      "index": "T"
-    },
-    {
-      "name": "太仓市",
-      "pinyin": "TAICANG",
-      "index": "T"
-    },
-    {
-      "name": "泰兴市",
-      "pinyin": "TAIXING",
-      "index": "T"
-    },
-    {
-      "name": "太原市",
-      "pinyin": "TAIYUAN",
-      "index": "T"
-    },
-    {
-      "name": "泰州市",
-      "pinyin": "TAIZHOU",
-      "index": "T"
-    },
-    {
-      "name": "台州市",
-      "pinyin": "TAIZHOU1",
-      "index": "T"
-    },
-    {
-      "name": "唐山市",
-      "pinyin": "TANGSHAN",
-      "index": "T"
-    },
-    {
-      "name": "腾冲市",
-      "pinyin": "TENGCHONG",
-      "index": "T"
-    },
-    {
-      "name": "滕州市",
-      "pinyin": "TENGZHOU",
-      "index": "T"
-    },
-    {
-      "name": "天门市",
-      "pinyin": "TIANMEN",
-      "index": "T"
-    },
-    {
-      "name": "天水市",
-      "pinyin": "TIANSHUI",
-      "index": "T"
-    },
-    {
-      "name": "铁岭市",
-      "pinyin": "TIELING",
-      "index": "T"
-    },
-    {
-      "name": "铜川市",
-      "pinyin": "TONGCHUAN",
-      "index": "T"
-    },
-    {
-      "name": "通辽市",
-      "pinyin": "TONGLIAO",
-      "index": "T"
-    },
-    {
-      "name": "铜陵市",
-      "pinyin": "TONGLING",
-      "index": "T"
-    },
-    {
-      "name": "桐庐市",
-      "pinyin": "TONGLU",
-      "index": "T"
-    },
-    {
-      "name": "铜仁市",
-      "pinyin": "TONGREN",
-      "index": "T"
-    },
-    {
-      "name": "桐乡市",
-      "pinyin": "TONGXIANG",
-      "index": "T"
-    },
-    {
-      "name": "通州市",
-      "pinyin": "TONGZHOU",
-      "index": "T"
-    },
-    {
-      "name": "通化市",
-      "pinyin": "TONGHUA",
-      "index": "T"
-    },
-    {
-      "name": "吐鲁番市",
-      "pinyin": "TULUFAN",
-      "index": "T"
-    },
-    {
-      "name": "瓦房店市",
-      "pinyin": "WAFANGDIAN",
-      "index": "W"
-    },
-    {
-      "name": "潍坊市",
-      "pinyin": "WEIFANG",
-      "index": "W"
-    },
-    {
-      "name": "威海市",
-      "pinyin": "WEIHAI",
-      "index": "W"
-    },
-    {
-      "name": "渭南市",
-      "pinyin": "WEINAN",
-      "index": "W"
-    },
-    {
-      "name": "文登市",
-      "pinyin": "WENDENG",
-      "index": "W"
-    },
-    {
-      "name": "温岭市",
-      "pinyin": "WENLING",
-      "index": "W"
-    },
-    {
-      "name": "温州市",
-      "pinyin": "WENZHOU",
-      "index": "W"
-    },
-    {
-      "name": "乌海市",
-      "pinyin": "WUHAI",
-      "index": "W"
-    },
-    {
-      "name": "武汉市",
-      "pinyin": "WUHAN",
-      "index": "W"
-    },
-    {
-      "name": "芜湖市",
-      "pinyin": "WUHU",
-      "index": "W"
-    },
-    {
-      "name": "吴江市",
-      "pinyin": "WUJIANG",
-      "index": "W"
-    },
-    {
-      "name": "乌兰浩特市",
-      "pinyin": "WULANHAOTE",
-      "index": "W"
-    },
-    {
-      "name": "武威市",
-      "pinyin": "WUWEI",
-      "index": "W"
-    },
-    {
-      "name": "无锡市",
-      "pinyin": "WUXI",
-      "index": "W"
-    },
-    {
-      "name": "梧州市",
-      "pinyin": "WUZHOU",
-      "index": "W"
-    },
-    {
-      "name": "西安市",
-      "pinyin": "XIAN",
-      "index": "X"
-    },
-    {
-      "name": "项城市",
-      "pinyin": "XIANGCHENG",
-      "index": "X"
-    },
-    {
-      "name": "襄樊市",
-      "pinyin": "XIANGFAN",
-      "index": "X"
-    },
-    {
-      "name": "香格里拉市",
-      "pinyin": "XIANGGELILA",
-      "index": "X"
-    },
-    {
-      "name": "象山市",
-      "pinyin": "XIANGSHAN",
-      "index": "X"
-    },
-    {
-      "name": "湘潭市",
-      "pinyin": "XIANGTAN",
-      "index": "X"
-    },
-    {
-      "name": "湘乡市",
-      "pinyin": "XIANGXIANG",
-      "index": "X"
-    },
-    {
-      "name": "咸宁市",
-      "pinyin": "XIANNING",
-      "index": "X"
-    },
-    {
-      "name": "仙桃市",
-      "pinyin": "XIANTAO",
-      "index": "X"
-    },
-    {
-      "name": "咸阳市",
-      "pinyin": "XIANYANG",
-      "index": "X"
-    },
-    {
-      "name": "西藏市",
-      "pinyin": "XICANG",
-      "index": "X"
-    },
-    {
-      "name": "西昌市",
-      "pinyin": "XICHANG",
-      "index": "X"
-    },
-    {
-      "name": "邢台市",
-      "pinyin": "XINGTAI",
-      "index": "X"
-    },
-    {
-      "name": "兴义市",
-      "pinyin": "XINGYI",
-      "index": "X"
-    },
-    {
-      "name": "西宁市",
-      "pinyin": "XINING",
-      "index": "X"
-    },
-    {
-      "name": "新乡市",
-      "pinyin": "XINXIANG",
-      "index": "X"
-    },
-    {
-      "name": "信阳市",
-      "pinyin": "XINYANG",
-      "index": "X"
-    },
-    {
-      "name": "新余市",
-      "pinyin": "XINYU",
-      "index": "X"
-    },
-    {
-      "name": "忻州市",
-      "pinyin": "XINZHOU",
-      "index": "X"
-    },
-    {
-      "name": "宿迁市",
-      "pinyin": "SUQIAN",
-      "index": "S"
-    },
-    {
-      "name": "宿豫市",
-      "pinyin": "SUYU",
-      "index": "S"
-    },
-    {
-      "name": "宿州市",
-      "pinyin": "SUZHOU1",
-      "index": "S"
-    },
-    {
-      "name": "宣城市",
-      "pinyin": "XUANCHENG",
-      "index": "X"
-    },
-    {
-      "name": "许昌市",
-      "pinyin": "XUCHANG",
-      "index": "X"
-    },
-    {
-      "name": "徐州市",
-      "pinyin": "XUZHOU",
-      "index": "X"
-    },
-    {
-      "name": "雅安市",
-      "pinyin": "YAAN",
-      "index": "Y"
-    },
-    {
-      "name": "牙克石市",
-      "pinyin": "YAKESHI",
-      "index": "Y"
-    },
-    {
-      "name": "延安市",
-      "pinyin": "YANAN",
-      "index": "Y"
-    },
-    {
-      "name": "延边市",
-      "pinyin": "YANBIAN",
-      "index": "Y"
-    },
-    {
-      "name": "盐城市",
-      "pinyin": "YANCHENG",
-      "index": "Y"
-    },
-    {
-      "name": "阳江市",
-      "pinyin": "YANGJIANG",
-      "index": "Y"
-    },
-    {
-      "name": "阳泉市",
-      "pinyin": "YANGQUAN",
-      "index": "Y"
-    },
-    {
-      "name": "扬州市",
-      "pinyin": "YANGZHOU",
-      "index": "Y"
-    },
-    {
-      "name": "延吉市",
-      "pinyin": "YANJI",
-      "index": "Y"
-    },
-    {
-      "name": "烟台市",
-      "pinyin": "YANTAI",
-      "index": "Y"
-    },
-    {
-      "name": "兖州市",
-      "pinyin": "YANZHOU",
-      "index": "Y"
-    },
-    {
-      "name": "宜宾市",
-      "pinyin": "YIBIN",
-      "index": "Y"
-    },
-    {
-      "name": "宜昌市",
-      "pinyin": "YICHANG",
-      "index": "Y"
-    },
-    {
-      "name": "宜春市",
-      "pinyin": "YICHUN",
-      "index": "Y"
-    },
-    {
-      "name": "伊春市",
-      "pinyin": "YICHUN1",
-      "index": "Y"
-    },
-    {
-      "name": "伊犁市",
-      "pinyin": "YILI",
-      "index": "Y"
-    },
-    {
-      "name": "银川市",
-      "pinyin": "YINCHUAN",
-      "index": "Y"
-    },
-    {
-      "name": "营口市",
-      "pinyin": "YINGKOU",
-      "index": "Y"
-    },
-    {
-      "name": "鹰潭市",
-      "pinyin": "YINGTAN",
-      "index": "Y"
-    },
-    {
-      "name": "伊宁市",
-      "pinyin": "YINING",
-      "index": "Y"
-    },
-    {
-      "name": "义乌市",
-      "pinyin": "YIWU",
-      "index": "Y"
-    },
-    {
-      "name": "宜兴市",
-      "pinyin": "YIXING",
-      "index": "Y"
-    },
-    {
-      "name": "益阳市",
-      "pinyin": "YIYANG",
-      "index": "Y"
-    },
-    {
-      "name": "永康市",
-      "pinyin": "YONGKANG",
-      "index": "Y"
-    },
-    {
-      "name": "永州市",
-      "pinyin": "YONGZHOU",
-      "index": "Y"
-    },
-    {
-      "name": "岳阳市",
-      "pinyin": "YUEYANG",
-      "index": "Y"
-    },
-    {
-      "name": "玉环市",
-      "pinyin": "YUHUAN",
-      "index": "Y"
-    },
-    {
-      "name": "榆林市",
-      "pinyin": "YULIN1",
-      "index": "Y"
-    },
-    {
-      "name": "玉林市",
-      "pinyin": "YULIN",
-      "index": "Y"
-    },
-    {
-      "name": "运城市",
-      "pinyin": "YUNCHENG",
-      "index": "Y"
-    },
-    {
-      "name": "玉溪市",
-      "pinyin": "YUXI",
-      "index": "Y"
-    },
-    {
-      "name": "余姚市",
-      "pinyin": "YUYAO",
-      "index": "Y"
-    },
-    {
-      "name": "枣庄市",
-      "pinyin": "ZAOZHUANG",
-      "index": "Z"
-    },
-    {
-      "name": "增城市",
-      "pinyin": "ZENGCHENG",
-      "index": "Z"
-    },
-    {
-      "name": "长春市",
-      "pinyin": "CHANGCHUN",
-      "index": "C"
-    },
-    {
-      "name": "长海市",
-      "pinyin": "CHANGHAI",
-      "index": "C"
-    },
-    {
-      "name": "张家港市",
-      "pinyin": "ZHANGJIAGANG",
-      "index": "Z"
-    },
-    {
-      "name": "张家界市",
-      "pinyin": "ZHANGJIAJIE",
-      "index": "Z"
-    },
-    {
-      "name": "张家口市",
-      "pinyin": "ZHANGJIAKOU",
-      "index": "Z"
-    },
-    {
-      "name": "长乐市",
-      "pinyin": "CHANGLE",
-      "index": "C"
-    },
-    {
-      "name": "章丘市",
-      "pinyin": "ZHANGQIU",
-      "index": "Z"
-    },
-    {
-      "name": "长沙市",
-      "pinyin": "CHANGSHA",
-      "index": "C"
-    },
-    {
-      "name": "张掖市",
-      "pinyin": "ZHANGYE",
-      "index": "Z"
-    },
-    {
-      "name": "长治市",
-      "pinyin": "CHANGZHI",
-      "index": "C"
-    },
-    {
-      "name": "漳州市",
-      "pinyin": "ZHANGZHOU",
-      "index": "Z"
-    },
-    {
-      "name": "湛江市",
-      "pinyin": "ZHANJIANG",
-      "index": "Z"
-    },
-    {
-      "name": "肇东市",
-      "pinyin": "ZHAODONG",
-      "index": "Z"
-    },
-    {
-      "name": "肇庆市",
-      "pinyin": "ZHAOQING",
-      "index": "Z"
-    },
-    {
-      "name": "昭通市",
-      "pinyin": "ZHAOTONG",
-      "index": "Z"
-    },
-    {
-      "name": "郑州市",
-      "pinyin": "ZHENGZHOU",
-      "index": "Z"
-    },
-    {
-      "name": "镇江市",
-      "pinyin": "ZHENJIANG",
-      "index": "Z"
-    },
-    {
-      "name": "中山市",
-      "pinyin": "ZHONGSHAN",
-      "index": "Z"
-    },
-    {
-      "name": "周口市",
-      "pinyin": "ZHOUKOU",
-      "index": "Z"
-    },
-    {
-      "name": "舟山市",
-      "pinyin": "ZHOUSHAN",
-      "index": "Z"
-    },
-    {
-      "name": "诸城市",
-      "pinyin": "ZHUCHENG",
-      "index": "Z"
-    },
-    {
-      "name": "珠海市",
-      "pinyin": "ZHUHAI",
-      "index": "Z"
-    },
-    {
-      "name": "诸暨市",
-      "pinyin": "ZHUJI",
-      "index": "Z"
-    },
-    {
-      "name": "驻马店市",
-      "pinyin": "ZHUMADIAN",
-      "index": "Z"
-    },
-    {
-      "name": "株洲市",
-      "pinyin": "ZHUZHOU",
-      "index": "Z"
-    },
-    {
-      "name": "淄博市",
-      "pinyin": "ZIBO",
-      "index": "Z"
-    },
-    {
-      "name": "自贡市",
-      "pinyin": "ZIGONG",
-      "index": "Z"
-    },
-    {
-      "name": "遵义市",
-      "pinyin": "ZUNYI",
-      "index": "Z"
-    },
-    {
-      "name": "乌鲁木齐市",
-      "pinyin": "WULUMUQI",
-      "index": "W"
-    },
-    {
-      "name": "福清市",
-      "pinyin": "FUQING",
-      "index": "F"
-    },
-    {
-      "name": "鄂州市",
-      "pinyin": "EZHOU",
-      "index": "E"
-    },
-    {
-      "name": "包头市",
-      "pinyin": "BAOTOU",
-      "index": "B"
-    },
-    {
-      "name": "萧山市",
-      "pinyin": "XIAOSHAN",
-      "index": "X"
-    },
-    {
-      "name": "宣化市",
-      "pinyin": "XUANHUA",
-      "index": "X"
-    },
-    {
-      "name": "江油市",
-      "pinyin": "JIANGYOU",
-      "index": "J"
-    },
-    {
-      "name": "资阳市",
-      "pinyin": "ZIYANG",
-      "index": "Z"
-    },
-    {
-      "name": "辛集市",
-      "pinyin": "XINJI",
-      "index": "X"
-    },
-    {
-      "name": "佛山市",
-      "pinyin": "FOSHAN",
-      "index": "F"
-    },
-    {
-      "name": "万州市",
-      "pinyin": "WANZHOU",
-      "index": "W"
-    },
-    {
-      "name": "邹城市",
-      "pinyin": "ZOUCHENG",
-      "index": "Z"
-    },
-    {
-      "name": "邵武市",
-      "pinyin": "SHAOWU",
-      "index": "S"
-    },
-    {
-      "name": "姜堰市",
-      "pinyin": "JIANGYAN",
-      "index": "J"
-    },
-    {
-      "name": "湘阴市",
-      "pinyin": "XIANGYIN",
-      "index": "X"
-    },
-    {
-      "name": "松江市",
-      "pinyin": "SONGJIANG",
-      "index": "S"
-    },
-    {
-      "name": "七台河市",
-      "pinyin": "QITAIHE",
-      "index": "Q"
-    },
-    {
-      "name": "醴陵市",
-      "pinyin": "LILING",
-      "index": "L"
-    },
-    {
-      "name": "涪陵市",
-      "pinyin": "FULING",
-      "index": "F"
-    },
-    {
-      "name": "公主岭市",
-      "pinyin": "GONGZHULING",
-      "index": "G"
-    },
-    {
-      "name": "歙县市",
-      "pinyin": "SHEXIAN",
-      "index": "S"
-    },
-    {
-      "name": "兴化市",
-      "pinyin": "XINGHUA",
-      "index": "X"
-    }
-  ]
-
-
-
+    "pinyin": "beijingshi",
+    "index": "b"
+  }, {
+    "name": "天津市",
+    "pinyin": "tianjinshi",
+    "index": "t"
+  }, {
+    "name": "石家庄市",
+    "pinyin": "shijiazhuangshi",
+    "index": "s"
+  }, {
+    "name": "唐山市",
+    "pinyin": "tangshanshi",
+    "index": "t"
+  }, {
+    "name": "秦皇岛市",
+    "pinyin": "qinhuangdaoshi",
+    "index": "q"
+  }, {
+    "name": "邯郸市",
+    "pinyin": "handanshi",
+    "index": "h"
+  }, {
+    "name": "邢台市",
+    "pinyin": "xingtaishi",
+    "index": "x"
+  }, {
+    "name": "保定市",
+    "pinyin": "baodingshi",
+    "index": "b"
+  }, {
+    "name": "张家口市",
+    "pinyin": "zhangjiakoushi",
+    "index": "z"
+  }, {
+    "name": "承德市",
+    "pinyin": "chengdeshi",
+    "index": "c"
+  }, {
+    "name": "沧州市",
+    "pinyin": "cangzhoushi",
+    "index": "c"
+  }, {
+    "name": "廊坊市",
+    "pinyin": "langfangshi",
+    "index": "l"
+  }, {
+    "name": "衡水市",
+    "pinyin": "hengshuishi",
+    "index": "h"
+  }, {
+    "name": "太原市",
+    "pinyin": "taiyuanshi",
+    "index": "t"
+  }, {
+    "name": "大同市",
+    "pinyin": "datongshi",
+    "index": "d"
+  }, {
+    "name": "阳泉市",
+    "pinyin": "yangquanshi",
+    "index": "y"
+  }, {
+    "name": "长治市",
+    "pinyin": "zhangzhishi",
+    "index": "z"
+  }, {
+    "name": "晋城市",
+    "pinyin": "jinchengshi",
+    "index": "j"
+  }, {
+    "name": "朔州市",
+    "pinyin": "shuozhoushi",
+    "index": "s"
+  }, {
+    "name": "晋中市",
+    "pinyin": "jinzhongshi",
+    "index": "j"
+  }, {
+    "name": "运城市",
+    "pinyin": "yunchengshi",
+    "index": "y"
+  }, {
+    "name": "忻州市",
+    "pinyin": "xinzhoushi",
+    "index": "x"
+  }, {
+    "name": "临汾市",
+    "pinyin": "linfenshi",
+    "index": "l"
+  }, {
+    "name": "吕梁市",
+    "pinyin": "lvliangshi",
+    "index": "l"
+  }, {
+    "name": "呼和浩特市",
+    "pinyin": "huhehaoteshi",
+    "index": "h"
+  }, {
+    "name": "包头市",
+    "pinyin": "baotoushi",
+    "index": "b"
+  }, {
+    "name": "乌海市",
+    "pinyin": "wuhaishi",
+    "index": "w"
+  }, {
+    "name": "赤峰市",
+    "pinyin": "chifengshi",
+    "index": "c"
+  }, {
+    "name": "通辽市",
+    "pinyin": "tongliaoshi",
+    "index": "t"
+  }, {
+    "name": "鄂尔多斯市",
+    "pinyin": "eerduosishi",
+    "index": "e"
+  }, {
+    "name": "呼伦贝尔市",
+    "pinyin": "hulunbeiershi",
+    "index": "h"
+  }, {
+    "name": "巴彦淖尔市",
+    "pinyin": "bayannaoershi",
+    "index": "b"
+  }, {
+    "name": "乌兰察布市",
+    "pinyin": "wulanchabushi",
+    "index": "w"
+  }, {
+    "name": "兴安盟",
+    "pinyin": "xinganmeng",
+    "index": "x"
+  }, {
+    "name": "锡林郭勒盟",
+    "pinyin": "xilinguolemeng",
+    "index": "x"
+  }, {
+    "name": "阿拉善盟",
+    "pinyin": "alashanmeng",
+    "index": "a"
+  }, {
+    "name": "沈阳市",
+    "pinyin": "shenyangshi",
+    "index": "s"
+  }, {
+    "name": "大连市",
+    "pinyin": "dalianshi",
+    "index": "d"
+  }, {
+    "name": "鞍山市",
+    "pinyin": "anshanshi",
+    "index": "a"
+  }, {
+    "name": "抚顺市",
+    "pinyin": "fushunshi",
+    "index": "f"
+  }, {
+    "name": "本溪市",
+    "pinyin": "benxishi",
+    "index": "b"
+  }, {
+    "name": "丹东市",
+    "pinyin": "dandongshi",
+    "index": "d"
+  }, {
+    "name": "锦州市",
+    "pinyin": "jinzhoushi",
+    "index": "j"
+  }, {
+    "name": "营口市",
+    "pinyin": "yingkoushi",
+    "index": "y"
+  }, {
+    "name": "阜新市",
+    "pinyin": "fuxinshi",
+    "index": "f"
+  }, {
+    "name": "辽阳市",
+    "pinyin": "liaoyangshi",
+    "index": "l"
+  }, {
+    "name": "盘锦市",
+    "pinyin": "panjinshi",
+    "index": "p"
+  }, {
+    "name": "铁岭市",
+    "pinyin": "tielingshi",
+    "index": "t"
+  }, {
+    "name": "朝阳市",
+    "pinyin": "chaoyangshi",
+    "index": "c"
+  }, {
+    "name": "葫芦岛市",
+    "pinyin": "huludaoshi",
+    "index": "h"
+  }, {
+    "name": "长春市",
+    "pinyin": "zhangchunshi",
+    "index": "z"
+  }, {
+    "name": "吉林市",
+    "pinyin": "jilinshi",
+    "index": "j"
+  }, {
+    "name": "四平市",
+    "pinyin": "sipingshi",
+    "index": "s"
+  }, {
+    "name": "辽源市",
+    "pinyin": "liaoyuanshi",
+    "index": "l"
+  }, {
+    "name": "通化市",
+    "pinyin": "tonghuashi",
+    "index": "t"
+  }, {
+    "name": "白山市",
+    "pinyin": "baishanshi",
+    "index": "b"
+  }, {
+    "name": "松原市",
+    "pinyin": "songyuanshi",
+    "index": "s"
+  }, {
+    "name": "白城市",
+    "pinyin": "baichengshi",
+    "index": "b"
+  }, {
+    "name": "延边朝鲜族自治州",
+    "pinyin": "yanbianchaoxianzuzizhizhou",
+    "index": "y"
+  }, {
+    "name": "哈尔滨市",
+    "pinyin": "haerbinshi",
+    "index": "h"
+  }, {
+    "name": "齐齐哈尔市",
+    "pinyin": "qiqihaershi",
+    "index": "q"
+  }, {
+    "name": "鸡西市",
+    "pinyin": "jixishi",
+    "index": "j"
+  }, {
+    "name": "鹤岗市",
+    "pinyin": "hegangshi",
+    "index": "h"
+  }, {
+    "name": "双鸭山市",
+    "pinyin": "shuangyashanshi",
+    "index": "s"
+  }, {
+    "name": "大庆市",
+    "pinyin": "daqingshi",
+    "index": "d"
+  }, {
+    "name": "伊春市",
+    "pinyin": "yichunshi",
+    "index": "y"
+  }, {
+    "name": "佳木斯市",
+    "pinyin": "jiamusishi",
+    "index": "j"
+  }, {
+    "name": "七台河市",
+    "pinyin": "qitaiheshi",
+    "index": "q"
+  }, {
+    "name": "牡丹江市",
+    "pinyin": "mudanjiangshi",
+    "index": "m"
+  }, {
+    "name": "黑河市",
+    "pinyin": "heiheshi",
+    "index": "h"
+  }, {
+    "name": "绥化市",
+    "pinyin": "suihuashi",
+    "index": "s"
+  }, {
+    "name": "大兴安岭地区",
+    "pinyin": "daxinganlingdiqu",
+    "index": "d"
+  }, {
+    "name": "市辖区",
+    "pinyin": "shixiaqu",
+    "index": "s"
+  }, {
+    "name": "县",
+    "pinyin": "xian",
+    "index": "x"
+  }, {
+    "name": "南京市",
+    "pinyin": "nanjingshi",
+    "index": "n"
+  }, {
+    "name": "无锡市",
+    "pinyin": "wuxishi",
+    "index": "w"
+  }, {
+    "name": "徐州市",
+    "pinyin": "xuzhoushi",
+    "index": "x"
+  }, {
+    "name": "常州市",
+    "pinyin": "changzhoushi",
+    "index": "c"
+  }, {
+    "name": "苏州市",
+    "pinyin": "suzhoushi",
+    "index": "s"
+  }, {
+    "name": "南通市",
+    "pinyin": "nantongshi",
+    "index": "n"
+  }, {
+    "name": "连云港市",
+    "pinyin": "lianyungangshi",
+    "index": "l"
+  }, {
+    "name": "淮安市",
+    "pinyin": "huaianshi",
+    "index": "h"
+  }, {
+    "name": "盐城市",
+    "pinyin": "yanchengshi",
+    "index": "y"
+  }, {
+    "name": "扬州市",
+    "pinyin": "yangzhoushi",
+    "index": "y"
+  }, {
+    "name": "镇江市",
+    "pinyin": "zhenjiangshi",
+    "index": "z"
+  }, {
+    "name": "泰州市",
+    "pinyin": "taizhoushi",
+    "index": "t"
+  }, {
+    "name": "宿迁市",
+    "pinyin": "suqianshi",
+    "index": "s"
+  }, {
+    "name": "杭州市",
+    "pinyin": "hangzhoushi",
+    "index": "h"
+  }, {
+    "name": "宁波市",
+    "pinyin": "ningboshi",
+    "index": "n"
+  }, {
+    "name": "温州市",
+    "pinyin": "wenzhoushi",
+    "index": "w"
+  }, {
+    "name": "嘉兴市",
+    "pinyin": "jiaxingshi",
+    "index": "j"
+  }, {
+    "name": "湖州市",
+    "pinyin": "huzhoushi",
+    "index": "h"
+  }, {
+    "name": "绍兴市",
+    "pinyin": "shaoxingshi",
+    "index": "s"
+  }, {
+    "name": "金华市",
+    "pinyin": "jinhuashi",
+    "index": "j"
+  }, {
+    "name": "衢州市",
+    "pinyin": "quzhoushi",
+    "index": "q"
+  }, {
+    "name": "舟山市",
+    "pinyin": "zhoushanshi",
+    "index": "z"
+  }, {
+    "name": "台州市",
+    "pinyin": "taizhoushi",
+    "index": "t"
+  }, {
+    "name": "丽水市",
+    "pinyin": "lishuishi",
+    "index": "l"
+  }, {
+    "name": "合肥市",
+    "pinyin": "hefeishi",
+    "index": "h"
+  }, {
+    "name": "芜湖市",
+    "pinyin": "wuhushi",
+    "index": "w"
+  }, {
+    "name": "蚌埠市",
+    "pinyin": "bangbushi",
+    "index": "b"
+  }, {
+    "name": "淮南市",
+    "pinyin": "huainanshi",
+    "index": "h"
+  }, {
+    "name": "马鞍山市",
+    "pinyin": "maanshanshi",
+    "index": "m"
+  }, {
+    "name": "淮北市",
+    "pinyin": "huaibeishi",
+    "index": "h"
+  }, {
+    "name": "铜陵市",
+    "pinyin": "tonglingshi",
+    "index": "t"
+  }, {
+    "name": "安庆市",
+    "pinyin": "anqingshi",
+    "index": "a"
+  }, {
+    "name": "黄山市",
+    "pinyin": "huangshanshi",
+    "index": "h"
+  }, {
+    "name": "滁州市",
+    "pinyin": "chuzhoushi",
+    "index": "c"
+  }, {
+    "name": "阜阳市",
+    "pinyin": "fuyangshi",
+    "index": "f"
+  }, {
+    "name": "宿州市",
+    "pinyin": "suzhoushi",
+    "index": "s"
+  }, {
+    "name": "六安市",
+    "pinyin": "liuanshi",
+    "index": "l"
+  }, {
+    "name": "亳州市",
+    "pinyin": "bozhoushi",
+    "index": "b"
+  }, {
+    "name": "池州市",
+    "pinyin": "chizhoushi",
+    "index": "c"
+  }, {
+    "name": "宣城市",
+    "pinyin": "xuanchengshi",
+    "index": "x"
+  }, {
+    "name": "福州市",
+    "pinyin": "fuzhoushi",
+    "index": "f"
+  }, {
+    "name": "厦门市",
+    "pinyin": "shamenshi",
+    "index": "s"
+  }, {
+    "name": "莆田市",
+    "pinyin": "putianshi",
+    "index": "p"
+  }, {
+    "name": "三明市",
+    "pinyin": "sanmingshi",
+    "index": "s"
+  }, {
+    "name": "泉州市",
+    "pinyin": "quanzhoushi",
+    "index": "q"
+  }, {
+    "name": "漳州市",
+    "pinyin": "zhangzhoushi",
+    "index": "z"
+  }, {
+    "name": "南平市",
+    "pinyin": "nanpingshi",
+    "index": "n"
+  }, {
+    "name": "龙岩市",
+    "pinyin": "longyanshi",
+    "index": "l"
+  }, {
+    "name": "宁德市",
+    "pinyin": "ningdeshi",
+    "index": "n"
+  }, {
+    "name": "平潭综合实验区",
+    "pinyin": "pingtanzongheshiyanqu",
+    "index": "p"
+  }, {
+    "name": "南昌市",
+    "pinyin": "nanchangshi",
+    "index": "n"
+  }, {
+    "name": "景德镇市",
+    "pinyin": "jingdezhenshi",
+    "index": "j"
+  }, {
+    "name": "萍乡市",
+    "pinyin": "pingxiangshi",
+    "index": "p"
+  }, {
+    "name": "九江市",
+    "pinyin": "jiujiangshi",
+    "index": "j"
+  }, {
+    "name": "新余市",
+    "pinyin": "xinyushi",
+    "index": "x"
+  }, {
+    "name": "鹰潭市",
+    "pinyin": "yingtanshi",
+    "index": "y"
+  }, {
+    "name": "赣州市",
+    "pinyin": "ganzhoushi",
+    "index": "g"
+  }, {
+    "name": "吉安市",
+    "pinyin": "jianshi",
+    "index": "j"
+  }, {
+    "name": "宜春市",
+    "pinyin": "yichunshi",
+    "index": "y"
+  }, {
+    "name": "抚州市",
+    "pinyin": "fuzhoushi",
+    "index": "f"
+  }, {
+    "name": "上饶市",
+    "pinyin": "shangraoshi",
+    "index": "s"
+  }, {
+    "name": "济南市",
+    "pinyin": "jinanshi",
+    "index": "j"
+  }, {
+    "name": "青岛市",
+    "pinyin": "qingdaoshi",
+    "index": "q"
+  }, {
+    "name": "淄博市",
+    "pinyin": "ziboshi",
+    "index": "z"
+  }, {
+    "name": "枣庄市",
+    "pinyin": "zaozhuangshi",
+    "index": "z"
+  }, {
+    "name": "东营市",
+    "pinyin": "dongyingshi",
+    "index": "d"
+  }, {
+    "name": "烟台市",
+    "pinyin": "yantaishi",
+    "index": "y"
+  }, {
+    "name": "潍坊市",
+    "pinyin": "weifangshi",
+    "index": "w"
+  }, {
+    "name": "济宁市",
+    "pinyin": "jiningshi",
+    "index": "j"
+  }, {
+    "name": "泰安市",
+    "pinyin": "taianshi",
+    "index": "t"
+  }, {
+    "name": "威海市",
+    "pinyin": "weihaishi",
+    "index": "w"
+  }, {
+    "name": "日照市",
+    "pinyin": "rizhaoshi",
+    "index": "r"
+  }, {
+    "name": "莱芜市",
+    "pinyin": "laiwushi",
+    "index": "l"
+  }, {
+    "name": "临沂市",
+    "pinyin": "linyishi",
+    "index": "l"
+  }, {
+    "name": "德州市",
+    "pinyin": "dezhoushi",
+    "index": "d"
+  }, {
+    "name": "聊城市",
+    "pinyin": "liaochengshi",
+    "index": "l"
+  }, {
+    "name": "滨州市",
+    "pinyin": "binzhoushi",
+    "index": "b"
+  }, {
+    "name": "菏泽市",
+    "pinyin": "hezeshi",
+    "index": "h"
+  }, {
+    "name": "郑州市",
+    "pinyin": "zhengzhoushi",
+    "index": "z"
+  }, {
+    "name": "开封市",
+    "pinyin": "kaifengshi",
+    "index": "k"
+  }, {
+    "name": "洛阳市",
+    "pinyin": "luoyangshi",
+    "index": "l"
+  }, {
+    "name": "平顶山市",
+    "pinyin": "pingdingshanshi",
+    "index": "p"
+  }, {
+    "name": "安阳市",
+    "pinyin": "anyangshi",
+    "index": "a"
+  }, {
+    "name": "鹤壁市",
+    "pinyin": "hebishi",
+    "index": "h"
+  }, {
+    "name": "新乡市",
+    "pinyin": "xinxiangshi",
+    "index": "x"
+  }, {
+    "name": "焦作市",
+    "pinyin": "jiaozuoshi",
+    "index": "j"
+  }, {
+    "name": "濮阳市",
+    "pinyin": "puyangshi",
+    "index": "p"
+  }, {
+    "name": "许昌市",
+    "pinyin": "xuchangshi",
+    "index": "x"
+  }, {
+    "name": "漯河市",
+    "pinyin": "luoheshi",
+    "index": "l"
+  }, {
+    "name": "三门峡市",
+    "pinyin": "sanmenxiashi",
+    "index": "s"
+  }, {
+    "name": "南阳市",
+    "pinyin": "nanyangshi",
+    "index": "n"
+  }, {
+    "name": "商丘市",
+    "pinyin": "shangqiushi",
+    "index": "s"
+  }, {
+    "name": "信阳市",
+    "pinyin": "xinyangshi",
+    "index": "x"
+  }, {
+    "name": "周口市",
+    "pinyin": "zhoukoushi",
+    "index": "z"
+  }, {
+    "name": "驻马店市",
+    "pinyin": "zhumadianshi",
+    "index": "z"
+  }, {
+    "name": "长垣县",
+    "pinyin": "zhangyuanxian",
+    "index": "z"
+  }, {
+    "name": "滑县",
+    "pinyin": "huaxian",
+    "index": "h"
+  }, {
+    "name": "巩义市",
+    "pinyin": "gongyishi",
+    "index": "g"
+  }, {
+    "name": "鹿邑县",
+    "pinyin": "luyixian",
+    "index": "l"
+  }, {
+    "name": "兰考县",
+    "pinyin": "lankaoxian",
+    "index": "l"
+  }, {
+    "name": "永城市",
+    "pinyin": "yongchengshi",
+    "index": "y"
+  }, {
+    "name": "汝州市",
+    "pinyin": "ruzhoushi",
+    "index": "r"
+  }, {
+    "name": "新蔡县",
+    "pinyin": "xincaixian",
+    "index": "x"
+  }, {
+    "name": "邓州市",
+    "pinyin": "dengzhoushi",
+    "index": "d"
+  }, {
+    "name": "固始县",
+    "pinyin": "gushixian",
+    "index": "g"
+  }, {
+    "name": "济源市",
+    "pinyin": "jiyuanshi",
+    "index": "j"
+  }, {
+    "name": "武汉市",
+    "pinyin": "wuhanshi",
+    "index": "w"
+  }, {
+    "name": "黄石市",
+    "pinyin": "huangshishi",
+    "index": "h"
+  }, {
+    "name": "十堰市",
+    "pinyin": "shiyanshi",
+    "index": "s"
+  }, {
+    "name": "宜昌市",
+    "pinyin": "yichangshi",
+    "index": "y"
+  }, {
+    "name": "襄阳市",
+    "pinyin": "xiangyangshi",
+    "index": "x"
+  }, {
+    "name": "鄂州市",
+    "pinyin": "ezhoushi",
+    "index": "e"
+  }, {
+    "name": "荆门市",
+    "pinyin": "jingmenshi",
+    "index": "j"
+  }, {
+    "name": "孝感市",
+    "pinyin": "xiaoganshi",
+    "index": "x"
+  }, {
+    "name": "荆州市",
+    "pinyin": "jingzhoushi",
+    "index": "j"
+  }, {
+    "name": "黄冈市",
+    "pinyin": "huanggangshi",
+    "index": "h"
+  }, {
+    "name": "咸宁市",
+    "pinyin": "xianningshi",
+    "index": "x"
+  }, {
+    "name": "随州市",
+    "pinyin": "suizhoushi",
+    "index": "s"
+  }, {
+    "name": "恩施土家族苗族自治州",
+    "pinyin": "enshitujiazumiaozuzizhizhou",
+    "index": "e"
+  }, {
+    "name": "省直辖县级行政区划",
+    "pinyin": "shengzhixiaxianjixingzhengquhua",
+    "index": "s"
+  }, {
+    "name": "长沙市",
+    "pinyin": "zhangshashi",
+    "index": "z"
+  }, {
+    "name": "株洲市",
+    "pinyin": "zhuzhoushi",
+    "index": "z"
+  }, {
+    "name": "湘潭市",
+    "pinyin": "xiangtanshi",
+    "index": "x"
+  }, {
+    "name": "衡阳市",
+    "pinyin": "hengyangshi",
+    "index": "h"
+  }, {
+    "name": "邵阳市",
+    "pinyin": "shaoyangshi",
+    "index": "s"
+  }, {
+    "name": "岳阳市",
+    "pinyin": "yueyangshi",
+    "index": "y"
+  }, {
+    "name": "常德市",
+    "pinyin": "changdeshi",
+    "index": "c"
+  }, {
+    "name": "张家界市",
+    "pinyin": "zhangjiajieshi",
+    "index": "z"
+  }, {
+    "name": "益阳市",
+    "pinyin": "yiyangshi",
+    "index": "y"
+  }, {
+    "name": "郴州市",
+    "pinyin": "chenzhoushi",
+    "index": "c"
+  }, {
+    "name": "永州市",
+    "pinyin": "yongzhoushi",
+    "index": "y"
+  }, {
+    "name": "怀化市",
+    "pinyin": "huaihuashi",
+    "index": "h"
+  }, {
+    "name": "娄底市",
+    "pinyin": "loudishi",
+    "index": "l"
+  }, {
+    "name": "湘西土家族苗族自治州",
+    "pinyin": "xiangxitujiazumiaozuzizhizhou",
+    "index": "x"
+  }, {
+    "name": "广州市",
+    "pinyin": "guangzhoushi",
+    "index": "g"
+  }, {
+    "name": "韶关市",
+    "pinyin": "shaoguanshi",
+    "index": "s"
+  }, {
+    "name": "深圳市",
+    "pinyin": "shenzhenshi",
+    "index": "s"
+  }, {
+    "name": "珠海市",
+    "pinyin": "zhuhaishi",
+    "index": "z"
+  }, {
+    "name": "汕头市",
+    "pinyin": "shantoushi",
+    "index": "s"
+  }, {
+    "name": "佛山市",
+    "pinyin": "foshanshi",
+    "index": "f"
+  }, {
+    "name": "江门市",
+    "pinyin": "jiangmenshi",
+    "index": "j"
+  }, {
+    "name": "湛江市",
+    "pinyin": "zhanjiangshi",
+    "index": "z"
+  }, {
+    "name": "茂名市",
+    "pinyin": "maomingshi",
+    "index": "m"
+  }, {
+    "name": "肇庆市",
+    "pinyin": "zhaoqingshi",
+    "index": "z"
+  }, {
+    "name": "惠州市",
+    "pinyin": "huizhoushi",
+    "index": "h"
+  }, {
+    "name": "梅州市",
+    "pinyin": "meizhoushi",
+    "index": "m"
+  }, {
+    "name": "汕尾市",
+    "pinyin": "shanweishi",
+    "index": "s"
+  }, {
+    "name": "河源市",
+    "pinyin": "heyuanshi",
+    "index": "h"
+  }, {
+    "name": "阳江市",
+    "pinyin": "yangjiangshi",
+    "index": "y"
+  }, {
+    "name": "清远市",
+    "pinyin": "qingyuanshi",
+    "index": "q"
+  }, {
+    "name": "东莞市",
+    "pinyin": "dongguanshi",
+    "index": "d"
+  }, {
+    "name": "中山市",
+    "pinyin": "zhongshanshi",
+    "index": "z"
+  }, {
+    "name": "潮州市",
+    "pinyin": "chaozhoushi",
+    "index": "c"
+  }, {
+    "name": "揭阳市",
+    "pinyin": "jieyangshi",
+    "index": "j"
+  }, {
+    "name": "云浮市",
+    "pinyin": "yunfushi",
+    "index": "y"
+  }, {
+    "name": "南宁市",
+    "pinyin": "nanningshi",
+    "index": "n"
+  }, {
+    "name": "柳州市",
+    "pinyin": "liuzhoushi",
+    "index": "l"
+  }, {
+    "name": "桂林市",
+    "pinyin": "guilinshi",
+    "index": "g"
+  }, {
+    "name": "梧州市",
+    "pinyin": "wuzhoushi",
+    "index": "w"
+  }, {
+    "name": "北海市",
+    "pinyin": "beihaishi",
+    "index": "b"
+  }, {
+    "name": "防城港市",
+    "pinyin": "fangchenggangshi",
+    "index": "f"
+  }, {
+    "name": "钦州市",
+    "pinyin": "qinzhoushi",
+    "index": "q"
+  }, {
+    "name": "贵港市",
+    "pinyin": "guigangshi",
+    "index": "g"
+  }, {
+    "name": "玉林市",
+    "pinyin": "yulinshi",
+    "index": "y"
+  }, {
+    "name": "百色市",
+    "pinyin": "baiseshi",
+    "index": "b"
+  }, {
+    "name": "贺州市",
+    "pinyin": "hezhoushi",
+    "index": "h"
+  }, {
+    "name": "河池市",
+    "pinyin": "hechishi",
+    "index": "h"
+  }, {
+    "name": "来宾市",
+    "pinyin": "laibinshi",
+    "index": "l"
+  }, {
+    "name": "崇左市",
+    "pinyin": "chongzuoshi",
+    "index": "c"
+  }, {
+    "name": "海口市",
+    "pinyin": "haikoushi",
+    "index": "h"
+  }, {
+    "name": "三亚市",
+    "pinyin": "sanyashi",
+    "index": "s"
+  }, {
+    "name": "三沙市",
+    "pinyin": "sanshashi",
+    "index": "s"
+  }, {
+    "name": "儋州市",
+    "pinyin": "danzhoushi",
+    "index": "d"
+  }, {
+    "name": "省直辖县级行政单位",
+    "pinyin": "shengzhixiaxianjixingzhengdanwei",
+    "index": "s"
+  }, {
+    "name": "市辖区",
+    "pinyin": "shixiaqu",
+    "index": "s"
+  }, {
+    "name": "县",
+    "pinyin": "xian",
+    "index": "x"
+  }, {
+    "name": "成都市",
+    "pinyin": "chengdoushi",
+    "index": "c"
+  }, {
+    "name": "自贡市",
+    "pinyin": "zigongshi",
+    "index": "z"
+  }, {
+    "name": "攀枝花市",
+    "pinyin": "panzhihuashi",
+    "index": "p"
+  }, {
+    "name": "泸州市",
+    "pinyin": "luzhoushi",
+    "index": "l"
+  }, {
+    "name": "德阳市",
+    "pinyin": "deyangshi",
+    "index": "d"
+  }, {
+    "name": "绵阳市",
+    "pinyin": "mianyangshi",
+    "index": "m"
+  }, {
+    "name": "广元市",
+    "pinyin": "guangyuanshi",
+    "index": "g"
+  }, {
+    "name": "遂宁市",
+    "pinyin": "suiningshi",
+    "index": "s"
+  }, {
+    "name": "内江市",
+    "pinyin": "neijiangshi",
+    "index": "n"
+  }, {
+    "name": "乐山市",
+    "pinyin": "leshanshi",
+    "index": "l"
+  }, {
+    "name": "南充市",
+    "pinyin": "nanchongshi",
+    "index": "n"
+  }, {
+    "name": "眉山市",
+    "pinyin": "meishanshi",
+    "index": "m"
+  }, {
+    "name": "宜宾市",
+    "pinyin": "yibinshi",
+    "index": "y"
+  }, {
+    "name": "广安市",
+    "pinyin": "guanganshi",
+    "index": "g"
+  }, {
+    "name": "达州市",
+    "pinyin": "dazhoushi",
+    "index": "d"
+  }, {
+    "name": "雅安市",
+    "pinyin": "yaanshi",
+    "index": "y"
+  }, {
+    "name": "巴中市",
+    "pinyin": "bazhongshi",
+    "index": "b"
+  }, {
+    "name": "资阳市",
+    "pinyin": "ziyangshi",
+    "index": "z"
+  }, {
+    "name": "阿坝藏族羌族自治州",
+    "pinyin": "abazangzuqiangzuzizhizhou",
+    "index": "a"
+  }, {
+    "name": "甘孜藏族自治州",
+    "pinyin": "ganzizangzuzizhizhou",
+    "index": "g"
+  }, {
+    "name": "凉山彝族自治州",
+    "pinyin": "liangshanyizuzizhizhou",
+    "index": "l"
+  }, {
+    "name": "贵阳市",
+    "pinyin": "guiyangshi",
+    "index": "g"
+  }, {
+    "name": "六盘水市",
+    "pinyin": "liupanshuishi",
+    "index": "l"
+  }, {
+    "name": "遵义市",
+    "pinyin": "zunyishi",
+    "index": "z"
+  }, {
+    "name": "安顺市",
+    "pinyin": "anshunshi",
+    "index": "a"
+  }, {
+    "name": "铜仁市",
+    "pinyin": "tongrenshi",
+    "index": "t"
+  }, {
+    "name": "黔西南布依族苗族自治州",
+    "pinyin": "qianxinanbuyizumiaozuzizhizhou",
+    "index": "q"
+  }, {
+    "name": "毕节市",
+    "pinyin": "bijieshi",
+    "index": "b"
+  }, {
+    "name": "黔东南苗族侗族自治州",
+    "pinyin": "qiandongnanmiaozudongzuzizhizhou",
+    "index": "q"
+  }, {
+    "name": "黔南布依族苗族自治州",
+    "pinyin": "qiannanbuyizumiaozuzizhizhou",
+    "index": "q"
+  }, {
+    "name": "贵安新区",
+    "pinyin": "guianxinqu",
+    "index": "g"
+  }, {
+    "name": "昆明市",
+    "pinyin": "kunmingshi",
+    "index": "k"
+  }, {
+    "name": "曲靖市",
+    "pinyin": "qujingshi",
+    "index": "q"
+  }, {
+    "name": "玉溪市",
+    "pinyin": "yuxishi",
+    "index": "y"
+  }, {
+    "name": "保山市",
+    "pinyin": "baoshanshi",
+    "index": "b"
+  }, {
+    "name": "昭通市",
+    "pinyin": "zhaotongshi",
+    "index": "z"
+  }, {
+    "name": "丽江市",
+    "pinyin": "lijiangshi",
+    "index": "l"
+  }, {
+    "name": "普洱市",
+    "pinyin": "puershi",
+    "index": "p"
+  }, {
+    "name": "临沧市",
+    "pinyin": "lincangshi",
+    "index": "l"
+  }, {
+    "name": "楚雄彝族自治州",
+    "pinyin": "chuxiongyizuzizhizhou",
+    "index": "c"
+  }, {
+    "name": "红河哈尼族彝族自治州",
+    "pinyin": "honghehanizuyizuzizhizhou",
+    "index": "h"
+  }, {
+    "name": "文山壮族苗族自治州",
+    "pinyin": "wenshanzhuangzumiaozuzizhizhou",
+    "index": "w"
+  }, {
+    "name": "西双版纳傣族自治州",
+    "pinyin": "xishuangbannadaizuzizhizhou",
+    "index": "x"
+  }, {
+    "name": "大理白族自治州",
+    "pinyin": "dalibaizuzizhizhou",
+    "index": "d"
+  }, {
+    "name": "德宏傣族景颇族自治州",
+    "pinyin": "dehongdaizujingpozuzizhizhou",
+    "index": "d"
+  }, {
+    "name": "怒江傈僳族自治州",
+    "pinyin": "nujianglisuzuzizhizhou",
+    "index": "n"
+  }, {
+    "name": "迪庆藏族自治州",
+    "pinyin": "diqingzangzuzizhizhou",
+    "index": "d"
+  }, {
+    "name": "拉萨市",
+    "pinyin": "lasashi",
+    "index": "l"
+  }, {
+    "name": "昌都市",
+    "pinyin": "changdoushi",
+    "index": "c"
+  }, {
+    "name": "山南市",
+    "pinyin": "shannanshi",
+    "index": "s"
+  }, {
+    "name": "日喀则市",
+    "pinyin": "rikazeshi",
+    "index": "r"
+  }, {
+    "name": "那曲地区",
+    "pinyin": "neiqudiqu",
+    "index": "n"
+  }, {
+    "name": "阿里地区",
+    "pinyin": "alidiqu",
+    "index": "a"
+  }, {
+    "name": "林芝市",
+    "pinyin": "linzhishi",
+    "index": "l"
+  }, {
+    "name": "西安市",
+    "pinyin": "xianshi",
+    "index": "x"
+  }, {
+    "name": "铜川市",
+    "pinyin": "tongchuanshi",
+    "index": "t"
+  }, {
+    "name": "宝鸡市",
+    "pinyin": "baojishi",
+    "index": "b"
+  }, {
+    "name": "咸阳市",
+    "pinyin": "xianyangshi",
+    "index": "x"
+  }, {
+    "name": "渭南市",
+    "pinyin": "weinanshi",
+    "index": "w"
+  }, {
+    "name": "延安市",
+    "pinyin": "yananshi",
+    "index": "y"
+  }, {
+    "name": "汉中市",
+    "pinyin": "hanzhongshi",
+    "index": "h"
+  }, {
+    "name": "榆林市",
+    "pinyin": "yulinshi",
+    "index": "y"
+  }, {
+    "name": "安康市",
+    "pinyin": "ankangshi",
+    "index": "a"
+  }, {
+    "name": "商洛市",
+    "pinyin": "shangluoshi",
+    "index": "s"
+  }, {
+    "name": "杨凌区",
+    "pinyin": "yanglingqu",
+    "index": "y"
+  }, {
+    "name": "省直辖县级行政区划",
+    "pinyin": "shengzhixiaxianjixingzhengquhua",
+    "index": "s"
+  }, {
+    "name": "兰州市",
+    "pinyin": "lanzhoushi",
+    "index": "l"
+  }, {
+    "name": "嘉峪关市",
+    "pinyin": "jiayuguanshi",
+    "index": "j"
+  }, {
+    "name": "金昌市",
+    "pinyin": "jinchangshi",
+    "index": "j"
+  }, {
+    "name": "白银市",
+    "pinyin": "baiyinshi",
+    "index": "b"
+  }, {
+    "name": "天水市",
+    "pinyin": "tianshuishi",
+    "index": "t"
+  }, {
+    "name": "武威市",
+    "pinyin": "wuweishi",
+    "index": "w"
+  }, {
+    "name": "张掖市",
+    "pinyin": "zhangyeshi",
+    "index": "z"
+  }, {
+    "name": "平凉市",
+    "pinyin": "pingliangshi",
+    "index": "p"
+  }, {
+    "name": "酒泉市",
+    "pinyin": "jiuquanshi",
+    "index": "j"
+  }, {
+    "name": "庆阳市",
+    "pinyin": "qingyangshi",
+    "index": "q"
+  }, {
+    "name": "定西市",
+    "pinyin": "dingxishi",
+    "index": "d"
+  }, {
+    "name": "陇南市",
+    "pinyin": "longnanshi",
+    "index": "l"
+  }, {
+    "name": "临夏回族自治州",
+    "pinyin": "linxiahuizuzizhizhou",
+    "index": "l"
+  }, {
+    "name": "甘南藏族自治州",
+    "pinyin": "gannanzangzuzizhizhou",
+    "index": "g"
+  }, {
+    "name": "甘肃矿区",
+    "pinyin": "gansukuangqu",
+    "index": "g"
+  }, {
+    "name": "兰州新区",
+    "pinyin": "lanzhouxinqu",
+    "index": "l"
+  }, {
+    "name": "西宁市",
+    "pinyin": "xiningshi",
+    "index": "x"
+  }, {
+    "name": "海东市",
+    "pinyin": "haidongshi",
+    "index": "h"
+  }, {
+    "name": "海北藏族自治州",
+    "pinyin": "haibeizangzuzizhizhou",
+    "index": "h"
+  }, {
+    "name": "黄南藏族自治州",
+    "pinyin": "huangnanzangzuzizhizhou",
+    "index": "h"
+  }, {
+    "name": "海南藏族自治州",
+    "pinyin": "hainanzangzuzizhizhou",
+    "index": "h"
+  }, {
+    "name": "果洛藏族自治州",
+    "pinyin": "guoluozangzuzizhizhou",
+    "index": "g"
+  }, {
+    "name": "玉树藏族自治州",
+    "pinyin": "yushuzangzuzizhizhou",
+    "index": "y"
+  }, {
+    "name": "海西蒙古族藏族自治州",
+    "pinyin": "haiximengguzuzangzuzizhizhou",
+    "index": "h"
+  }, {
+    "name": "银川市",
+    "pinyin": "yinchuanshi",
+    "index": "y"
+  }, {
+    "name": "石嘴山市",
+    "pinyin": "shizuishanshi",
+    "index": "s"
+  }, {
+    "name": "吴忠市",
+    "pinyin": "wuzhongshi",
+    "index": "w"
+  }, {
+    "name": "固原市",
+    "pinyin": "guyuanshi",
+    "index": "g"
+  }, {
+    "name": "中卫市",
+    "pinyin": "zhongweishi",
+    "index": "z"
+  }, {
+    "name": "乌鲁木齐市",
+    "pinyin": "wulumuqishi",
+    "index": "w"
+  }, {
+    "name": "克拉玛依市",
+    "pinyin": "kelamayishi",
+    "index": "k"
+  }, {
+    "name": "吐鲁番市",
+    "pinyin": "tulufanshi",
+    "index": "t"
+  }, {
+    "name": "哈密市",
+    "pinyin": "hamishi",
+    "index": "h"
+  }, {
+    "name": "昌吉回族自治州",
+    "pinyin": "changjihuizuzizhizhou",
+    "index": "c"
+  }, {
+    "name": "博尔塔拉蒙古自治州",
+    "pinyin": "boertalamengguzizhizhou",
+    "index": "b"
+  }, {
+    "name": "巴音郭楞蒙古自治州",
+    "pinyin": "bayinguolengmengguzizhizhou",
+    "index": "b"
+  }, {
+    "name": "阿克苏地区",
+    "pinyin": "akesudiqu",
+    "index": "a"
+  }, {
+    "name": "克孜勒苏柯尔克孜自治州",
+    "pinyin": "kezilesukeerkezizizhizhou",
+    "index": "k"
+  }, {
+    "name": "喀什地区",
+    "pinyin": "kashendiqu",
+    "index": "k"
+  }, {
+    "name": "和田地区",
+    "pinyin": "hetiandiqu",
+    "index": "h"
+  }, {
+    "name": "伊犁哈萨克自治州",
+    "pinyin": "yilihasakezizhizhou",
+    "index": "y"
+  }, {
+    "name": "塔城地区",
+    "pinyin": "tachengdiqu",
+    "index": "t"
+  }, {
+    "name": "阿勒泰地区",
+    "pinyin": "aletaidiqu",
+    "index": "a"
+  }]
 }

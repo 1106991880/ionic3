@@ -39,11 +39,15 @@ export class HealthPage {
 
   //是否完成健康风险评估
   isEvaluation;
+
   //仪表盘数据
   dashData: any = [{value: 20, name: ''}];
 
   //动态曲线数据
   dynamicData: any;
+
+  //评估指标对象
+  riskFactorObj: any = {};
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -73,7 +77,7 @@ export class HealthPage {
         this.storage.get("USER_INFO").then(value => {
           var userAccount = {
             account: value.account,
-            time:this.event.time
+            time: this.event.time
           }
           //查询出当天用户评估结果,动态曲线的值
           this.mainService.getUserDynamicData(userAccount).then(value1 => {
@@ -96,7 +100,10 @@ export class HealthPage {
         })
 
         //如果评估过获取影响评估的因素
-        //this.items = this.getHealthData();
+        //this.getHealthData();
+        //获取风险评估影响因素
+        this.getRiskFactor();
+
       }
       else {
         document.getElementById("isEvaluation").style.display = 'none';
@@ -105,6 +112,13 @@ export class HealthPage {
     })
 
 
+  }
+
+  //获取风险评估因素数据
+  getRiskFactor() {
+    this.userService.getRiskFactor().subscribe(value => {
+      this.riskFactorObj = JSON.parse(value._body)[0];
+    })
   }
 
 //获取数据进行展示
@@ -230,7 +244,7 @@ export class HealthPage {
             //formatter: '{value}%',
             formatter: '感染风险',
             textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-              fontSize: 20,     //中间指针数值字体大小
+              fontSize: 15,     //中间指针数值字体大小
             }
           },
           animation: true,       //是否开启动画
@@ -245,7 +259,7 @@ export class HealthPage {
   }
 
   //echarts折线图
-  loadEchartsZx(){
+  loadEchartsZx() {
     //动态曲线
     if (this.EChartDynamicCurve != null && this.EChartDynamicCurve != "" && this.EChartDynamicCurve != undefined) {
       this.EChartDynamicCurve.dispose();

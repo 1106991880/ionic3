@@ -68,7 +68,7 @@ export class HomePage {
   weatherObject: any;
 
   //仪表盘数据格式
-  dashData: any = [{value: 20, name: ''}];
+  dashData: any = [{value: 20, name: '流行性感冒'}];
 
   //计算流感流行度的参数
   public popularIndex = {
@@ -79,8 +79,6 @@ export class HomePage {
   }
   //地区
   cityColumns: any[];
-
-  //GitHub测试2018-11-26
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -160,7 +158,6 @@ export class HomePage {
     var diseaname = {
       diseasename: '流行性感冒'
     }
-
     this.mainService.mainData(diseaname).then(value => {
       this.listData = value;
     })
@@ -203,7 +200,7 @@ export class HomePage {
 
     //修改上面的延迟函数
     this.getCurrentCityName().then(value => {
-      console.log("修改上面的延迟方式："+value);
+      console.log("修改上面的延迟方式：" + value);
       this.getDiseaseIndex();
     });
 
@@ -461,10 +458,11 @@ export class HomePage {
     this.popularIndex.localCityName = this.localCityName;
     //每次进入页面都要计算当前城市、当前日期的流感流行度，将计算出来的流感指数赋值给Echarts图
     this.mainService.indexByCityAndTime(this.popularIndex).then(value => {
-      console.log("当前的流行感染度：" + value);
+      console.log("当前的流行感染度：" + JSON.stringify(value));
       this.dashData = [];
       //给echarts图赋值
       this.dashData.push(value);
+      //this.dashData.push();
       //加载echarts图
       this.loadEcharts();
     })
@@ -508,11 +506,16 @@ export class HomePage {
     this.EChart = echarts.init(ctelement);
     this.EChart.setOption({
       tooltip: {
-        formatter: "{a} <br/>{b} : {c}%",   //提示框样式
+        show: false,//是否显示点击显示详情
+        alwaysShowContent: true,
+        confine: true,
+        formatter: "{a}{b}:{c}%",   //提示框样式
+        position: [0, 0],  //位置,默认不设置时位置会跟随鼠标的位置
+        //triggerOn:'none',//不在 'mousemove' 或 'click' 时触发
       },
       series: [
         {
-          name: '流感',
+          name: '流感流行度',
           type: 'gauge',
           startAngle: 180,
           endAngle: 0,
@@ -585,10 +588,14 @@ export class HomePage {
             width: 100,
             height: 40,
             offsetCenter: [0, -40],       // x, y，单位px
-            formatter: '流感流行度',
+            formatter: '流行性感冒{value}',
+            // formatter:function(value){
+            //   return value;
+            // },
             textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-              fontSize: 20,     //中间指针数值字体大小
-            }
+              fontSize: 15,     //中间指针数值字体大小
+            },
+            //color:'black',    //文字颜色
           },
           animation: true,       //是否开启动画
           //animationThreshold:100,    //是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
