@@ -6,7 +6,7 @@
         <ion-icon name="pin"></ion-icon >{{localCityNameSub}}
       </button>
     </ion-buttons>
-   <ion-title>防疫站</ion-title>
+   <ion-title>AI防疫站</ion-title>
     <ion-buttons end>
       <button ion-button (click)="weatherDetail(weatherObject)" style="color:#FFFFFF;">
         {{cityWeather}}<ion-icon name={{weatherIcon}}></ion-icon>
@@ -45,27 +45,36 @@
         <ion-multi-picker id="cities" [separator]="'-'" cancelText="取消" doneText="确认" [(ngModel)]="eventcity.text" (ngModelChange)="changeCity($event)" item-content  [multiPickerColumns]="cityColumns"></ion-multi-picker>
       </ion-item>-->
 
-      <!--<ion-item *ngFor="let i of listData" (click)="getDetail(i)">-->
-        <!--<div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">{{i.name}}</b>-->
-        <!--<div><div style="float: left;">{{i.one}}</div> <div style="float: right">{{i.two}}</div></div>-->
-      <!--</ion-item>-->
+      <ion-item no-lines style="border-bottom: 0.55px solid #c8c7cc;" text-wrap>
+        <div class="message"></div><b style="font-size: 16px;color: #2186ff;margin-left:10px;">专家建议&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="return-right"></ion-icon></b>
+        <br>
+        <p class="p"><span *ngIf="di">流感流行强度较低,可正常进行户内外活动。</span>
+        <span *ngIf="zhong">流感流行强度中等,建议少去人群密集的地方。</span>
+        <span *ngIf="gao">流感流行强度较高,建议少去人群密集的地方,在人群密集的室内应当保持空气流通。</span>
+        <span *ngIf="jigao">流感流行强度极高,建议接种流感疫苗,接种疫苗后2~4周即开始起保护作用。</span></p>
+      </ion-item>
+
+      <!--<ion-item *ngFor="let i of listData" (click)="getDetail(i)">
+        <div class="message"></div><b style="font-size: 16px;color: #E6B531;margin-left:10px;">{{i.name}}</b>
+        <div><div style="float: left;">{{i.one}}</div> <div style="float: right">{{i.two}}</div></div>
+      </ion-item>-->
 
       <ion-grid>
         <ion-row>
           <ion-col col-3 text-center tappable (click)="getDetail(listData,1)">
-            <img class="menuimg" src="assets/imgs/home/u22.png">
+            <img class="menuimg" src="assets/imgs/home/cry.png">
             <p>传染源</p>
           </ion-col>
           <ion-col col-3 text-center tappable (click)="getDetail(listData,2)">
-            <img class="menuimg" src="assets/imgs/home/u34.png">
+            <img class="menuimg" src="assets/imgs/home/cbtj.png">
             <p>传播途径</p>
           </ion-col>
           <ion-col col-3 text-center tappable (click)="getDetail(listData,3)">
-            <img class="menuimg" src="assets/imgs/home/u24.png">
+            <img class="menuimg" src="assets/imgs/home/ygrq.png">
             <p>易感人群</p>
           </ion-col>
           <ion-col col-3 text-center tappable (click)="getDetail(listData,4)">
-            <img class="menuimg" src="assets/imgs/home/u40.png">
+            <img class="menuimg" src="assets/imgs/home/yfcs.png">
             <p>预防措施</p>
           </ion-col>
         </ion-row>

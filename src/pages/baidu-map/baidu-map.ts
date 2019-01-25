@@ -56,8 +56,12 @@ export class BaiduMapPage {
       var mPoint = new BMap.Point(longitude, latitude); //获取当前位置
       map.enableScrollWheelZoom();
       map.centerAndZoom(mPoint, 15);
-      //将当前位置打点,并添加到地图中去
-      var icons = "../../assets/imgs/marker_yellow.png";
+      //将当前位置打点,并添加到地图中去//阿里巴巴矢量图标库
+      //var icons = "../../assets/imgs/marker_yellow.png";
+      //var icons = "../../assets/imgs/blueicon.png";
+      //var icons = "../../assets/imgs/timgicon.jpeg";
+      //var icons = "../../assets/imgs/mapicon.jpg";
+      var icons = "../../assets/imgs/buleicon.png";
 
       var markers = new BMap.Marker(new BMap.Point(longitude, latitude)); //lng为经度,lat为纬度
       var icon = new BMap.Icon(icons, new BMap.Size(25, 25)); //显示图标大小

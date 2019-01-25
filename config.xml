@@ -102,5 +102,5 @@
         <variable name="IOS_KEY" value="39OvYyjcYXl0D3iZL05yqX2MoCAGcrxA" />
         <variable name="IOS_LOCATION_DESC" value="请点击'好'以允许访问。" />
     </plugin>
-    <engine name="android" spec="7.0.0" />
+    <engine name="android" spec="^7.0.0" />
 </widget>

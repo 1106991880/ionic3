@@ -17,57 +17,57 @@
     <!--ionic官方时间选择控件-->
     <ion-datetime class="datetimeStyle" max="2020-10-31" displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
   </div>
-  <ion-item>
+  <ion-item no-lines style="border-bottom: 0.55px solid #c8c7cc;">
     <div class="message"></div><b class="other">评估动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></b>
   </ion-item>
     <!--echarts图-->
   <div class="dynamicCurve">
     <div #EchartsContentDynamicCurve class="EchartsDivDynamic"></div>
   </div>
-  <ion-item>
-    <div class="message"></div><b class="other">感染风险影响因素&nbsp;&nbsp;&nbsp;<ion-icon name="logo-twitch"></ion-icon></b>
+  <ion-item no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">感染风险影响因素&nbsp;&nbsp;&nbsp;<ion-icon name="logo-twitch"></ion-icon>&nbsp;&nbsp;&nbsp;<span class="di"></span>低&nbsp;<span class="zhong"></span>中&nbsp;<span class="gao"></span>高</b>
   </ion-item>
   <ion-grid >
     <ion-row>
     <ion-col col-4 text-center style="background: #a6d191;border: 1px solid #FFFFFF" >
-      <p>移动百分位</p>
-      <p>0.05%</p>
+      <p>当地风险值</p>
+      <p>{{riskFactorObj.localrisk}}</p>
     </ion-col>
     <ion-col col-4 text-center style="background: #ea7d3c;border: 1px solid #FFFFFF">
       <p>传染源</p>
-      <p>0.1%</p>
+      <p>{{riskFactorObj.infectsource}}</p>
     </ion-col>
     <ion-col col-4 text-center style="background: #a6d191;border: 1px solid #FFFFFF">
       <p>传播途径</p>
-      <p>0.05%</p>
+      <p>{{riskFactorObj.spreadway}}</p>
     </ion-col>
   </ion-row >
     <ion-row>
       <ion-col col-4 text-center style="background: #ea7d3c;border: 1px solid #FFFFFF">
         <p>易感性</p>
-        <p>0.2%</p>
+        <p>{{riskFactorObj.infectnature}}</p>
       </ion-col>
       <ion-col col-4 text-center style="background: #f2b187;border: 1px solid #FFFFFF">
         <p>疫苗保护</p>
-        <p>0.1%</p>
+        <p>{{riskFactorObj.vaccineprotect}}</p>
       </ion-col>
       <ion-col col-4 text-center style="background: #f2b187;border: 1px solid #FFFFFF">
-        <p>基础疾病</p>
-        <p>0.1%</p>
+        <p>慢性病</p>
+        <p>{{riskFactorObj.chronic}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-4 text-center style="background: #ea7d3c;border: 1px solid #FFFFFF">
         <p>年龄因素</p>
-        <p>0.2%</p>
+        <p>{{riskFactorObj.agefactor}}</p>
       </ion-col>
       <ion-col col-4 text-center style="background: #f2b187;border: 1px solid #FFFFFF">
         <p>气象因素</p>
-        <p>0.1%</p>
+        <p>{{riskFactorObj.weatherfactor}}</p>
       </ion-col>
       <ion-col col-4 text-center style="background:#a6d191;border: 1px solid #FFFFFF">
         <p>PM2.5</p>
-        <p>0.05%</p>
+        <p>{{riskFactorObj.pm25}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -45,6 +45,9 @@ export class HealthPage {
   //动态曲线数据
   dynamicData: any;
 
+  //评估指标对象
+  riskFactorObj: any = {};
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public userService: UserServiceProvider,
@@ -97,6 +100,8 @@ export class HealthPage {
 
         //如果评估过获取影响评估的因素
         //this.items = this.getHealthData();
+        //获取风险评估影响因素数据
+        this.getRiskFactor();
       }
       else {
         document.getElementById("isEvaluation").style.display = 'none';
@@ -105,6 +110,13 @@ export class HealthPage {
     })
 
 
+  }
+
+  //获取风险评估因素数据
+  getRiskFactor() {
+    this.userService.getRiskFactor().subscribe(value => {
+      this.riskFactorObj = JSON.parse(value._body)[0];
+    })
   }
 
 //获取数据进行展示
@@ -230,7 +242,7 @@ export class HealthPage {
             //formatter: '{value}%',
             formatter: '感染风险',
             textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-              fontSize: 20,     //中间指针数值字体大小
+              fontSize: 15,     //中间指针数值字体大小
             }
           },
           animation: true,       //是否开启动画

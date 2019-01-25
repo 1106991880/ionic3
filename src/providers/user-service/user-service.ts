@@ -116,6 +116,11 @@ export class UserServiceProvider {
     return this.httpMyNetService.commonInterfacePost('/getHealthPageRiskIndex',params);
   }
 
+  //个人健康信息页面的风险评估影响因素数据
+  public getRiskFactor(){
+    return this.httpMyNetService.commonInterfaceGet('/getRiskFactor');
+  }
+
 
   /**
    * 当前是否登录

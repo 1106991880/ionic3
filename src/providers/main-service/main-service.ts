@@ -24,6 +24,7 @@ export class MainServiceProvider {
   public mainData(params){
     console.log("首页数据请求......");
     return this.httpMyNetService.commonInterfacePost('/ionicHomeData',params);
+    //return this.httpMyNetService.commonInterfacePost('/ionicHomeDataOld',params);
   }
 
   //风险评估指数

@@ -82,6 +82,12 @@ export class HomePage {
 
   //GitHub测试2018-11-26
 
+  //流感流行度显示建议定义boolean:true,false,用于显示和隐藏
+  di;
+  zhong;
+  gao;
+  jigao;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public userService: UserServiceProvider,
@@ -462,11 +468,44 @@ export class HomePage {
     //每次进入页面都要计算当前城市、当前日期的流感流行度，将计算出来的流感指数赋值给Echarts图
     this.mainService.indexByCityAndTime(this.popularIndex).then(value => {
       console.log("当前的流行感染度：" + value);
+      console.log("当前的流行感染度：" + JSON.stringify(value));
       this.dashData = [];
       //给echarts图赋值
       this.dashData.push(value);
       //加载echarts图
       this.loadEcharts();
+      //如果value.value>=0&&value.value<25;流感流行度低。
+      //console.log("value.value---"+value.value);
+      var valueindex = value.value;
+      //流感强度低
+      if(valueindex>=0&&valueindex<=25){
+        this.di=true;
+        this.zhong=false;
+        this.gao=false;
+        this.jigao=false;
+      }
+      //流感强度中等
+      if(valueindex>25&&valueindex<=50){
+        this.di=false;
+        this.zhong=true;
+        this.gao=false;
+        this.jigao=false;
+      }
+      //流感强度高
+      if(valueindex>50&&valueindex<=75){
+        this.di=false;
+        this.zhong=false;
+        this.gao=true;
+        this.jigao=false;
+      }
+      //流感强度极高
+      if(valueindex>75&&valueindex<=100){
+        this.di=false;
+        this.zhong=false;
+        this.gao=false;
+        this.jigao=true;
+      }
+
     })
   }
 
@@ -508,44 +547,51 @@ export class HomePage {
     this.EChart = echarts.init(ctelement);
     this.EChart.setOption({
       tooltip: {
+        show:false,
         formatter: "{a} <br/>{b} : {c}%",   //提示框样式
       },
       series: [
         {
+          splitNumber:1000,
+          min:0,//默认
+          max:100,
           name: '流感',
           type: 'gauge',
           startAngle: 180,
           endAngle: 0,
           center: ['50%', '95%'],    // 默认全局居中
           radius: '180%',            //  图大小
-          axisLine: {            // 坐标轴线
+          axisLine: {           // 坐标轴线
             //show:true,//是否显示仪表盘轴线
             lineStyle: {       // 属性lineStyle控制线条样式
               //width: 200
-              width: 60,          //轴线的宽度
+              width: 60,          //轴线的宽度(仪表盘宽度)
               color: [[0.25, '#75e600'], [0.5, '#e6de7d'], [0.75, '#e67b00'], [1, '#e60000']],
             }
           },
           axisTick: {// 坐标轴小标记
-            //splitNumber: 10,   // 每份split细分多少段
+            //splitNumber: 100,   // 每份split细分多少段
             splitNumber: 1,
             length: 0,        // 属性length控制线长
             show: false,
           },
           splitLine: {
             show: false,       //是否显示刻度分割线
-            //length:30         //分割线线长度
+            length:0         //分割线线长度
           },
           axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
-            formatter: function (v) {
-              switch (v + '') {
-                case '10':
+            show:true,//是否显示标签,默认为true
+            distance: 20,//文字距离刻度线长度
+            formatter: function (value) {
+              //console.log("v-----"+value);//这个value是分的段数
+              switch (value + '') {
+                case '12.5':
                   return '低';
-                case '40':
+                case '37.5':
                   return '中';
-                case '60':
+                case '62.5':
                   return '高';
-                case '90':
+                case '87.5':
                   return '极高';
                 default:
                   return '';
@@ -556,8 +602,6 @@ export class HomePage {
               fontSize: 15,
               fontWeight: 'bolder'
             },
-            distance: 0,//文字距离刻度线长度
-
           },
           pointer: {
             width: 5,
@@ -585,9 +629,11 @@ export class HomePage {
             width: 100,
             height: 40,
             offsetCenter: [0, -40],       // x, y，单位px
-            formatter: '流感流行度',
+            //formatter: '流行性感冒{value}',//去掉流行性感冒的value
+            formatter: '流行性感冒\n流行强度',//\n为换行
+
             textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-              fontSize: 20,     //中间指针数值字体大小
+              fontSize: 15,     //中间指针数值字体大小
             }
           },
           animation: true,       //是否开启动画
