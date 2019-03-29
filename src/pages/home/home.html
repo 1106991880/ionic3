@@ -23,7 +23,7 @@
   <div class="topInfo">
     <div #EchartsContent class="EchartsDiv"></div>
     <!--ionic官方时间选择控件-->
-    <ion-datetime style=" position: relative" class="datetimeStyle" max="2020-10-31" displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
+    <ion-datetime style=" position: relative" class="datetimeStyle" max={{datePickerMax}} displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
 
   </div>
 
@@ -90,7 +90,7 @@
       <!--</button>-->
       <div class="bottomInfo">
         <span class="fxzs">
-        <span class="bottomInfoOne" *ngIf="isEvaluation"><b style="font-size: 16px;">我的传染风险指数</b></span><span class="riskIndex" *ngIf="isEvaluation">：{{index}}
+        <span class="bottomInfoOne" *ngIf="isEvaluation"><b style="font-size: 16px;">我的感染风险指数</b></span><span class="riskIndex" *ngIf="isEvaluation">：{{index}}
         <br /></span>
         </span>
         <span class="dtandcf">

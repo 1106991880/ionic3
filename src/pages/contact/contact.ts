@@ -16,6 +16,8 @@ export class ContactPage {
   user: any = {};
   // 是否登录
   isLogin: Boolean = false;
+  //是否是微信登录
+  isWxLogin:Boolean = true;
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
@@ -28,6 +30,17 @@ export class ContactPage {
   //每次进入页面,获取一下用户信息
   ionViewWillEnter(){
     this.refreshUserInfo();
+    //判断用户是否是微信登录
+    this.storage.get("USER_INFO").then(value => {
+      console.log("是否为微信登录"+JSON.stringify(value));
+      if(value!=null){
+      if(value.loginType=='undefined'||value.loginType==''||value.loginType==null){
+        //不是微信登录
+        this.isWxLogin=false;
+      }
+      }
+
+    })
   }
   //刷新用户信息
   refreshUserInfo(){

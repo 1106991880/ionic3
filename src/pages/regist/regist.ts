@@ -95,7 +95,9 @@ export class RegistPage {
           }
           if (value.msg == "success") {
             this.nativeService.showToast('注册成功');
-            this.navCtrl.setRoot(LoginPage);
+            this.dismiss();
+            //this.navCtrl.setRoot(LoginPage);
+            //this.navCtrl.push(LoginPage);
           }
 
         })

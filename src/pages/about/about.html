@@ -59,7 +59,7 @@
 </ion-content>
 
 <ion-content no-padding style="background-color: #fff;" *ngIf="!isDisplay">
-  <ion-item>
+  <ion-item no-lines style="border-bottom: 0.55px solid #c8c7cc;">
     <div class="message"></div><b class="other">动态曲线&nbsp;&nbsp;&nbsp;<ion-icon name="pulse"></ion-icon></b>
   </ion-item>
 
@@ -67,7 +67,7 @@
   <div class="dynamicCurve">
     <div #EchartsContent class="EchartsDiv"></div>
   </div>
-  <ion-item>
+  <ion-item no-lines style="border-bottom: 0.55px solid #c8c7cc;">
     <div class="message"></div><b class="other">权威解读分析&nbsp;&nbsp;&nbsp;<ion-icon name="book"></ion-icon></b>
   </ion-item>
   <p padding>这是传染风险的动态曲线，分析流行性感冒流行特征，为流感防制提供科学依据、方法。根据曲线分析，每次评估得到的感染风险值如图所示，被感染的风险在0.5上下波动。</p>

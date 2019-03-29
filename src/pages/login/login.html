@@ -31,15 +31,15 @@
     <button ion-button round  block type="submit" class="loginbutton"  (click)="login()">登录</button>
   </div>
 
-  <!--<div style="display: flex;align-items:center; margin-left: 8.5%; width: 90%" >-->
-    <!--<p style="width:30%;height:1px;background-color: #FFFFFF;margin-right: 5% " ></p>-->
-    <!--<p style="color: #FFFFFF " >其他登录方式</p>-->
-    <!--<p style="width:30%;height:1px;background-color: #FFFFFF;margin-left: 5% " ></p>-->
-  <!--</div>-->
-  <!--<div style="display: flex;flex-direction: column;align-items: center;">-->
-    <!--<img src="../../assets/imgs/usercenter/qq.png" style="width:44px;height:44px;background-color: #fff" />-->
-    <!--<p>QQ</p>-->
-  <!--</div>-->
+  <div style="display: flex;align-items:center; margin-left: 8.5%; width: 90%" >
+    <p style="width:30%;height:1px;background-color: #FFFFFF;margin-right: 5% " ></p>
+    <p style="color: #FFFFFF " >其他登录方式</p>
+    <p style="width:30%;height:1px;background-color: #FFFFFF;margin-left: 5% " ></p>
+  </div>
+  <div style="display: flex;flex-direction: column;align-items: center;" (click)="wxLogin()">
+    <img src="../../assets/imgs/usercenter/weixinlogin.png" style="width:44px;height:44px;border-radius:88px;background-color: #ffffff" />
+    <p style="color: white">微信快捷登录</p>
+  </div>
 
 
 

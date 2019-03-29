@@ -17,13 +17,14 @@
     <!--</ion-row>-->
     <ion-row>
       <ion-col text-center>
-        <img class="avtor" *ngIf="user?.avatar&&isLogin" src="{{user?.avatar}}">
-        <img class="avtor" *ngIf="!user?.avatar||!isLogin" src="../../assets/imgs/usercenter/avater.png">
+        <img class="avtor" *ngIf="user?.headimgurl&&isLogin" src="{{user?.headimgurl}}">
+        <img class="avtor" *ngIf="!user?.headimgurl||!isLogin" src="../../assets/imgs/usercenter/avater.png">
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col text-center style="color: white;padding-top: 0px">
-        <p style="margin-top: 0px;" *ngIf="isLogin" class="f16 fontweight">{{user.account}}</p>
+        <p style="margin-top: 0px;" *ngIf="!user?.nickname&&isLogin" class="f16 fontweight">{{user.account}}</p>
+        <p style="margin-top: 0px;" *ngIf="user?.nickname&&isLogin" class="f16 fontweight">{{user.nickname}}</p>
         <ion-label style="margin-top: 0px;" *ngIf="!isLogin">未登录，点击登录</ion-label>
       </ion-col>
     </ion-row>
@@ -41,7 +42,7 @@
       关于
     </button>
 
-    <button ion-item (click)="changePassword()" *ngIf="isLogin">
+    <button ion-item (click)="changePassword()" *ngIf="!user?.nickname&&isLogin">
       <ion-icon style="color: #2186ff" name="checkmark-circle-outline" item-start></ion-icon>
       修改密码
     </button>

@@ -51,4 +51,11 @@ export class MainServiceProvider {
     return this.httpMyNetService.commonInterfacePost('/getUserDynamicData',params);
   }
 
+
+  //用户动态曲线(修改)
+  public getPgResults(params){
+    console.log("获取用户的动态曲线参数"+JSON.stringify(params));
+    return this.httpMyNetService.commonInterfacePost('/getPgResults',params);
+  }
+
 }

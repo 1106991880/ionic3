@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import {IonicPage, NavParams} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import {NativeServiceProvider} from "../../providers/native-service/native-service";
 import { Storage } from "@ionic/storage";
@@ -27,17 +27,49 @@ export class BaiduMapPage {
 
   @ViewChild('allmap') mapElement: ElementRef;
 
+  //获取home页面的参数,用于查询
+  city:any;
+
 
 
   constructor(public geolocation: Geolocation,
               public nativeService:NativeServiceProvider,
-              public storage:Storage) {}
+              public storage:Storage,
+              public navParams:NavParams) {
+    this.city = navParams.get('city');
+  }
 
   ionViewDidLoad() {
     //创建地图对象
     var map = new BMap.Map(this.mapElement.nativeElement, {
       enableMapClick: true
     });
+
+    map.centerAndZoom(this.city,11);
+    //var markers = new BMap.Marker(this.city);
+    //var icons = "../../assets/imgs/buleicon.png";
+    //var icon = new BMap.Icon(icons, new BMap.Size(25, 25)); //显示图标大小
+    //markers.setIcon(icon); //设置标签的图标为自定义图标
+    //map.addOverlay(markers); //将标签添加到地图中去
+
+    var local = new BMap.LocalSearch(map, {
+      renderOptions: {
+        map: map,
+        autoViewport: true,
+        panel:"r-result"  //查询结果面板显示
+      }
+    });
+
+    //默认查询新增社区服务中心查询
+    local.searchNearby(['医疗机构','社区卫生服务中心'], this.city, 10000);
+
+
+
+
+
+    /**
+    //获取当前位置进行范围查询
+
     baidumap_location.getCurrentPosition(function (result) {
       var latitude=result.latitude;
       var longitude=result.longitude;
@@ -56,6 +88,7 @@ export class BaiduMapPage {
       var mPoint = new BMap.Point(longitude, latitude); //获取当前位置
       map.enableScrollWheelZoom();
       map.centerAndZoom(mPoint, 15);
+      //map.centerAndZoom("成都市",15);
       //将当前位置打点,并添加到地图中去//阿里巴巴矢量图标库
       //var icons = "../../assets/imgs/marker_yellow.png";
       //var icons = "../../assets/imgs/blueicon.png";
@@ -83,13 +116,18 @@ export class BaiduMapPage {
           panel:"r-result"  //查询结果面板显示
         }
       });
-      local.searchNearby('医疗机构', mPoint, 10000);
+      //默认查询新增社区服务中心查询
+      local.searchNearby(['医疗机构','社区卫生服务中心'], mPoint, 10000);
     }, function (error) {
       this.nativeService.showToast("查询错误");
 
     });
+    */
 
-  }
+
+     }
+
+
 
 
   //按钮查询
@@ -101,6 +139,27 @@ export class BaiduMapPage {
 
     //获取输入查询内容
     var condition = this.medical;
+    map.centerAndZoom(this.city,11);
+    var local = new BMap.LocalSearch(map, {
+      renderOptions: {
+        map: map,
+        autoViewport: true,
+        panel:"r-result"  //查询结果面板显示
+      }
+    });
+    //默认查询新增社区服务中心查询
+    local.searchNearby([condition], this.city, 10000);
+
+
+
+
+
+
+    /**
+
+
+
+
     if(condition == undefined || condition == "") {
       //alert("请输入查询条件");
       this.nativeService.showToast("请输入查询条件");
@@ -128,6 +187,10 @@ export class BaiduMapPage {
       },{enableHighAccuracy: true});
 
     }
+
+     */
+
+
   }
 
 

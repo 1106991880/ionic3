@@ -29,6 +29,7 @@ export class UserDetailInfoPage {
     basicIllness:[],
     vaccination:[],
   }
+  user:any={};
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -36,6 +37,7 @@ export class UserDetailInfoPage {
               public storage:Storage,
               public userService:UserServiceProvider,
               public nativeService:NativeServiceProvider) {
+    this.user = this.navParams.data.userInfo;
   }
 
   ionViewDidLoad() {

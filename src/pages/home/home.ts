@@ -88,6 +88,9 @@ export class HomePage {
   gao;
   jigao;
 
+  //日期选择器未来第7天的时间,作为日期选择的最大时间
+  datePickerMax;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public userService: UserServiceProvider,
@@ -105,6 +108,9 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    //this.datePickerMax=
+    this.datePickerMax=this.fun_date(6);
+      //this.fun_date(7);
     //选择的城市
     console.log("选择的城市:" + this.chooseCity);
 
@@ -171,6 +177,18 @@ export class HomePage {
       this.listData = value;
     })
 
+  }
+  //第七天日期函数
+  fun_date(num){
+    var date1=new Date();
+    var date2=new Date(date1);
+    date2.setDate(date1.getDate()+num);
+    var m = date2.getMonth() + 1;
+    var m2 = m < 10 ? '0' + m : m;
+    var d = date2.getDate();
+    var d2 = d < 10 ? ('0' + d) : d;
+    var time2=date2.getFullYear()+"-"+m2+"-"+d2;
+    return time2;
   }
 
   //每次进入都重新加载echarts图
@@ -289,17 +307,29 @@ export class HomePage {
   dynamicCurve() {
     console.log("动态曲线");
     //点击动态曲线时去查询当前用户的评估结果
-    let dynamicData;
+    //let dynamicData;
     this.storage.get("USER_INFO").then(value => {
       var userAccount = {
         account: value.account
       }
       //查询出当天用户评估结果
-      this.mainService.getUserDynamicData(userAccount).then(value1 => {
+      /*this.mainService.getUserDynamicData(userAccount).then(value1 => {
         //返回的数据放入当前数组中
         console.log("value1" + value1);
         dynamicData = value1;
         this.navCtrl.push(AboutPage, {isDisplay: false, dynamicData: dynamicData});
+      })*/
+      //修改为新的echarts图
+      let pgResults;
+      let pgTime;
+      this.mainService.getPgResults(userAccount).then(value =>{
+        pgResults = value.pgResult;
+        pgTime= value.pgTime.map(function (str) {
+          return str.replace(' ', '\n')
+        });
+
+        this.navCtrl.push(AboutPage, {isDisplay: false, pgResults: pgResults,pgTime:pgTime});
+        //this.loadEchartsZx();
       })
     })
   }
@@ -386,7 +416,8 @@ export class HomePage {
 
   //医疗机构查询
   medicalSearch() {
-    this.navCtrl.push(BaiduMapPage);
+    //传递城市名称
+    this.navCtrl.push(BaiduMapPage,{city:this.localCityName});
   }
 
   //获取首页详细信息

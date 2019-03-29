@@ -17,8 +17,8 @@
   <ion-grid class="border-bottom">
     <ion-row>
       <ion-col col-4 text-center tappable>
-        <img class="avtor" *ngIf="userInfo?.avatar" src="../../assets/imgs/usercenter/avater.png">
-        <img class="avtor" *ngIf="!userInfo?.avatar" src="../../assets/imgs/usercenter/avater.png">
+        <img class="avtor" *ngIf="user?.headimgurl" src="{{user.headimgurl}}">
+        <img class="avtor" *ngIf="!user?.headimgurl" src="../../assets/imgs/usercenter/avater.png">
       </ion-col>
       <ion-col>
         <h2>{{userInfo?.account}}</h2>

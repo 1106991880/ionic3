@@ -38,7 +38,7 @@ export class UserServiceProvider {
   //修改密码
   public changePassword(params){
     console.log("修改密码的参数"+params);
-    return this.httpMyNetService.commonInterfacePost('/ionicChangePassword',params,true);
+    return this.httpMyNetService.commonInterfacePost('/ionicChangePassword',params);
 
   }
   //找回密码
@@ -119,6 +119,11 @@ export class UserServiceProvider {
   //个人健康信息页面的风险评估影响因素数据
   public getRiskFactor(){
     return this.httpMyNetService.commonInterfaceGet('/getRiskFactor');
+  }
+
+  //微信登录
+  public getWxUserInfo(params){
+    return this.httpMyNetService.commonInterfacePost('/getWxUserInfo',params);
   }
 
 

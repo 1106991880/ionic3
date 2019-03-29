@@ -102,5 +102,8 @@
         <variable name="IOS_KEY" value="39OvYyjcYXl0D3iZL05yqX2MoCAGcrxA" />
         <variable name="IOS_LOCATION_DESC" value="请点击'好'以允许访问。" />
     </plugin>
+    <plugin name="cordova-plugin-wechat" spec="^2.7.2">
+        <variable name="WECHATAPPID" value="wx03950263a3466f65" />
+    </plugin>
     <engine name="android" spec="^7.0.0" />
 </widget>
