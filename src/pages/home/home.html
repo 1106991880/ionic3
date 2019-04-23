@@ -21,7 +21,9 @@
   </ion-refresher>
 
   <div class="topInfo">
-    <div #EchartsContent class="EchartsDiv"></div>
+    <div #EchartsContent class="EchartsDiv" (click)="selectDisease()">
+
+    </div>
     <!--ionic官方时间选择控件-->
     <ion-datetime style=" position: relative" class="datetimeStyle" max={{datePickerMax}} displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
 
@@ -32,10 +34,13 @@
   </button>-->
 
   <!--新的echarts图-->
-  <!--<span class="block_one"><span style="display: inline-block;width:10px;height:10px;background-color:#05FA1D"></span><span>低</span></span>
-  <span class="block_two"><span style="display: inline-block;width:10px;height:10px;background-color:#FBC402"></span><span>中</span></span>
+  <!--<span class="block_one"><span style="display: inline-block;width:10px;height:10px;background-color:#05FA1D"></span><span>流感</span></span>
+  <span class="block_two"><span style="display: inline-block;width:10px;height:10px;background-color:#FBC402"></span><span>登革热</span></span>
   <span class="block_three"><span style="display: inline-block;width:10px;height:10px;background-color:#FD5901"></span><span>高</span></span>
   <span class="block_four"><span style="display: inline-block;width:10px;height:10px;background-color:#FD0000"></span><span>极高</span></span>-->
+  <!--疾病名称-->
+  <span class="diseasename1"><span id="diseasename1" style="display: inline-block;width:10px;height:10px;"></span><span (click)="diseaseClick(139)">流行性感冒</span></span>
+  <span class="diseasename2"><span id="diseasename2" style="display: inline-block;width:10px;height:10px;"></span><span (click)="diseaseClick(127)">登革热</span></span>
 
   <div class="space"></div>
     <ion-list>
@@ -48,10 +53,18 @@
       <ion-item no-lines style="border-bottom: 0.55px solid #c8c7cc;" text-wrap>
         <div class="message"></div><b style="font-size: 16px;color: #2186ff;margin-left:10px;">专家建议&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="return-right"></ion-icon></b>
         <br>
-        <p class="p"><span *ngIf="di">流感流行强度较低,可正常进行户内外活动。</span>
-        <span *ngIf="zhong">流感流行强度中等,建议少去人群密集的地方。</span>
-        <span *ngIf="gao">流感流行强度较高,建议少去人群密集的地方,在人群密集的室内应当保持空气流通。</span>
-        <span *ngIf="jigao">流感流行强度极高,建议接种流感疫苗,接种疫苗后2~4周即开始起保护作用。</span></p>
+        <p class="p">
+
+        <!--<span *ngIf="di">流感流行强度较低,可正常进行户内外活动。</span>-->
+        <!--<span *ngIf="zhong">流感流行强度中等,建议少去人群密集的地方。</span>-->
+        <!--<span *ngIf="gao">流感流行强度较高,建议少去人群密集的地方,在人群密集的室内应当保持空气流通。</span>-->
+        <!--<span *ngIf="jigao">流感流行强度极高,建议接种流感疫苗,接种疫苗后2~4周即开始起保护作用。</span>-->
+          <span *ngIf="di">{{dijy}}</span>
+          <span *ngIf="zhong">{{zhongjy}}</span>
+          <span *ngIf="gao">{{gaojy}}</span>
+          <span *ngIf="jigao">{{jigaojy}}</span>
+
+        </p>
       </ion-item>
 
       <!--<ion-item *ngFor="let i of listData" (click)="getDetail(i)">
@@ -66,7 +79,7 @@
             <p>传染源</p>
           </ion-col>
           <ion-col col-3 text-center tappable (click)="getDetail(listData,2)">
-            <img class="menuimg" src="assets/imgs/home/cbtj.png">
+            <img class="menuimg" src="assets/imgs/home/cbtj3.png">
             <p>传播途径</p>
           </ion-col>
           <ion-col col-3 text-center tappable (click)="getDetail(listData,3)">

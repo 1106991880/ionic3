@@ -40,11 +40,16 @@ export class BaiduMapPage {
   }
 
   ionViewDidLoad() {
+
+
+
     //创建地图对象
     var map = new BMap.Map(this.mapElement.nativeElement, {
       enableMapClick: true
     });
 
+
+/**
     map.centerAndZoom(this.city,11);
     //var markers = new BMap.Marker(this.city);
     //var icons = "../../assets/imgs/buleicon.png";
@@ -62,12 +67,10 @@ export class BaiduMapPage {
 
     //默认查询新增社区服务中心查询
     local.searchNearby(['医疗机构','社区卫生服务中心'], this.city, 10000);
+*/
 
 
 
-
-
-    /**
     //获取当前位置进行范围查询
 
     baidumap_location.getCurrentPosition(function (result) {
@@ -122,23 +125,21 @@ export class BaiduMapPage {
       this.nativeService.showToast("查询错误");
 
     });
-    */
-
-
      }
-
-
 
 
   //按钮查询
   medicalSearch() {
-
     var map = new BMap.Map(this.mapElement.nativeElement, {
       enableMapClick: true
     }); //创建地图实例
-
     //获取输入查询内容
     var condition = this.medical;
+    console.log("condition"+condition);
+    if(condition == undefined || condition == "") {
+      this.nativeService.showToast("请输入查询条件");
+      this.ionViewDidLoad() ;
+    }
     map.centerAndZoom(this.city,11);
     var local = new BMap.LocalSearch(map, {
       renderOptions: {
@@ -150,15 +151,7 @@ export class BaiduMapPage {
     //默认查询新增社区服务中心查询
     local.searchNearby([condition], this.city, 10000);
 
-
-
-
-
-
     /**
-
-
-
 
     if(condition == undefined || condition == "") {
       //alert("请输入查询条件");

@@ -16,10 +16,8 @@
   <!--<input type="search" placeholder="查询" [(ngModel)]="myInput" class="search" (ngModelChange)="onInput()" />-->
   <input type="text" name="medicalSearch" id="medicalSearch" [(ngModel)]="medical" /><input type="button" value="查询" (click)="medicalSearch()" />
   <div id="allmap" #allmap></div>
+    <ion-scroll scrollY="true" style="height: 50%">
   <div id="r-result"></div>
-
-
-
-
-
+  </ion-scroll>
 </ion-content>
+

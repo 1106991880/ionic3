@@ -1,5 +1,6 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import {NavController, NavParams, ModalController} from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 import {UserServiceProvider} from "../../providers/user-service/user-service";
 import {NativeServiceProvider} from "../../providers/native-service/native-service";
@@ -20,6 +21,7 @@ import {Calendar} from '@ionic-native/calendar';
 import {BaiduMapPage} from '../baidu-map/baidu-map';
 // @ts-ignore
 import citise from '../../assets/chinese-cities.json';
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 declare var echarts; //设置echarts全局对象
 //当前城市
@@ -75,7 +77,9 @@ export class HomePage {
     //当前城市名称、也可以是选择城市之后的名称
     localCityName: '',
     //当前时间
-    currentTime: ''
+    currentTime: '',
+    //疾病id
+    diseaseId:''
   }
   //地区
   cityColumns: any[];
@@ -87,9 +91,24 @@ export class HomePage {
   zhong;
   gao;
   jigao;
+  dijy;
+  zhongjy;
+  gaojy;
+  jigaojy;
+  //当前选择的疾病名称/高爆发疾病
+  diseaseName;
 
   //日期选择器未来第7天的时间,作为日期选择的最大时间
   datePickerMax;
+
+  //高爆发的两种疾病
+  top1DiseaseId;
+  top1DiseaseName;
+  top2DiseaseId;
+  top2DiseaseName;
+
+  //疾病显示颜色
+  diseaseColor;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -100,7 +119,8 @@ export class HomePage {
               public modalCtrl: ModalController,
               public loadingCtrl: LoadingController,
               public calendar: Calendar,
-              public mainService: MainServiceProvider) {
+              public mainService: MainServiceProvider,
+              public alertCtrl: AlertController) {
 
     this.chooseCity = navParams.data.name;
     this.cityColumns = citise;
@@ -108,7 +128,10 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    //this.datePickerMax=
+
+    //this.diseaseColor="#2186ff";
+
+
     this.datePickerMax=this.fun_date(6);
       //this.fun_date(7);
     //选择的城市
@@ -133,47 +156,15 @@ export class HomePage {
       this.getWeather(cityWeatherParam);
     });
 
-    //获取城市,现修改为上面的方式,封装成promise
-    /*var myCity = new BMap.LocalCity();
-    myCity.get(function (result) {
-      var cityName = result.name;
-      //使用localStoage存储cityName. 此处不可以使用this.localCityName = cityName; 因为这里的this 指向的是当前的类， 也就是 function(result)这个类
-      localStorage.setItem('currentCity', cityName);
-      return cityName;
-    });*/
-
-    //localStorage.getItem('currentCity');
-
-    //延迟毫秒取存储在localStorage中的 cityName,防止时间太短，未获取到最近的城市
-    /*setTimeout(() => {
-      this.localCityName = localStorage.getItem('currentCity');
-      //地区长度过长使用省略号代替,将城市名作为其他参数的时候还是要使用localCityName,不使用localCityNameSub
-      let cityNameLength = this.localCityName.length;
-      console.log("cityNameLength"+cityNameLength);
-      if(cityNameLength>5){
-        let str = this.localCityName.substring(0,5)+"...";
-        this.localCityNameSub = str;
-      }
-      else {
-        this.localCityNameSub = this.localCityName;
-      }
-
-      let cityWeatherParam = {
-        cityName: this.localCityName
-      }
-      this.getWeather(cityWeatherParam);
-
-    }, 500);*/
-
     //获取当前时间,显示在界面上
     this.event.time = new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toISOString();
     // 请求获取首页的数据
     //查询当前地区高发病种,先设置为流行性感冒
-    var diseaname = {
-      diseasename: '流行性感冒'
+    var dId = {
+      diseasename: '139'
     }
 
-    this.mainService.mainData(diseaname).then(value => {
+    this.mainService.mainData(dId).then(value => {
       this.listData = value;
     })
 
@@ -193,7 +184,6 @@ export class HomePage {
 
   //每次进入都重新加载echarts图
   ionViewDidEnter() {
-
     //为了保证用户退出应用再次进入也能看到评估信息
     this.storage.get("isEvaluation").then(value => {
       this.isEvaluation = value;
@@ -228,6 +218,7 @@ export class HomePage {
     //修改上面的延迟函数
     this.getCurrentCityName().then(value => {
       console.log("修改上面的延迟方式："+value);
+      this.popularIndex.diseaseId='';
       this.getDiseaseIndex();
     });
 
@@ -419,11 +410,53 @@ export class HomePage {
     //传递城市名称
     this.navCtrl.push(BaiduMapPage,{city:this.localCityName});
   }
+  //单疾病查询
+  diseaseClick(diseaseId){
+    console.log("diseaseId---"+diseaseId);
+    this.popularIndex.diseaseId=diseaseId;
+    var diseaname = {
+      diseasename:this.popularIndex.diseaseId
+    }
+    this.mainService.mainData(diseaname).then(value => {
+      this.listData = value;
+    })
+    this.getDiseaseIndex();
+  }
 
   //获取首页详细信息
   getDetail(item, itemPage) {
     console.log("item" + item);
     this.navCtrl.push("MainDetailPage", {item, itemPage});
+  }
+  selectDisease(){
+    console.log("点击了选择城市的弹窗...");
+      let alert = this.alertCtrl.create();
+      alert.setTitle('疾病名称');
+
+      alert.addInput({
+        type: 'radio',
+        label: '流行性感冒',
+        value: '139',
+        checked: true
+      });
+    alert.addInput({
+      type: 'radio',
+      label: '登革热',
+      value: '127'
+    });
+
+      alert.addButton('取消');
+      alert.addButton({
+        text: '确定',
+        handler: data => {
+          //this.testRadioOpen = false;
+          //this.testRadioResult = data;
+          console.log("用户选择的数据..."+data);
+          this.diseaseClick(data);
+        }
+      });
+      alert.present();
+
   }
 
   //获取天气信息
@@ -497,9 +530,23 @@ export class HomePage {
     this.popularIndex.currentTime = this.event.time;
     this.popularIndex.localCityName = this.localCityName;
     //每次进入页面都要计算当前城市、当前日期的流感流行度，将计算出来的流感指数赋值给Echarts图
+    //2019-04-10新增登革热查询,用城市名精确查询城市编码
     this.mainService.indexByCityAndTime(this.popularIndex).then(value => {
-      console.log("当前的流行感染度：" + value);
-      console.log("当前的流行感染度：" + JSON.stringify(value));
+      console.log("当前的高爆发疾病返回值：" + JSON.stringify(value));
+      //高爆发疾病名称,动态获取查询结果
+      this.diseaseName = value.disease;
+      //专家意见
+      this.dijy = value.dijy;
+      this.zhongjy = value.zhongjy;
+      this.gaojy = value.gaojy;
+      this.jigaojy = value.jigaojy;
+
+      //疾病热点疾病排名top2
+      this.top1DiseaseId = value.top1DiseaseId;
+      this.top1DiseaseName = value.top1DiseaseName;
+      this.top2DiseaseId = value.top2DiseaseId;
+      this.top2DiseaseName = value.top2DiseaseName;
+
       this.dashData = [];
       //给echarts图赋值
       this.dashData.push(value);
@@ -514,6 +561,9 @@ export class HomePage {
         this.zhong=false;
         this.gao=false;
         this.jigao=false;
+        //设置疾病颜色
+        document.getElementById("diseasename1").style.background="#75e600";
+        document.getElementById("diseasename2").style.background="#75e600";
       }
       //流感强度中等
       if(valueindex>25&&valueindex<=50){
@@ -521,6 +571,9 @@ export class HomePage {
         this.zhong=true;
         this.gao=false;
         this.jigao=false;
+        //设置疾病颜色
+        document.getElementById("diseasename1").style.background="#e6de7d";
+        document.getElementById("diseasename2").style.background="#e6de7d";
       }
       //流感强度高
       if(valueindex>50&&valueindex<=75){
@@ -528,6 +581,9 @@ export class HomePage {
         this.zhong=false;
         this.gao=true;
         this.jigao=false;
+        //设置疾病颜色
+        document.getElementById("diseasename1").style.background="#e67b00";
+        document.getElementById("diseasename2").style.background="#e67b00";
       }
       //流感强度极高
       if(valueindex>75&&valueindex<=100){
@@ -535,6 +591,15 @@ export class HomePage {
         this.zhong=false;
         this.gao=false;
         this.jigao=true;
+        //设置疾病颜色
+          document.getElementById("diseasename1").style.background="#e60000";
+          document.getElementById("diseasename2").style.background="#e60000";
+      }
+
+      if(this.diseaseName=="流行性感冒"){
+        document.getElementById("diseasename2").style.background="#000000";
+      }else {
+        document.getElementById("diseasename1").style.background="#000000";
       }
 
     })
@@ -661,7 +726,8 @@ export class HomePage {
             height: 40,
             offsetCenter: [0, -40],       // x, y，单位px
             //formatter: '流行性感冒{value}',//去掉流行性感冒的value
-            formatter: '流行性感冒\n流行强度',//\n为换行
+            formatter: this.diseaseName+'\n流行强度',//\n为换行
+            color:'black',//文字颜色
 
             textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
               fontSize: 15,     //中间指针数值字体大小
@@ -679,126 +745,6 @@ export class HomePage {
 
     });
     //echarts图end
-
-
-    /* this.EChart.setOption({
-
-       title: {
-         x: "center",
-         //left:'29%',
-         y:"50%",
-         bottom: 380,
-         text: '流感流行度',
-         textStyle: {
-           fontWeight: 'normal',
-           fontSize: 22,
-           color: "#999"
-         },
-       },
-       series: [
-         {
-           center: ['45%', '95%'],
-           type: 'gauge',
-           radius: '175%',
-           splitNumber: 1,
-           min: 0,
-           max: 0,
-           startAngle: 180,
-           endAngle: 0,
-           axisLine: {
-             show: false,
-             lineStyle: {
-               width: 2,
-               shadowBlur: 0,
-               color: [
-                 [1, '#8f8f8f']
-               ]
-             }
-           },
-           axisTick: {
-             show: true,
-             lineStyle: {
-               color: '#8f8f8f',
-               width: 1
-             },
-             length: -8,
-             splitNumber: 50
-           },
-           splitLine: {
-             show: true,
-             length: 12,
-             lineStyle: {
-               color: '#8f8f8f',
-             }
-           },
-           axisLabel:{
-             show:false
-           },
-           detail:{
-             show:false
-           }
-         }
-         ,{
-           center: ['45%', '95%'],
-           type: 'gauge',
-           startAngle: 180,
-           radius: '165%',
-           splitNumber:12,
-           endAngle: 0,
-           min: 0,
-           max: 100,
-           axisLine: {
-             show: true,
-             lineStyle: {
-               width: 20,
-               shadowBlur: 0,
-               color: [
-                 [1/4, '#05FA1D'],
-                 [2/4, '#FBC402'],
-                 [3/4, '#FA9900'],
-                 [4/4,'#FD0000'],
-               ]
-             }
-           },
-           axisTick: {
-             show:false
-           },
-           axisLabel:{
-             show:false,
-             //fontSize:25,
-           },
-           //是否显示分割刻度线
-           splitLine: {
-             show: true,
-             length: 20,
-             lineStyle:{
-               color:'white',
-               width:2
-             }
-           },
-           pointer: {
-             show: true,
-             length:'80%',
-             width:5
-           },
-           itemStyle:{
-             normal:{
-               color:'#FFFFFF',
-               borderColor:'#92DAFF',
-               borderWidth:'2',
-             }
-           },
-           detail: {
-             //不显示详情
-             show:false
-           },
-           animation: true,       //是否开启动画
-           animationDuration: 3000,       //初始化动画的时常
-           animationDurationUpdate: 3000,  //数据更新动画的时长
-           data: this.dashData
-         }]
-     })
- */
 
 
   }

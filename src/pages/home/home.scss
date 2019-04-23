@@ -114,6 +114,20 @@ page-home {
     left: 86%;
     top: 20%;
   }
+  //病种
+  .diseasename1{
+    z-index: 999;
+    position: absolute;
+    left: 1%;
+    top: 1%;
+  }
+  .diseasename2{
+    z-index: 999;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+  }
+
   //图片大小设置
   .menuimg {
     width: 46px;
