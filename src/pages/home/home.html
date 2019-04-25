@@ -6,7 +6,7 @@
         <ion-icon name="pin"></ion-icon >{{localCityNameSub}}
       </button>
     </ion-buttons>
-   <ion-title>AI防疫站</ion-title>
+   <ion-title>防e站</ion-title>
     <ion-buttons end>
       <button ion-button (click)="weatherDetail(weatherObject)" style="color:#FFFFFF;">
         {{cityWeather}}<ion-icon name={{weatherIcon}}></ion-icon>
@@ -21,8 +21,8 @@
   </ion-refresher>
 
   <div class="topInfo">
-    <div #EchartsContent class="EchartsDiv" (click)="selectDisease()">
-
+    <!--<div #EchartsContent class="EchartsDiv" (click)="selectDisease()">-->
+    <div #EchartsContent class="EchartsDiv">
     </div>
     <!--ionic官方时间选择控件-->
     <ion-datetime style=" position: relative" class="datetimeStyle" max={{datePickerMax}} displayFormat="YYYY-MM-DD" cancelText="取消" doneText="确认" [(ngModel)]="event.time" (ngModelChange)="changeDate($event)"></ion-datetime>
@@ -39,8 +39,9 @@
   <span class="block_three"><span style="display: inline-block;width:10px;height:10px;background-color:#FD5901"></span><span>高</span></span>
   <span class="block_four"><span style="display: inline-block;width:10px;height:10px;background-color:#FD0000"></span><span>极高</span></span>-->
   <!--疾病名称-->
-  <span class="diseasename1"><span id="diseasename1" style="display: inline-block;width:10px;height:10px;"></span><span (click)="diseaseClick(139)">流行性感冒</span></span>
-  <span class="diseasename2"><span id="diseasename2" style="display: inline-block;width:10px;height:10px;"></span><span (click)="diseaseClick(127)">登革热</span></span>
+  <!--<span class="diseasename1"><span id="diseasename1" style="display: inline-block;width:10px;height:10px;"></span><span (click)="diseaseClick(139)">切换病种</span></span>-->
+  <!--<span class="diseasename2"><span id="diseasename2" style="display: inline-block;width:10px;height:10px;"></span><span (click)="diseaseClick(127)">登革热</span></span>-->
+  <span class="diseasename1"><span (click)="selectDisease()">切换病种</span></span>
 
   <div class="space"></div>
     <ion-list>
@@ -51,7 +52,7 @@
       </ion-item>-->
 
       <ion-item no-lines style="border-bottom: 0.55px solid #c8c7cc;" text-wrap>
-        <div class="message"></div><b style="font-size: 16px;color: #2186ff;margin-left:10px;">专家建议&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="return-right"></ion-icon></b>
+        <div class="message"></div><b style="font-size: 16px;color: #2186ff;margin-left:10px;">健康提示&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="return-right"></ion-icon></b>
         <br>
         <p class="p">
 

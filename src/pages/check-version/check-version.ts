@@ -26,7 +26,7 @@ import {InAppBrowser} from '@ionic-native/in-app-browser';
 })
 export class CheckVersionPage {
   //app版本号
-  currentNo = '1.0.4';
+  currentNo = '1.0.6';
   appSystem = 'Android';
 
   constructor(public navCtrl: NavController,

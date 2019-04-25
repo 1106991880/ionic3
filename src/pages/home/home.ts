@@ -96,7 +96,7 @@ export class HomePage {
   gaojy;
   jigaojy;
   //当前选择的疾病名称/高爆发疾病
-  diseaseName;
+  diseaseName:string = '';
 
   //日期选择器未来第7天的时间,作为日期选择的最大时间
   datePickerMax;
@@ -286,7 +286,13 @@ export class HomePage {
   //点击我要评估
   evaluation() {
     //如果未登录进入登录页面
-    this.refreshUserInfo();
+    this.alertCtrl.create({
+      title: '信息',
+      subTitle: "功能正在开发中...",
+      enableBackdropDismiss: false,
+      buttons: [{text: '确定'}]}).present();
+    //目前暂时不开发评估功能2019-04-24
+    //this.refreshUserInfo();
   }
 
   //点击防疫处方,跳转到防疫处方页面
@@ -423,13 +429,15 @@ export class HomePage {
     this.getDiseaseIndex();
   }
 
+
+
+
   //获取首页详细信息
   getDetail(item, itemPage) {
     console.log("item" + item);
     this.navCtrl.push("MainDetailPage", {item, itemPage});
   }
   selectDisease(){
-    console.log("点击了选择城市的弹窗...");
       let alert = this.alertCtrl.create();
       alert.setTitle('疾病名称');
 
@@ -439,11 +447,11 @@ export class HomePage {
         value: '139',
         checked: true
       });
-    alert.addInput({
+      alert.addInput({
       type: 'radio',
       label: '登革热',
       value: '127'
-    });
+      });
 
       alert.addButton('取消');
       alert.addButton({
@@ -527,6 +535,7 @@ export class HomePage {
 
   //计算疾病传染风险
   getDiseaseIndex() {
+    this.diseaseName = '';
     this.popularIndex.currentTime = this.event.time;
     this.popularIndex.localCityName = this.localCityName;
     //每次进入页面都要计算当前城市、当前日期的流感流行度，将计算出来的流感指数赋值给Echarts图
@@ -535,7 +544,7 @@ export class HomePage {
       console.log("当前的高爆发疾病返回值：" + JSON.stringify(value));
       //高爆发疾病名称,动态获取查询结果
       this.diseaseName = value.disease;
-      //专家意见
+      //专家意见--健康提醒
       this.dijy = value.dijy;
       this.zhongjy = value.zhongjy;
       this.gaojy = value.gaojy;
@@ -562,8 +571,8 @@ export class HomePage {
         this.gao=false;
         this.jigao=false;
         //设置疾病颜色
-        document.getElementById("diseasename1").style.background="#75e600";
-        document.getElementById("diseasename2").style.background="#75e600";
+       // document.getElementById("diseasename1").style.background="#75e600";
+       // document.getElementById("diseasename2").style.background="#75e600";
       }
       //流感强度中等
       if(valueindex>25&&valueindex<=50){
@@ -572,8 +581,8 @@ export class HomePage {
         this.gao=false;
         this.jigao=false;
         //设置疾病颜色
-        document.getElementById("diseasename1").style.background="#e6de7d";
-        document.getElementById("diseasename2").style.background="#e6de7d";
+       // document.getElementById("diseasename1").style.background="#e6de7d";
+       // document.getElementById("diseasename2").style.background="#e6de7d";
       }
       //流感强度高
       if(valueindex>50&&valueindex<=75){
@@ -582,8 +591,8 @@ export class HomePage {
         this.gao=true;
         this.jigao=false;
         //设置疾病颜色
-        document.getElementById("diseasename1").style.background="#e67b00";
-        document.getElementById("diseasename2").style.background="#e67b00";
+       // document.getElementById("diseasename1").style.background="#e67b00";
+      // document.getElementById("diseasename2").style.background="#e67b00";
       }
       //流感强度极高
       if(valueindex>75&&valueindex<=100){
@@ -592,14 +601,14 @@ export class HomePage {
         this.gao=false;
         this.jigao=true;
         //设置疾病颜色
-          document.getElementById("diseasename1").style.background="#e60000";
-          document.getElementById("diseasename2").style.background="#e60000";
+          //document.getElementById("diseasename1").style.background="#e60000";
+          //document.getElementById("diseasename2").style.background="#e60000";
       }
 
       if(this.diseaseName=="流行性感冒"){
-        document.getElementById("diseasename2").style.background="#000000";
+        //document.getElementById("diseasename2").style.background="#000000";
       }else {
-        document.getElementById("diseasename1").style.background="#000000";
+        //document.getElementById("diseasename1").style.background="#000000";
       }
 
     })
@@ -641,6 +650,7 @@ export class HomePage {
     }
     let ctelement = this.container.nativeElement;
     this.EChart = echarts.init(ctelement);
+    console.log("this.diseaseName-----------------"+this.diseaseName);
     this.EChart.setOption({
       tooltip: {
         show:false,
@@ -726,7 +736,7 @@ export class HomePage {
             height: 40,
             offsetCenter: [0, -40],       // x, y，单位px
             //formatter: '流行性感冒{value}',//去掉流行性感冒的value
-            formatter: this.diseaseName+'\n流行强度',//\n为换行
+            formatter: this.diseaseName==undefined?" ":this.diseaseName+'\n流行强度',//\n为换行
             color:'black',//文字颜色
 
             textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE

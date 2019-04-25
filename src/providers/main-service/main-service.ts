@@ -42,7 +42,7 @@ export class MainServiceProvider {
   //当前条件下的风险
   public indexByCityAndTime(params){
     console.log("进入评估中..."+JSON.stringify(params));
-    return this.httpMyNetService.commonInterfacePost('/getIndexByCityAndTime',params);
+    return this.httpMyNetService.commonInterfacePost('/getIndexByCityAndTimeNew',params);
   }
 
   //用户的动态曲线

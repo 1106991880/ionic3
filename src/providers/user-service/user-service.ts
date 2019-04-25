@@ -72,7 +72,9 @@ export class UserServiceProvider {
 
   //加载科普知识
   public loadScientificKnowledge(params){
-    return this.httpMyNetService.commonInterfacePost('/getScientificKnowledge',params);
+    //return this.httpMyNetService.commonInterfacePost('/getScientificKnowledge',params);
+    //getScientificKnowledgeV2,2019-04-25
+    return this.httpMyNetService.commonInterfacePost('/getScientificKnowledgeV2',params);
   }
 
   //我的健康页面echarts数据,返回随机数测试
