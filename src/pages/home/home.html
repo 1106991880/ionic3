@@ -3,13 +3,13 @@
   <ion-navbar>
     <ion-buttons start>
       <button ion-button (click)="cityChoose()" style="color:#FFFFFF;">
-        <ion-icon name="pin"></ion-icon >{{localCityNameSub}}
+        <ion-icon name="pin" small></ion-icon ><span style="font-size: small">{{localCityNameSub}}</span>
       </button>
     </ion-buttons>
-   <ion-title>防e站</ion-title>
+   <ion-title>防<img src="../../assets/imgs/home/fyzpng.png" style="width:15px;height:15px;border-radius:88px;" />站</ion-title>
     <ion-buttons end>
       <button ion-button (click)="weatherDetail(weatherObject)" style="color:#FFFFFF;">
-        {{cityWeather}}<ion-icon name={{weatherIcon}}></ion-icon>
+        <span style="font-size: small">{{cityWeather}}</span><ion-icon name={{weatherIcon}}></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>

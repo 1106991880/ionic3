@@ -26,6 +26,9 @@
     <preference name="Orientation" value="portrait" />
     <preference name="StatusBarBackgroundColor" value="#ffffffff" />
     <platform name="android">
+        <config-file parent="/manifest" target="AndroidManifest.xml" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+        </config-file>
         <allow-intent href="market:*" />
         <icon src="resources/android/icon/fyz.png" />
         <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
@@ -96,7 +99,6 @@
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-file-opener2" spec="^2.0.19" />
     <plugin name="cordova-plugin-baidumaplocation" spec="^4.0.2">
         <variable name="ANDROID_KEY" value="UbGiOv6qLRLxyRNbjUmXzqbnrQj9oFPC" />
         <variable name="IOS_KEY" value="39OvYyjcYXl0D3iZL05yqX2MoCAGcrxA" />
@@ -104,6 +106,9 @@
     </plugin>
     <plugin name="cordova-plugin-wechat" spec="^2.7.2">
         <variable name="WECHATAPPID" value="wx03950263a3466f65" />
+    </plugin>
+    <plugin name="cordova-plugin-file-opener2" spec="^2.2.0">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
     <engine name="android" spec="^7.0.0" />
 </widget>

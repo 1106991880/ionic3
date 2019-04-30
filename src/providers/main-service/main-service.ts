@@ -58,4 +58,9 @@ export class MainServiceProvider {
     return this.httpMyNetService.commonInterfacePost('/getPgResults',params);
   }
 
+  //选择病种，请求后台数据
+  public selectDisease(params){
+    return this.httpMyNetService.commonInterfacePost('/getDisease',params);
+  }
+
 }

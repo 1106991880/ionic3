@@ -7,17 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{title}}</ion-title>
+    <!--<ion-title>{{title}}</ion-title>-->
+    <ion-title>{{item.diseasename}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content no-padding>
+<!--<ion-content no-padding>
+
   <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
-    <!--<div class="message"></div><b class="other">热点传染疾病&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="medkit"></ion-icon></b>-->
-    <!--<br>
-    <br>-->
     <p class="p">{{item.diseasename}}</p>
   </ion-item>
   <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
@@ -26,18 +25,74 @@
     <br>
     <p class="p">{{titleContent}}</p>
   </ion-item>
-  <!--<ion-item text-wrap>
-    <div class="message"></div><b class="other">疾病{{dataTitle}}&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="return-left"></ion-icon></b>
-    <br>
-    <br>
-    <p class="p">{{data}}</p>
-  </ion-item>-->
   <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
-    <div class="message"></div><b class="other">{{title}}详细信息&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="reorder"></ion-icon></b>
+    <div class="message"></div><b class="other">{{title}}详细描述&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="reorder"></ion-icon></b>
     <br>
     <br>
     <p class="p">{{content}}</p>
   </ion-item>
-  <!--{{detail}}-->
+
+</ion-content>-->
+<ion-content no-padding>
+
+  <!--传染源-->
+  <span id="cyr"></span>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other" (click)="maodian()">传染源&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="crop"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.infectsource}}</p>
+  </ion-item>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">传染源详细描述&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="reorder"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.infectsourcedes}}</p>
+  </ion-item>
+
+  <!--传播途径-->
+  <span id="cbtj"></span>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">传播途径&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="crop"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.spreadway}}</p>
+  </ion-item>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">传播途径详细描述&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="reorder"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.spreadwaydes}}</p>
+  </ion-item>
+
+  <!--易感人群-->
+  <span id="ygrq"></span>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">易感人群&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="crop"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.infectpeople}}</p>
+  </ion-item>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">易感人群详细描述&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="reorder"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.infectpeopledes}}</p>
+  </ion-item>
+
+  <!--预防措施-->
+  <span id="yfcs"></span>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">预防措施&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="crop"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.precaution}}</p>
+  </ion-item>
+  <ion-item text-wrap no-lines style="border-bottom: 0.55px solid #c8c7cc;">
+    <div class="message"></div><b class="other">预防措施详细描述&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon name="reorder"></ion-icon></b>
+    <br>
+    <br>
+    <p class="p">{{item.precautiondes}}</p>
+  </ion-item>
 
 </ion-content>

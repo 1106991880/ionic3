@@ -26,7 +26,7 @@ import {InAppBrowser} from '@ionic-native/in-app-browser';
 })
 export class CheckVersionPage {
   //app版本号
-  currentNo = '1.0.6';
+  currentNo = '1.2.0';
   appSystem = 'Android';
 
   constructor(public navCtrl: NavController,
@@ -97,11 +97,14 @@ export class CheckVersionPage {
       console.log('download complete: ' + entry.toURL());
       //window['install'].install(apk.replace('file://', ''));
       //打开apk
+      //this.nativeService.showToast("准备打开apk文件");
        this.fileOpener.open(apk,'application/vnd.android.package-archive')
          .then(()=>{console.log("打开apk成功");})
          .catch(e=>{
            console.log("打开apk失败",e);
            //this.nativeService.showToast("打开apk失败");
+           //this.nativeService.showToast("打开apk失败"+e);
+
            this.alertCtrl.create({
              title: '前往网页下载',
              subTitle: '本地升级失败',

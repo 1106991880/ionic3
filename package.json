@@ -24,7 +24,7 @@
     "@ionic-native/core": "~4.12.0",
     "@ionic-native/date-picker": "^4.14.0",
     "@ionic-native/file": "^4.15.0",
-    "@ionic-native/file-opener": "^4.16.0",
+    "@ionic-native/file-opener": "^4.20.0",
     "@ionic-native/file-transfer": "^4.15.0",
     "@ionic-native/geolocation": "^4.12.2",
     "@ionic-native/in-app-browser": "^4.16.0",
@@ -41,7 +41,7 @@
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-file-opener": "^1.0.0",
-    "cordova-plugin-file-opener2": "^2.0.19",
+    "cordova-plugin-file-opener2": "^2.2.0",
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
@@ -80,7 +80,6 @@
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-file-opener2": {},
       "cordova-plugin-baidumaplocation": {
         "ANDROID_KEY": "UbGiOv6qLRLxyRNbjUmXzqbnrQj9oFPC",
         "IOS_KEY": "39OvYyjcYXl0D3iZL05yqX2MoCAGcrxA",
@@ -88,6 +87,9 @@
       },
       "cordova-plugin-wechat": {
         "WECHATAPPID": "wx03950263a3466f65"
+      },
+      "cordova-plugin-file-opener2": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
       }
     },
     "platforms": [

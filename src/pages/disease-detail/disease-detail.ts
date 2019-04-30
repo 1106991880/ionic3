@@ -22,7 +22,9 @@ export class DiseaseDetailPage {
   //来源:手动录入,关联百科
   source;
   //其他信息
-  detail
+  detail;
+  //2019-04-29合并疾病知识和疫苗接种
+  vaccination;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -42,7 +44,7 @@ export class DiseaseDetailPage {
     this.title = this.item.name;
     this.source = this.item.source;
     this.detail = this.item.detail;
-
+    this.vaccination = this.item.vaccination;
 
   }
 
