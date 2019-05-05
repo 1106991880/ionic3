@@ -24,7 +24,7 @@ export class DiseaseDetailPage {
   //其他信息
   detail;
   //2019-04-29合并疾病知识和疫苗接种
-  vaccination;
+  //vaccination;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -44,7 +44,7 @@ export class DiseaseDetailPage {
     this.title = this.item.name;
     this.source = this.item.source;
     this.detail = this.item.detail;
-    this.vaccination = this.item.vaccination;
+    //this.vaccination = this.item.vaccination;
 
   }
 

@@ -29,6 +29,8 @@ export class BaiduMapPage {
 
   //获取home页面的参数,用于查询
   city:any;
+  //geoc = new BMap.Geocoder(); //地址解析对象
+
 
 
 
@@ -41,12 +43,14 @@ export class BaiduMapPage {
 
   ionViewDidLoad() {
 
-
-
     //创建地图对象
     var map = new BMap.Map(this.mapElement.nativeElement, {
       enableMapClick: true
     });
+    //地址解析对象
+
+
+
 
 
 /**
@@ -91,6 +95,8 @@ export class BaiduMapPage {
       var mPoint = new BMap.Point(longitude, latitude); //获取当前位置
       map.enableScrollWheelZoom();
       map.centerAndZoom(mPoint, 15);
+
+
       //map.centerAndZoom("成都市",15);
       //将当前位置打点,并添加到地图中去//阿里巴巴矢量图标库
       //var icons = "../../assets/imgs/marker_yellow.png";
@@ -104,6 +110,8 @@ export class BaiduMapPage {
       markers.setIcon(icon); //设置标签的图标为自定义图标
       map.addOverlay(markers); //将标签添加到地图中去
 
+
+
       //圆形区域大小，颜色，透明度
       var circle = new BMap.Circle(mPoint, 10000, {
         fillColor: "blue",
@@ -115,17 +123,46 @@ export class BaiduMapPage {
       var local = new BMap.LocalSearch(map, {
         renderOptions: {
           map: map,
-          autoViewport: true,
+          autoViewport: true,//检索完是否自动调整视野
           panel:"r-result"  //查询结果面板显示
         }
       });
+
+      //获取打点的详细信息
+
+
       //默认查询新增社区服务中心查询
       local.searchNearby(['医疗机构','社区卫生服务中心'], mPoint, 10000);
     }, function (error) {
       this.nativeService.showToast("查询错误");
-
     });
-     }
+    // 禁用地图拖拽
+    //map.disableDragging();
+
+    // 开启地图拖拽
+    //map.enableDragging();
+
+    /*map.addEventListener("click", function (e) {
+      //alert(e.point.lng+"---"+e.point.lat);
+      this.nativeService.showToast(e.point.lng+"---"+e.point.lat);
+    });*/
+
+
+
+  }
+
+     /**
+  showInfo(e) {
+    document.getElementById('lng').value = e.point.lng;
+    document.getElementById('lat').value = e.point.lat;
+    this.geoc.getLocation(e.point, function(rs) {
+      var addComp = rs.addressComponents;
+      var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+      document.getElementById('sever_add').value = address;
+    });
+    //addMarker(e.point);
+  }
+      */
 
 
   //按钮查询
@@ -183,6 +220,11 @@ export class BaiduMapPage {
 
      */
 
+    /*map.addEventListener("click", function (e) {
+      alert(e.point.lng+"---"+e.point.lat);
+      //alert(e.point.lng+"---"+e.point.lat);
+      this.nativeService.showToast(e.point.lng+"---"+e.point.lat);
+    });*/
 
   }
 
