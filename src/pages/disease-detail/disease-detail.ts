@@ -40,10 +40,10 @@ export class DiseaseDetailPage {
 
     this.item = this.navParams.data.item;
     //这种写法是去除掉字符串引号，让其转为html语言
-    //document.getElementById("itemDetail").innerHTML=this.item.detail;
+    document.getElementById("itemDetail").innerHTML=this.item.detail;
     this.title = this.item.name;
     this.source = this.item.source;
-    this.detail = this.item.detail;
+    //this.detail = this.item.detail;
     //this.vaccination = this.item.vaccination;
 
   }
