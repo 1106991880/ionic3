@@ -3,7 +3,7 @@ import {IonicPage, NavParams} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import {NativeServiceProvider} from "../../providers/native-service/native-service";
 import { Storage } from "@ionic/storage";
-//import * as $ from '../../../node_modules/jquery/dist/jquery.js';
+//import * as $ from '../../../node_modules/jquery/dist/jquery.js';//jquery引用
 /**
  * Generated class for the BaiduMapPage page.
  *
